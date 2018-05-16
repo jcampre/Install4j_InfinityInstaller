@@ -29,6 +29,7 @@ public class RocheButtonWrapper extends AbstractFormComponent{
 	private Color foreground;
 	private Color activeForeground;
 	private Color focusBorder;
+	private ExternalFile buttonIconFile;
 	
 	/**
 	 * @return the rocheButton
@@ -210,10 +211,7 @@ public class RocheButtonWrapper extends AbstractFormComponent{
 	 */
 	public void setButtonIconFile(ExternalFile buttonIconFile) {
 		this.buttonIconFile = buttonIconFile;
-	}
-
-	private ExternalFile buttonIconFile;
-	
+	}	
 	
 	public RocheButtonWrapper() {
 		
@@ -235,4 +233,5 @@ public class RocheButtonWrapper extends AbstractFormComponent{
 	public boolean isFillCenterHorizontal() {
 		return false;
 	}
+	
 }
