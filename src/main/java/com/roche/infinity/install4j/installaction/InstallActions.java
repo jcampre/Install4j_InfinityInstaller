@@ -1,15 +1,19 @@
-package com.roche.infinity.install4j.InstallActions;
+package com.roche.infinity.install4j.installaction;
 
 import com.install4j.api.Util;
 import com.install4j.api.actions.AbstractInstallAction;
 import com.install4j.api.context.InstallerContext;
 import com.install4j.api.context.UserCanceledException;
 
+/**
+ * 
+ * @author Jordi Campreciós
+ * @date May 2018
+ *
+ */
+
 public class InstallActions extends AbstractInstallAction{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -19,8 +23,7 @@ public class InstallActions extends AbstractInstallAction{
 	}
 	
 	@Override
-	public void rollback(InstallerContext context)
-	{
+	public void rollback(InstallerContext context) {
 		Util.showMessage("In rollback");
 		
 	}

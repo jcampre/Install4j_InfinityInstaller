@@ -38,6 +38,5 @@ public class SystemProperties {
 	 */
 	public static String getServicePack() {
 		return System.getProperty("os.servicePack");
-	}
-		
+	}		
 }

@@ -1,4 +1,4 @@
-package com.roche.infinity.install4j.components.buttons;
+package com.roche.infinity.install4j.component.button;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,6 +12,12 @@ import com.roche.infinity.install4j.wrapper.RocheButtonWrapper;
 import com.roche.infinity.screen.components.RocheButton;
 import com.roche.infinity.screen.components.ui.RocheButtonUI;
 
+/**
+ * 
+ * @author Jordi Campreciós
+ * @date May 2018
+ *
+ */
 public class RocheButtonFinish extends RocheButtonWrapper {
 
 	@Override
@@ -44,7 +50,7 @@ public class RocheButtonFinish extends RocheButtonWrapper {
 
 	@Override
 	public boolean isFillCenterHorizontal() {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 }

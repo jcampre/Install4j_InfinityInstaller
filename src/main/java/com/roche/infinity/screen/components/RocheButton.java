@@ -8,64 +8,64 @@ import javax.swing.JButton;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
 
-
 /**
- * @author jcamprec
+ * 
+ * @author Jordi Campreciós
+ * @date May 2018
  *
  */
-public class RocheButton extends JButton{
+public class RocheButton extends JButton {
 	
 	private static final long serialVersionUID = 1L;
-	private Border m_borderRaised;
-	private Border m_borderLowered;
-	private Color m_backgroundNormal;
-	private Color m_backgroundPressed;
-	private Color m_foregroundNormal;
-	private Color m_foregroundActive;
-	private Color m_focusBorder;
+	private Border borderRaised;
+	private Border borderLowered;
+	private Color backgroundNormal;
+	private Color backgroundPressed;
+	private Color foregroundNormal;
+	private Color foregroundActive;
+	private Color focusBorder;
 	
 	/**
-	 * 
+	 * Default constructor
 	 */
-	public RocheButton()
-	{
+	public RocheButton() {
 		super();
 		
 		setDefaultButtonValues();
 	}
 	
 	/**
+	 * Overloaded constructor
 	 * 
 	 * @param text
 	 */
-	public RocheButton(String text)
-	{
+	public RocheButton(String text) {
 		super(text);
 		
 		setDefaultButtonValues();
 	}
 	
 	/**
+	 * Overloaded constructor
 	 * 
 	 * @param text
 	 * @param buttonImage
 	 */
-	public RocheButton(String text, ImageIcon buttonImage)
-	{
+	public RocheButton(String text, ImageIcon buttonImage) {
 		super(text, buttonImage);
 		
 		setDefaultButtonValues();
 	}
 	
 	/**
+	 * Overloaded constructor
 	 * 
 	 * @param width
 	 * @param height
 	 * @param text
 	 */
 	 
-	public RocheButton(int width, int height, String textLabel)
-	{
+	public RocheButton(int width, int height, String textLabel) {
 		super(textLabel);
 		
 		this.setSize(new Dimension(width, height));
@@ -74,6 +74,7 @@ public class RocheButton extends JButton{
 	}
 
 	/**
+	 * Overloaded constructor
 	 * 
 	 * @param width
 	 * @param height
@@ -92,8 +93,7 @@ public class RocheButton extends JButton{
 	public RocheButton(int width, int height, String textLabel, String textToolTip, 
 			Font buttonFont, Border borderRaised, Border borderPressed, Color background, 
 			Color pressedBackground, Color foreground, Color activeForeground, Color focusBorder,
-			ImageIcon buttonImage)
-	{
+			ImageIcon buttonImage) {
 		
 		super(textLabel, buttonImage);
 		
@@ -101,26 +101,27 @@ public class RocheButton extends JButton{
 		this.setSize(new Dimension(width, height));
 		this.setFont(buttonFont);	
 		
-		this.m_borderRaised=borderRaised;
-		this.m_borderLowered=borderPressed;
-		this.m_backgroundNormal=background;
-		this.m_backgroundPressed=pressedBackground;
-		this.m_foregroundNormal=foreground;
-		this.m_foregroundActive=activeForeground;
-		this.m_focusBorder=focusBorder;
+		this.borderRaised=borderRaised;
+		this.borderLowered=borderPressed;
+		this.backgroundNormal=background;
+		this.backgroundPressed=pressedBackground;
+		this.foregroundNormal=foreground;
+		this.foregroundActive=activeForeground;
+		this.focusBorder=focusBorder;
 		
 		setDefaultButtonValues();
 	}
 	
-	private void setDefaultButtonValues()
-	{
-		UIManager.put("Button.border", m_borderRaised);
-		UIManager.put("Button.borderPressed", m_borderLowered);
-		UIManager.put("Button.background", m_backgroundNormal);
-		UIManager.put("Button.pressedBackground", m_backgroundPressed);
-		UIManager.put("Button.foreground", m_foregroundNormal);
-		UIManager.put("Button.activeForeground", m_foregroundActive);
-		UIManager.put("Button.focusBorder", m_focusBorder);
-
+	/**
+	 * Set default values for a style button
+	 */
+	private void setDefaultButtonValues() {
+		UIManager.put("Button.border", borderRaised);
+		UIManager.put("Button.borderPressed", borderLowered);
+		UIManager.put("Button.background", backgroundNormal);
+		UIManager.put("Button.pressedBackground", backgroundPressed);
+		UIManager.put("Button.foreground", foregroundNormal);
+		UIManager.put("Button.activeForeground", foregroundActive);
+		UIManager.put("Button.focusBorder", focusBorder);
 	}
 }
