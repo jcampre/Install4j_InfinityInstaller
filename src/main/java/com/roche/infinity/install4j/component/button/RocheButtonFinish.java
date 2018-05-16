@@ -27,7 +27,7 @@ public class RocheButtonFinish extends RocheButtonWrapper {
 				this.getBackground(), this.getPressedBackground(), 
 				this.getForeground(), this.getActiveForeground(), 
 				this.getFocusBorder(),
-				new ImageIcon(this.getButtonIconFile().getAbsoluteFile().getAbsolutePath()));
+				this.getButtonIconFile());
 		
 		rocheButton.setUI(new RocheButtonUI());
 		

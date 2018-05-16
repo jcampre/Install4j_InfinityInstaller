@@ -3,6 +3,8 @@ package com.roche.infinity.screen.components;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.io.File;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.UIManager;
@@ -93,9 +95,11 @@ public class RocheButton extends JButton {
 	public RocheButton(int width, int height, String textLabel, String textToolTip, 
 			Font buttonFont, Border borderRaised, Border borderPressed, Color background, 
 			Color pressedBackground, Color foreground, Color activeForeground, Color focusBorder,
-			ImageIcon buttonImage) {
+			File buttonImage) {
 		
-		super(textLabel, buttonImage);
+		super(textLabel);
+		if (buttonImage != null)
+			this.setIcon(new ImageIcon(buttonImage.getAbsolutePath()));
 		
 		this.setToolTipText(textToolTip);
 		this.setSize(new Dimension(width, height));
