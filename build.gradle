@@ -25,4 +25,5 @@ repositories {
 //Project dependencies
 dependencies {
 	compile 'ch.qos.logback:logback-classic:1.1.2'
+	compile files('lib/i4jruntime.jar')
 }
