@@ -10,7 +10,6 @@ import com.install4j.api.formcomponents.FormComponent;
  * @date May 2018
  *
  */
-
 public class RocheButtonWrapperBeanInfo  extends FormComponentBeanInfo {
 
 	private static final String PROPERTY_TEXT_LABEL = "textLabel";
@@ -35,8 +34,7 @@ public class RocheButtonWrapperBeanInfo  extends FormComponentBeanInfo {
 	
     public RocheButtonWrapperBeanInfo() {
         super("Custom Roche Button", "The is a custom Roche button component.", null, null, RocheButtonWrapper.class);
-        setPropertyDescriptor();
-        
+        setPropertyDescriptor();        
     }
     
     private void setPropertyDescriptor() {
@@ -51,7 +49,6 @@ public class RocheButtonWrapperBeanInfo  extends FormComponentBeanInfo {
         addPropertyDescriptor(Install4JPropertyDescriptor.create(PROPERTY_FOREGROUND, getBeanClass(), "Foreground color", "Defined button's foreground."));
         addPropertyDescriptor(Install4JPropertyDescriptor.create(PROPERTY_ACTIVEFOREGROUND, getBeanClass(), "Foreground color (button actived)", "Defined button's foreground when button is active."));
         addPropertyDescriptor(Install4JPropertyDescriptor.create(PROPERTY_FOCUSBORDER, getBeanClass(), "Border (button focused)", "Defined button's border when button is focused."));
-        addPropertyDescriptor(Install4JPropertyDescriptor.create(PROPERTY_ICON, getBeanClass(), "Image", "The image shown on the button."));
-    	
+        addPropertyDescriptor(Install4JPropertyDescriptor.create(PROPERTY_ICON, getBeanClass(), "Image", "The image shown on the button."));    	
     }
 }

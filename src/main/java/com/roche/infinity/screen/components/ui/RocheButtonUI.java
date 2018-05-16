@@ -22,7 +22,6 @@ import javax.swing.plaf.basic.BasicButtonUI;
  * @date May 2018
  *
  */
-
 public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable, MouseListener, KeyListener {
 
 	private static final long serialVersionUID = 1L;
@@ -34,6 +33,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	protected Color foregroundNormal = UIManager.getColor("Button.foreground");
 	protected Color foregroundActive = UIManager.getColor("Button.activeForeground");
 	protected Color focusBorder = UIManager.getColor("Button.focusBorder");
+
 	public static ComponentUI createUI(JComponent c) {
 		return buttonUI;
 	}
@@ -41,9 +41,9 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	/**
 	 * 
 	 */
+	@Override
 	public void installUI(JComponent c) {
 		super.installUI(c);
-
 		c.addMouseListener(this);
 		c.addKeyListener(this);
 	}
@@ -51,6 +51,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	/**
 	 * 
 	 */
+	@Override
 	public void uninstallUI(JComponent c) {
 		super.uninstallUI(c);
 		c.removeMouseListener(this);
@@ -72,7 +73,6 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 		int x = (d.width - fm.stringWidth(caption)) / 2;
 		int y = (d.height + fm.getAscent()) / 2;
 		g.drawString(caption, x, y);
-
 	}
 
 	/**
@@ -90,6 +90,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	/**
 	 * 
 	 */
+	@Override
 	public void mouseClicked(MouseEvent e) {
 	}
 
@@ -131,7 +132,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 
 	/**
 	 * 
-	 */
+	 */	
 	public void keyTyped(KeyEvent e) {
 	}
 

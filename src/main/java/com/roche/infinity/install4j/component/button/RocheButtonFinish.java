@@ -2,11 +2,9 @@ package com.roche.infinity.install4j.component.button;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
-
 import com.install4j.api.Util;
 import com.roche.infinity.install4j.wrapper.RocheButtonWrapper;
 import com.roche.infinity.screen.components.RocheButton;
@@ -49,8 +47,7 @@ public class RocheButtonFinish extends RocheButtonWrapper {
 	}
 
 	@Override
-	public boolean isFillCenterHorizontal() {
-		
+	public boolean isFillCenterHorizontal() {		
 		return false;
 	}
 }

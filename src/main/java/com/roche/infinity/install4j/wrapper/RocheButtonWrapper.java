@@ -14,7 +14,6 @@ import com.roche.infinity.screen.components.RocheButton;
  * @date May 2018
  *
  */
-
 public class RocheButtonWrapper extends AbstractFormComponent{
 
 	protected RocheButton rocheButton;
@@ -213,8 +212,7 @@ public class RocheButtonWrapper extends AbstractFormComponent{
 		this.buttonIconFile = buttonIconFile;
 	}	
 	
-	public RocheButtonWrapper() {
-		
+	public RocheButtonWrapper() {		
 		background = Color.BLUE;
 		borderRaised = BorderFactory.createLineBorder(foreground);
 		borderPressed = BorderFactory.createLineBorder(foreground);

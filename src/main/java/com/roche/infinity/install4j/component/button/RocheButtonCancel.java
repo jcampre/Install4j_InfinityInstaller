@@ -7,7 +7,7 @@ import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import com.install4j.api.Util;
 import com.install4j.api.context.InstallerContext;
-import com.roche.infinity.install4j.installaction.InstallActions;
+import com.roche.infinity.install4j.installation.action.InstallationAction;
 import com.roche.infinity.install4j.wrapper.RocheButtonWrapper;
 import com.roche.infinity.screen.components.RocheButton;
 import com.roche.infinity.screen.components.ui.RocheButtonUI;
@@ -18,8 +18,8 @@ import com.roche.infinity.screen.components.ui.RocheButtonUI;
  * @date May 2018
  *
  */
-
 public class RocheButtonCancel extends RocheButtonWrapper {
+	
 	private String dialogBoxTitle;
 	private String dialogBoxText;
 
@@ -72,7 +72,7 @@ public class RocheButtonCancel extends RocheButtonWrapper {
             	int opcion = JOptionPane.showConfirmDialog(null, RocheButtonCancel.this.getDialogBoxText(), RocheButtonCancel.this.getDialogBoxTitle(), JOptionPane.YES_NO_OPTION);
                 
                 if (opcion == 0) { //YES
-                	InstallActions installAc = new InstallActions();
+                	InstallationAction installAc = new InstallationAction();
                 	installAc.rollback((InstallerContext)getContext());
                 } else { //NO
                 	Util.showMessage("no");
@@ -83,8 +83,7 @@ public class RocheButtonCancel extends RocheButtonWrapper {
 	}
 
 	@Override
-	public boolean isFillCenterHorizontal() {
-		
+	public boolean isFillCenterHorizontal() {		
 		return false;
 	}
 }

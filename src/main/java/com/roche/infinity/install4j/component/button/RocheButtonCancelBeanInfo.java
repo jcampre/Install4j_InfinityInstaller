@@ -9,7 +9,6 @@ import com.roche.infinity.install4j.wrapper.RocheButtonWrapperBeanInfo;
  * @date May 2018
  *
  */
-
 public class RocheButtonCancelBeanInfo  extends RocheButtonWrapperBeanInfo {
 
 	private static final String PROPERTY_DIALOGBOX_TITLE = "dialogBoxTitle";

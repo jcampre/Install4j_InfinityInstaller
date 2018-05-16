@@ -2,8 +2,9 @@ package com.roche.infinity.external.system;
 
 /**
  * 
- * @author grebonfe
- *
+ * @author Gustavo Rebon
+ * @date May 2018
+ * Return the system properties
  */
 public class SystemProperties {
 
