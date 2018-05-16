@@ -16,33 +16,31 @@ import javax.swing.border.Border;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicButtonUI;
 
+/**
+ * 
+ * @author Jordi Campreciós
+ * @date May 2018
+ *
+ */
+
 public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable, MouseListener, KeyListener {
+
+	private static final long serialVersionUID = 1L;
+	private final static RocheButtonUI buttonUI = new RocheButtonUI();
+	protected Border borderRaised = UIManager.getBorder("Button.border");
+	protected Border borderLowered = UIManager.getBorder("Button.borderPressed");
+	protected Color backgroundNormal = UIManager.getColor("Button.background");
+	protected Color backgroundPressed = UIManager.getColor("Button.pressedBackground");
+	protected Color foregroundNormal = UIManager.getColor("Button.foreground");
+	protected Color foregroundActive = UIManager.getColor("Button.activeForeground");
+	protected Color focusBorder = UIManager.getColor("Button.focusBorder");
+	public static ComponentUI createUI(JComponent c) {
+		return buttonUI;
+	}
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-
-	private final static RocheButtonUI m_buttonUI = new RocheButtonUI();
-
-	protected Border m_borderRaised = UIManager.getBorder("Button.border");
-
-	protected Border m_borderLowered = UIManager.getBorder("Button.borderPressed");
-
-	protected Color m_backgroundNormal = UIManager.getColor("Button.background");
-
-	protected Color m_backgroundPressed = UIManager.getColor("Button.pressedBackground");
-
-	protected Color m_foregroundNormal = UIManager.getColor("Button.foreground");
-
-	protected Color m_foregroundActive = UIManager.getColor("Button.activeForeground");
-
-	protected Color m_focusBorder = UIManager.getColor("Button.focusBorder");
-
-	public static ComponentUI createUI(JComponent c) {
-		return m_buttonUI;
-	}
-
 	public void installUI(JComponent c) {
 		super.installUI(c);
 
@@ -50,12 +48,18 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 		c.addKeyListener(this);
 	}
 
+	/**
+	 * 
+	 */
 	public void uninstallUI(JComponent c) {
 		super.uninstallUI(c);
 		c.removeMouseListener(this);
 		c.removeKeyListener(this);
 	}
 
+	/**
+	 * 
+	 */
 	public void paint(Graphics g, JComponent c) {
 		AbstractButton b = (AbstractButton) c;
 		Dimension d = b.getSize();
@@ -71,60 +75,87 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 
 	}
 
+	/**
+	 * 
+	 */
 	public Dimension getPreferredSize(JComponent c) {
 		Dimension d = super.getPreferredSize(c);
-		if (m_borderRaised != null) {
-			Insets ins = m_borderRaised.getBorderInsets(c);
+		if (borderRaised != null) {
+			Insets ins = borderRaised.getBorderInsets(c);
 			d.setSize(d.width + ins.left + ins.right, d.height + ins.top + ins.bottom);
 		}
 		return d;
 	}
 
+	/**
+	 * 
+	 */
 	public void mouseClicked(MouseEvent e) {
 	}
 
+	/**
+	 * 
+	 */
 	public void mousePressed(MouseEvent e) {
 		JComponent c = (JComponent) e.getComponent();
-		c.setBorder(m_borderLowered);
-		c.setBackground(m_backgroundPressed);
+		c.setBorder(borderLowered);
+		c.setBackground(backgroundPressed);
 	}
 
+	/**
+	 * 
+	 */
 	public void mouseReleased(MouseEvent e) {
 		JComponent c = (JComponent) e.getComponent();
-		c.setBorder(m_borderRaised);
-		c.setBackground(m_backgroundNormal);
+		c.setBorder(borderRaised);
+		c.setBackground(backgroundNormal);
 	}
 
+	/**
+	 * 
+	 */
 	public void mouseEntered(MouseEvent e) {
 		JComponent c = (JComponent) e.getComponent();
-		c.setForeground(m_foregroundActive);
+		c.setForeground(foregroundActive);
 		c.repaint();
 	}
 
+	/**
+	 * 
+	 */
 	public void mouseExited(MouseEvent e) {
 		JComponent c = (JComponent) e.getComponent();
-		c.setForeground(m_foregroundNormal);
+		c.setForeground(foregroundNormal);
 		c.repaint();
 	}
 
+	/**
+	 * 
+	 */
 	public void keyTyped(KeyEvent e) {
 	}
 
+	/**
+	 * 
+	 */
 	public void keyPressed(KeyEvent e) {
 		int code = e.getKeyCode();
 		if (code == KeyEvent.VK_ENTER || code == KeyEvent.VK_SPACE) {
 			JComponent c = (JComponent) e.getComponent();
-			c.setBorder(m_borderLowered);
-			c.setBackground(m_backgroundPressed);
+			c.setBorder(borderLowered);
+			c.setBackground(backgroundPressed);
 		}
 	}
 
+	/**
+	 * 
+	 */
 	public void keyReleased(KeyEvent e) {
 		int code = e.getKeyCode();
 		if (code == KeyEvent.VK_ENTER || code == KeyEvent.VK_SPACE) {
 			JComponent c = (JComponent) e.getComponent();
-			c.setBorder(m_borderRaised);
-			c.setBackground(m_backgroundNormal);
+			c.setBorder(borderRaised);
+			c.setBackground(backgroundNormal);
 		}
 	}
 }
