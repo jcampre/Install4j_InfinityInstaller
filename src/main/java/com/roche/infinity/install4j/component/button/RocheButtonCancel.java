@@ -20,21 +20,21 @@ import com.roche.infinity.screen.components.ui.RocheButtonUI;
  */
 
 public class RocheButtonCancel extends RocheButtonWrapper {
-	private String dialogBoxLabel;
+	private String dialogBoxTitle;
 	private String dialogBoxText;
 
 	/**
 	 * @return the dialogBoxLabel
 	 */
-	public String getDialogBoxLabel() {
-		return dialogBoxLabel;
+	public String getDialogBoxTitle() {
+		return dialogBoxTitle;
 	}
 
 	/**
 	 * @param dialogBoxLabel the dialogBoxLabel to set
 	 */
-	public void setDialogBoxLabel(String dialogBoxLabel) {
-		this.dialogBoxLabel = dialogBoxLabel;
+	public void setDialogBoxTitle(String dialogBoxTitle) {
+		this.dialogBoxTitle = dialogBoxTitle;
 	}
 
 	/**
@@ -69,7 +69,7 @@ public class RocheButtonCancel extends RocheButtonWrapper {
             @Override
             public void actionPerformed(ActionEvent e) {
                
-            	int opcion = JOptionPane.showConfirmDialog(null, RocheButtonCancel.this.getDialogBoxText(), RocheButtonCancel.this.getDialogBoxLabel(), JOptionPane.YES_NO_OPTION);
+            	int opcion = JOptionPane.showConfirmDialog(null, RocheButtonCancel.this.getDialogBoxText(), RocheButtonCancel.this.getDialogBoxTitle(), JOptionPane.YES_NO_OPTION);
                 
                 if (opcion == 0) { //YES
                 	InstallActions installAc = new InstallActions();
