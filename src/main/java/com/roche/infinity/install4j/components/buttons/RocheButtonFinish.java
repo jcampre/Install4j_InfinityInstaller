@@ -8,15 +8,25 @@ import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 
 import com.install4j.api.Util;
+import com.roche.infinity.install4j.wrapper.RocheButtonWrapper;
 import com.roche.infinity.screen.components.RocheButton;
-import com.roche.infinity.wrapper.RocheButtonWrapper;
+import com.roche.infinity.screen.components.ui.RocheButtonUI;
 
 public class RocheButtonFinish extends RocheButtonWrapper {
 
 	@Override
 	public JComponent createCenterComponent() {
-		rocheButton = new RocheButton(this.getWidth(), this.getHeight(), this.getText(), null, null, new ImageIcon(this.getButtonIconFile().getAbsoluteFile().getAbsolutePath()));
-
+		rocheButton = new RocheButton(
+				this.getWidth(), this.getHeight(), 
+				this.getTextLabel(), this.getTextToolTip(), null, 
+				this.getBorderRaised(), this.getBorderPressed(),
+				this.getBackground(), this.getPressedBackground(), 
+				this.getForeground(), this.getActiveForeground(), 
+				this.getFocusBorder(),
+				new ImageIcon(this.getButtonIconFile().getAbsoluteFile().getAbsolutePath()));
+		
+		rocheButton.setUI(new RocheButtonUI());
+		
 		rocheButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

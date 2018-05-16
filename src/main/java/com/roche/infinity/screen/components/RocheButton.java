@@ -3,11 +3,10 @@ package com.roche.infinity.screen.components;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Insets;
-
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.UIManager;
+import javax.swing.border.Border;
 
 
 /**
@@ -17,6 +16,13 @@ import javax.swing.JButton;
 public class RocheButton extends JButton{
 	
 	private static final long serialVersionUID = 1L;
+	private Border m_borderRaised;
+	private Border m_borderLowered;
+	private Color m_backgroundNormal;
+	private Color m_backgroundPressed;
+	private Color m_foregroundNormal;
+	private Color m_foregroundActive;
+	private Color m_focusBorder;
 	
 	/**
 	 * 
@@ -58,9 +64,9 @@ public class RocheButton extends JButton{
 	 * @param text
 	 */
 	 
-	public RocheButton(int width, int height, String text)
+	public RocheButton(int width, int height, String textLabel)
 	{
-		super(text);
+		super(textLabel);
 		
 		this.setSize(new Dimension(width, height));
 		setDefaultButtonValues();
@@ -71,26 +77,50 @@ public class RocheButton extends JButton{
 	 * 
 	 * @param width
 	 * @param height
-	 * @param text
+	 * @param textLabel
+	 * @param textToolTip
 	 * @param buttonFont
-	 * @param buttonColor
+	 * @param borderRaised
+	 * @param borderPressed
+	 * @param background
+	 * @param pressedBackground
+	 * @param foreground
+	 * @param activeForeground
+	 * @param focusBorder
+	 * @param buttonImage
 	 */
-	public RocheButton(int width, int height, String text, Font buttonFont, Color buttonColor, ImageIcon buttonImage)
+	public RocheButton(int width, int height, String textLabel, String textToolTip, 
+			Font buttonFont, Border borderRaised, Border borderPressed, Color background, 
+			Color pressedBackground, Color foreground, Color activeForeground, Color focusBorder,
+			ImageIcon buttonImage)
 	{
-		super(text, buttonImage);
 		
+		super(textLabel, buttonImage);
+		
+		this.setToolTipText(textToolTip);
 		this.setSize(new Dimension(width, height));
-		this.setFont(buttonFont);
-		this.setBackground(buttonColor);
+		this.setFont(buttonFont);	
+		
+		this.m_borderRaised=borderRaised;
+		this.m_borderLowered=borderPressed;
+		this.m_backgroundNormal=background;
+		this.m_backgroundPressed=pressedBackground;
+		this.m_foregroundNormal=foreground;
+		this.m_foregroundActive=activeForeground;
+		this.m_focusBorder=focusBorder;
+		
 		setDefaultButtonValues();
 	}
 	
 	private void setDefaultButtonValues()
 	{
-		this.setBorder(BorderFactory.createEmptyBorder());
-		this.setOpaque(false);
-		this.setContentAreaFilled(false);
-		this.setBorderPainted(false);
-		this.setMargin(new Insets(0,0,0,0));
+		UIManager.put("Button.border", m_borderRaised);
+		UIManager.put("Button.borderPressed", m_borderLowered);
+		UIManager.put("Button.background", m_backgroundNormal);
+		UIManager.put("Button.pressedBackground", m_backgroundPressed);
+		UIManager.put("Button.foreground", m_foregroundNormal);
+		UIManager.put("Button.activeForeground", m_foregroundActive);
+		UIManager.put("Button.focusBorder", m_focusBorder);
+
 	}
 }
