@@ -12,7 +12,7 @@ import com.roche.infinity.screen.component.RocheButton;
  * 
  * @author Jordi Campreciós
  * @date May 2018
- *
+ * Define the button wrapper
  */
 public class RocheButtonWrapper extends AbstractFormComponent{
 
@@ -213,7 +213,7 @@ public class RocheButtonWrapper extends AbstractFormComponent{
 	}	
 	
 	/**
-	 * 
+	 * Overloaded constructor
 	 */
 	public RocheButtonWrapper() {		
 		background = Color.BLUE;
@@ -225,11 +225,17 @@ public class RocheButtonWrapper extends AbstractFormComponent{
 		focusBorder = Color.ORANGE;
 	}
 	
+	/**
+	 * 
+	 */
 	@Override
 	public JComponent createCenterComponent() {
 		return null;
 	}
-
+	
+	/**
+	 * 
+	 */
 	@Override
 	public boolean isFillCenterHorizontal() {
 		return false;

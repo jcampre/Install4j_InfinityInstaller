@@ -8,7 +8,7 @@ import com.install4j.api.formcomponents.FormComponent;
  * 
  * @author Jordi Campreciós
  * @date May 2018
- *
+ * DEfine the button wrapper bean info
  */
 public class RocheButtonWrapperBeanInfo  extends FormComponentBeanInfo {
 
@@ -40,7 +40,7 @@ public class RocheButtonWrapperBeanInfo  extends FormComponentBeanInfo {
 	}
 	
 	/**
-	 * 
+	 * Wrapper bean info
 	 */
     public RocheButtonWrapperBeanInfo() {
         super("Custom Roche Button", "The is a custom Roche button component.", null, null, RocheButtonWrapper.class);
@@ -48,7 +48,7 @@ public class RocheButtonWrapperBeanInfo  extends FormComponentBeanInfo {
     }
     
     /**
-     * 
+     * Sets the property descriptor
      */
     private void setPropertyDescriptor() {
     	addPropertyDescriptor(Install4JPropertyDescriptor.create(PROPERTY_TEXT_LABEL, getBeanClass(), "Label text", "The text shown on the button."));

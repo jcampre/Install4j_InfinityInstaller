@@ -7,7 +7,7 @@ import com.roche.infinity.install4j.wrapper.RocheButtonWrapperBeanInfo;
  * 
  * @author Jordi Campreciós
  * @date May 2018
- *
+ * Define the roche button cancel bean info
  */
 public class RocheButtonCancelBeanInfo  extends RocheButtonWrapperBeanInfo {
 
@@ -15,7 +15,7 @@ public class RocheButtonCancelBeanInfo  extends RocheButtonWrapperBeanInfo {
 	private static final String PROPERTY_DIALOGBOX_TEXT = "dialogBoxText";
 	
 	/**
-	 * 
+	 * Overloaded constructor
 	 */
     public RocheButtonCancelBeanInfo() {
         super("Custom Roche Button Cancel", "The is a custom Roche button component for the cancel action.", null, null, RocheButtonCancel.class);

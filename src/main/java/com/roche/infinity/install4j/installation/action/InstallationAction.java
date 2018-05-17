@@ -9,7 +9,7 @@ import com.install4j.api.context.UserCanceledException;
  * 
  * @author Jordi Campreciós
  * @date May 2018
- *
+ * Define the installation action
  */
 public class InstallationAction extends AbstractInstallAction{
 

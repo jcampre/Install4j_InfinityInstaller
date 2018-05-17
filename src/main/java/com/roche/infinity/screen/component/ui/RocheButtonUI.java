@@ -59,7 +59,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	}
 
 	/**
-	 * 
+	 * Paint the button
 	 */
 	@Override
 	public void paint(Graphics g, JComponent c) {
@@ -77,7 +77,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	}
 
 	/**
-	 * 
+	 * Define the preferred size
 	 */
 	@Override
 	public Dimension getPreferredSize(JComponent c) {
@@ -90,14 +90,14 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	}
 
 	/**
-	 * 
+	 * Define the mouse clicked action
 	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 	}
 
 	/**
-	 * 
+	 * Define the mouse pressed action
 	 */
 	public void mousePressed(MouseEvent e) {
 		JComponent c = (JComponent) e.getComponent();
@@ -106,7 +106,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	}
 
 	/**
-	 * 
+	 * Define the mouse released action
 	 */
 	public void mouseReleased(MouseEvent e) {
 		JComponent c = (JComponent) e.getComponent();
@@ -115,7 +115,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	}
 
 	/**
-	 * 
+	 * Define the mouse entered action
 	 */
 	public void mouseEntered(MouseEvent e) {
 		JComponent c = (JComponent) e.getComponent();
@@ -124,7 +124,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	}
 
 	/**
-	 * 
+	 * Define the mouse exited action
 	 */
 	public void mouseExited(MouseEvent e) {
 		JComponent c = (JComponent) e.getComponent();
@@ -133,13 +133,13 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	}
 
 	/**
-	 * 
+	 * Define the key typed action
 	 */	
 	public void keyTyped(KeyEvent e) {
 	}
 
 	/**
-	 * 
+	 * Define the key pressed action
 	 */
 	public void keyPressed(KeyEvent e) {
 		int code = e.getKeyCode();
@@ -151,7 +151,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	}
 
 	/**
-	 * 
+	 * Define the key released action
 	 */
 	public void keyReleased(KeyEvent e) {
 		int code = e.getKeyCode();

@@ -13,12 +13,12 @@ import com.roche.infinity.screen.component.ui.RocheButtonUI;
  * 
  * @author Jordi Campreciós
  * @date May 2018
- *
+ * Define the roche button finish
  */
 public class RocheButtonFinish extends RocheButtonWrapper {
 
 	/**
-	 * 
+	 * Creates the button
 	 */
 	@Override
 	public JComponent createCenterComponent() {

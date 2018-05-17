@@ -15,7 +15,7 @@ import com.roche.infinity.screen.component.ui.RocheButtonUI;
  * 
  * @author Jordi Campreciós
  * @date May 2018
- *
+ * Define the roche button cancel
  */
 public class RocheButtonCancel extends RocheButtonWrapper {
 	
@@ -51,7 +51,7 @@ public class RocheButtonCancel extends RocheButtonWrapper {
 	}
 
 	/**
-	 * 
+	 * Creates the button
 	 */
 	@Override
 	public JComponent createCenterComponent() {
