@@ -3,6 +3,8 @@
  */
 package com.roche.infinity.screen.component.filechooser;
 
+import java.io.File;
+
 import javax.swing.JFileChooser;
 
 /**
@@ -21,7 +23,7 @@ public class RocheFileChooser extends JFileChooser{
 		this.setFileSelectionMode(DIRECTORIES_ONLY);
 	}
 	
-	public RocheFileChooser(String defaultPath) {
+	public RocheFileChooser(File defaultPath) {
 		super(defaultPath);
 		
 		this.setFileSelectionMode(DIRECTORIES_ONLY);

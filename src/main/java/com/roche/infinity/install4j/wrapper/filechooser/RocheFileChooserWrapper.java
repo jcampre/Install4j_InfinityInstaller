@@ -24,7 +24,7 @@ public class RocheFileChooserWrapper extends AbstractFormComponent{
 
 	@Override
 	public JComponent createCenterComponent() {
-		return null;
+		return rocheFileChooser;
 	}
 
 	@Override

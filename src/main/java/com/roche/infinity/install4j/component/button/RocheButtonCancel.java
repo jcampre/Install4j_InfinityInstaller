@@ -62,8 +62,9 @@ public class RocheButtonCancel extends RocheButtonWrapper {
 				this.getButtonIconFile());
 		
 		rocheButton.setUI(new RocheButtonUI());
-		rocheButton.addActionListener(new CancelActionListener()); 
-//		{
+	//	rocheButton.addActionListener(new CancelActionListener()); 
+
+	//		{
 //            @Override
 //            public void actionPerformed(ActionEvent e) {
 //               

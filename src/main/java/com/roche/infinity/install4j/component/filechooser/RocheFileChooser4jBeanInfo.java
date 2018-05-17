@@ -1,4 +1,4 @@
-package com.roche.infinity.install4j.wrapper.filechooser;
+package com.roche.infinity.install4j.component.filechooser;
 
 import com.install4j.api.beaninfo.FormComponentBeanInfo;
 import com.install4j.api.beaninfo.Install4JPropertyDescriptor;
@@ -10,7 +10,7 @@ import com.install4j.api.formcomponents.FormComponent;
  * @date May 2018
  * Define the button wrapper bean info
  */
-public class RocheFileChooserWrapperBeanInfo  extends FormComponentBeanInfo {
+public class RocheFileChooser4jBeanInfo  extends FormComponentBeanInfo {
 
 	private static final String PROPERTY_DEFAULT_PATH = "defaultPath";
 	
@@ -22,7 +22,7 @@ public class RocheFileChooserWrapperBeanInfo  extends FormComponentBeanInfo {
 	 * @param sortKey
 	 * @param beanClass
 	 */
-	public RocheFileChooserWrapperBeanInfo(String displayName, String shortDescription, String category, Integer sortKey,
+	public RocheFileChooser4jBeanInfo(String displayName, String shortDescription, String category, Integer sortKey,
 			Class<? extends FormComponent> beanClass) {
 		super(displayName, shortDescription, category, sortKey, beanClass);
 		setPropertyDescriptor();
@@ -31,8 +31,8 @@ public class RocheFileChooserWrapperBeanInfo  extends FormComponentBeanInfo {
 	/**
 	 * Wrapper bean info
 	 */
-    public RocheFileChooserWrapperBeanInfo() {
-        super("Custom Roche FileChooser", "The is a custom Roche file chooser component.", null, null, RocheFileChooserWrapper.class);
+    public RocheFileChooser4jBeanInfo() {
+        super("Custom Roche FileChooser", "The is a custom Roche file chooser component.", null, null, RocheFileChooser4j.class);
         setPropertyDescriptor();        
     }
     
