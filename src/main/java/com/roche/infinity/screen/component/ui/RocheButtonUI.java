@@ -1,8 +1,6 @@
 package com.roche.infinity.screen.component.ui;
 
 import java.awt.Color;
-
-import com.install4j.api.Util;
 import java.awt.Dimension;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
