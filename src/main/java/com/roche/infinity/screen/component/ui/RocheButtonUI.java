@@ -1,6 +1,8 @@
 package com.roche.infinity.screen.component.ui;
 
 import java.awt.Color;
+
+import com.install4j.api.Util;
 import java.awt.Dimension;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
@@ -10,6 +12,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.AbstractButton;
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
@@ -71,7 +74,15 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 
 		g.setColor(b.getForeground());
 		String caption = b.getText();
-		int x = (d.width - fm.stringWidth(caption)) / 2;
+		
+		ImageIcon  imageIcon = (ImageIcon) b.getIcon();
+		int x_icon=0;
+		if (imageIcon != null)
+		{
+			g.drawImage(imageIcon.getImage(), 0, 0, null);
+			x_icon = imageIcon.getIconWidth();
+		}
+		int x = x_icon + (d.width - fm.stringWidth(caption)) / 2;
 		int y = (d.height + fm.getAscent()) / 2;
 		g.drawString(caption, x, y);
 	}
@@ -88,7 +99,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 		}
 		return d;
 	}
-
+	
 	/**
 	 * Define the mouse clicked action
 	 */

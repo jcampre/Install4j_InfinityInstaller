@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
 
+import com.install4j.api.Util;
+
 /**
  * 
  * @author Jordi Campreciós
@@ -64,7 +66,7 @@ public class RocheButton extends JButton {
 	 */	 
 	public RocheButton(int width, int height, String textLabel) {
 		super(textLabel);		
-		this.setSize(new Dimension(width, height));
+		this.setPreferredSize(new Dimension(width, height));
 		setDefaultButtonValues();
 			
 	}
@@ -96,7 +98,7 @@ public class RocheButton extends JButton {
 			this.setIcon(new ImageIcon(buttonImage.getAbsolutePath()));
 		
 		this.setToolTipText(textToolTip);
-		this.setSize(new Dimension(width, height));
+		this.setPreferredSize(new Dimension(width, height));
 		this.setFont(buttonFont);			
 		this.borderRaised=borderRaised;
 		this.borderLowered=borderPressed;
