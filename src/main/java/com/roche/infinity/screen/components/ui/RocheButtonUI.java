@@ -20,7 +20,7 @@ import javax.swing.plaf.basic.BasicButtonUI;
  * 
  * @author Jordi Campreciós
  * @date May 2018
- *
+ * Define the actions of the button and the style
  */
 public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable, MouseListener, KeyListener {
 

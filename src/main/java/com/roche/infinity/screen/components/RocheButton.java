@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.io.File;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.UIManager;
@@ -14,7 +13,7 @@ import javax.swing.border.Border;
  * 
  * @author Jordi Campreciós
  * @date May 2018
- *
+ * Define the button
  */
 public class RocheButton extends JButton {
 	
@@ -31,8 +30,7 @@ public class RocheButton extends JButton {
 	 * Default constructor
 	 */
 	public RocheButton() {
-		super();
-		
+		super();		
 		setDefaultButtonValues();
 	}
 	
@@ -42,8 +40,7 @@ public class RocheButton extends JButton {
 	 * @param text
 	 */
 	public RocheButton(String text) {
-		super(text);
-		
+		super(text);		
 		setDefaultButtonValues();
 	}
 	
@@ -54,8 +51,7 @@ public class RocheButton extends JButton {
 	 * @param buttonImage
 	 */
 	public RocheButton(String text, ImageIcon buttonImage) {
-		super(text, buttonImage);
-		
+		super(text, buttonImage);		
 		setDefaultButtonValues();
 	}
 	
@@ -68,8 +64,7 @@ public class RocheButton extends JButton {
 	 */
 	 
 	public RocheButton(int width, int height, String textLabel) {
-		super(textLabel);
-		
+		super(textLabel);		
 		this.setSize(new Dimension(width, height));
 		setDefaultButtonValues();
 			
@@ -103,8 +98,7 @@ public class RocheButton extends JButton {
 		
 		this.setToolTipText(textToolTip);
 		this.setSize(new Dimension(width, height));
-		this.setFont(buttonFont);	
-		
+		this.setFont(buttonFont);			
 		this.borderRaised=borderRaised;
 		this.borderLowered=borderPressed;
 		this.backgroundNormal=background;
