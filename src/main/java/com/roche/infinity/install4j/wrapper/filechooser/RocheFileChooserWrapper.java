@@ -5,7 +5,6 @@ package com.roche.infinity.install4j.wrapper.filechooser;
 
 import javax.swing.JComponent;
 import com.install4j.api.formcomponents.AbstractFormComponent;
-import com.roche.infinity.screen.component.button.RocheButton;
 import com.roche.infinity.screen.component.filechooser.RocheFileChooser;
 
 /**
@@ -16,16 +15,20 @@ public class RocheFileChooserWrapper extends AbstractFormComponent{
 
 	protected RocheFileChooser rocheFileChooser;
 	
-	@Override
-	public JComponent createCenterComponent() {
-		rocheFileChooser = new RocheFileChooser();
-		
+	/**
+	 * @return the rocheFileChooser
+	 */
+	public RocheFileChooser getRocheFileChooser() {
 		return rocheFileChooser;
 	}
 
 	@Override
-	public boolean isFillCenterHorizontal() {
-		
+	public JComponent createCenterComponent() {
+		return null;
+	}
+
+	@Override
+	public boolean isFillCenterHorizontal() {		
 		return false;
 	}
 
