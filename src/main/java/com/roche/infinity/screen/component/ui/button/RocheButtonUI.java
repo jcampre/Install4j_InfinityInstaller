@@ -1,4 +1,4 @@
-package com.roche.infinity.screen.component.ui;
+package com.roche.infinity.screen.component.ui.button;
 
 import java.awt.Color;
 import java.awt.Dimension;

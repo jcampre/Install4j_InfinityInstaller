@@ -6,7 +6,7 @@ import javax.swing.JComponent;
 import javax.swing.border.Border;
 import com.install4j.api.beans.ExternalFile;
 import com.install4j.api.formcomponents.AbstractFormComponent;
-import com.roche.infinity.screen.component.RocheButton;
+import com.roche.infinity.screen.component.button.RocheButton;
 
 /**
  * 
