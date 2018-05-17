@@ -25,18 +25,31 @@ public class RocheButtonWrapperBeanInfo  extends FormComponentBeanInfo {
 	private static final String PROPERTY_FOCUSBORDER = "focusBorder";
 	private static final String PROPERTY_ICON = "buttonIconFile";
   
-
+	/**
+	 * 
+	 * @param displayName
+	 * @param shortDescription
+	 * @param category
+	 * @param sortKey
+	 * @param beanClass
+	 */
 	public RocheButtonWrapperBeanInfo(String displayName, String shortDescription, String category, Integer sortKey,
 			Class<? extends FormComponent> beanClass) {
 		super(displayName, shortDescription, category, sortKey, beanClass);
 		setPropertyDescriptor();
 	}
 	
+	/**
+	 * 
+	 */
     public RocheButtonWrapperBeanInfo() {
         super("Custom Roche Button", "The is a custom Roche button component.", null, null, RocheButtonWrapper.class);
         setPropertyDescriptor();        
     }
     
+    /**
+     * 
+     */
     private void setPropertyDescriptor() {
     	addPropertyDescriptor(Install4JPropertyDescriptor.create(PROPERTY_TEXT_LABEL, getBeanClass(), "Label text", "The text shown on the button."));
         addPropertyDescriptor(Install4JPropertyDescriptor.create(PROPERTY_TEXTTOOLTIP, getBeanClass(), "ToolTip text", "The tool tip text shown on the button."));

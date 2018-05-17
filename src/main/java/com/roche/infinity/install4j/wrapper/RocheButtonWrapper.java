@@ -212,6 +212,9 @@ public class RocheButtonWrapper extends AbstractFormComponent{
 		this.buttonIconFile = buttonIconFile;
 	}	
 	
+	/**
+	 * 
+	 */
 	public RocheButtonWrapper() {		
 		background = Color.BLUE;
 		borderRaised = BorderFactory.createLineBorder(foreground);

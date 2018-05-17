@@ -13,13 +13,13 @@ import javax.swing.border.Border;
  * 
  * @author Jordi Campreciós
  * @date May 2018
- * Define the button
+ * Define the button properties
  */
 public class RocheButton extends JButton {
 	
 	private static final long serialVersionUID = 1L;
-	private Border borderRaised;
-	private Border borderLowered;
+	private transient Border borderRaised;
+	private transient Border borderLowered;
 	private Color backgroundNormal;
 	private Color backgroundPressed;
 	private Color foregroundNormal;
@@ -61,8 +61,7 @@ public class RocheButton extends JButton {
 	 * @param width
 	 * @param height
 	 * @param text
-	 */
-	 
+	 */	 
 	public RocheButton(int width, int height, String textLabel) {
 		super(textLabel);		
 		this.setSize(new Dimension(width, height));

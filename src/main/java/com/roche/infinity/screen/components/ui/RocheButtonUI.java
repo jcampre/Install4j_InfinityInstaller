@@ -20,14 +20,14 @@ import javax.swing.plaf.basic.BasicButtonUI;
  * 
  * @author Jordi Campreciós
  * @date May 2018
- * Define the actions of the button and the style
+ * Define the button actions and the style
  */
 public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable, MouseListener, KeyListener {
 
 	private static final long serialVersionUID = 1L;
-	private final static RocheButtonUI buttonUI = new RocheButtonUI();
-	protected Border borderRaised = UIManager.getBorder("Button.border");
-	protected Border borderLowered = UIManager.getBorder("Button.borderPressed");
+	private static final RocheButtonUI buttonUI = new RocheButtonUI();
+	protected transient Border borderRaised = UIManager.getBorder("Button.border");
+	protected transient Border borderLowered = UIManager.getBorder("Button.borderPressed");
 	protected Color backgroundNormal = UIManager.getColor("Button.background");
 	protected Color backgroundPressed = UIManager.getColor("Button.pressedBackground");
 	protected Color foregroundNormal = UIManager.getColor("Button.foreground");
@@ -61,6 +61,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	/**
 	 * 
 	 */
+	@Override
 	public void paint(Graphics g, JComponent c) {
 		AbstractButton b = (AbstractButton) c;
 		Dimension d = b.getSize();
@@ -78,6 +79,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	/**
 	 * 
 	 */
+	@Override
 	public Dimension getPreferredSize(JComponent c) {
 		Dimension d = super.getPreferredSize(c);
 		if (borderRaised != null) {

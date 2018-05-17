@@ -2,7 +2,6 @@ package com.roche.infinity.install4j.component.button;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import com.install4j.api.Util;
@@ -51,6 +50,9 @@ public class RocheButtonCancel extends RocheButtonWrapper {
 		this.dialogBoxText = dialogBoxText;
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public JComponent createCenterComponent() {
 		
@@ -82,6 +84,9 @@ public class RocheButtonCancel extends RocheButtonWrapper {
 		return rocheButton;
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public boolean isFillCenterHorizontal() {		
 		return false;

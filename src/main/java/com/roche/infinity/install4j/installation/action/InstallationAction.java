@@ -15,11 +15,17 @@ public class InstallationAction extends AbstractInstallAction{
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * 
+	 */
 	@Override
 	public boolean install(InstallerContext arg0) throws UserCanceledException {	
 		return false;
 	}
 	
+	/**
+	 * 
+	 */
 	@Override
 	public void rollback(InstallerContext context) {
 		Util.showMessage("In rollback");		
