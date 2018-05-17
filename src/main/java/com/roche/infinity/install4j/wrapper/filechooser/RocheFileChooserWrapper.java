@@ -3,19 +3,26 @@
  */
 package com.roche.infinity.install4j.wrapper.filechooser;
 
-import com.install4j.runtime.beans.formcomponents.AbstractFileChooserComponent;
-import com.install4j.runtime.installer.frontend.components.AbstractFileSelector;
+import javax.swing.JComponent;
+import com.install4j.api.formcomponents.AbstractFormComponent;
+import com.roche.infinity.screen.component.filechooser.RocheFileChooser;
 
 /**
  * @author grebonfe
  *
  */
-public class RocheFileChooserWrapper extends AbstractFileChooserComponent<AbstractFileSelector>{
+public class RocheFileChooserWrapper extends AbstractFormComponent{
 
 	@Override
-	protected AbstractFileSelector createFileSelector() {
-		// TODO Auto-generated method stub
-		return null;
+	public JComponent createCenterComponent() {
+		return new RocheFileChooser();
 	}
 
+	@Override
+	public boolean isFillCenterHorizontal() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
 }
