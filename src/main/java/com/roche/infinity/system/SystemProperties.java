@@ -1,4 +1,4 @@
-package com.roche.infinity.external.system;
+package com.roche.infinity.system;
 
 /**
  * 

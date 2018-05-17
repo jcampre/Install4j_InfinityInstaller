@@ -1,4 +1,4 @@
-package com.roche.infinity.screen.components;
+package com.roche.infinity.screen.component;
 
 import java.awt.Color;
 import java.awt.Dimension;
