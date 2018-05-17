@@ -1,4 +1,4 @@
-package com.roche.infinity.install4j.wrapper;
+package com.roche.infinity.install4j.wrapper.button;
 
 import com.install4j.api.beaninfo.FormComponentBeanInfo;
 import com.install4j.api.beaninfo.Install4JPropertyDescriptor;

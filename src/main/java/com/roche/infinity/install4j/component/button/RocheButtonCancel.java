@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 import com.install4j.api.Util;
 import com.install4j.api.context.InstallerContext;
 import com.roche.infinity.install4j.installation.action.InstallationAction;
-import com.roche.infinity.install4j.wrapper.RocheButtonWrapper;
+import com.roche.infinity.install4j.wrapper.button.RocheButtonWrapper;
 import com.roche.infinity.screen.component.button.RocheButton;
 import com.roche.infinity.screen.component.ui.button.RocheButtonUI;
 

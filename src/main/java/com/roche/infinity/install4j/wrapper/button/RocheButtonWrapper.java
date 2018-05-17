@@ -1,4 +1,4 @@
-package com.roche.infinity.install4j.wrapper;
+package com.roche.infinity.install4j.wrapper.button;
 
 import java.awt.Color;
 import javax.swing.BorderFactory;
