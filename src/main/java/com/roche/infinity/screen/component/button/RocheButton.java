@@ -9,8 +9,6 @@ import javax.swing.JButton;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
 
-import com.install4j.api.Util;
-
 /**
  * 
  * @author Jordi Campreciós
