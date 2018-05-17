@@ -15,5 +15,15 @@ public class RocheFileChooser extends JFileChooser{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
+	public RocheFileChooser() {
+		super();
+		this.setFileSelectionMode(DIRECTORIES_ONLY);
+	}
+	
+	public RocheFileChooser(String defaultPath) {
+		super(defaultPath);
+		
+		this.setFileSelectionMode(DIRECTORIES_ONLY);
+	}
 }
