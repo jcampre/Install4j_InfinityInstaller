@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.2" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
   realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="com.roche.infinity.install4j.wrapper.RocheButtonFinish" project="InfinityRocheLib" 
-    file="/InfinityRocheLib/src/main/java/com/roche/infinity/install4j/wrapper/RocheButtonFinish.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="com.roche.infinity.install4j.component.button.RocheButtonFinish" 
+    project="InfinityRocheLib" 
+    file="/InfinityRocheLib/src/main/java/com/roche/infinity/install4j/component/button/RocheButtonFinish.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="136" width="301" x="188" y="145"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      

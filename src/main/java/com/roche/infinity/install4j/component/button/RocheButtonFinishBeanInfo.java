@@ -1,6 +1,5 @@
 package com.roche.infinity.install4j.component.button;
 
-import com.roche.infinity.install4j.wrapper.RocheButtonFinish;
 import com.roche.infinity.install4j.wrapper.RocheButtonWrapperBeanInfo;
 
 /**

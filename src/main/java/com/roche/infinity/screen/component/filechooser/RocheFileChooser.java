@@ -11,4 +11,9 @@ import javax.swing.JFileChooser;
  */
 public class RocheFileChooser extends JFileChooser{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 }
