@@ -230,7 +230,7 @@ public class RocheButtonWrapper extends AbstractFormComponent{
 	 */
 	@Override
 	public JComponent createCenterComponent() {
-		return null;
+		return rocheButton;
 	}
 	
 	/**
