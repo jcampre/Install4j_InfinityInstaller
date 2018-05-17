@@ -1,32 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.2" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
   realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <interface id="1" language="java" name="com.roche.modules.installshift.installer.core.dao.InstalledComponentDAO" 
-    project="installer-core" 
-    file="/installer-core/src/main/java/com/roche/modules/installshift/installer/core/dao/InstalledComponentDAO.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="644" y="152"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </interface>  
-  <class id="2" language="java" name="com.roche.modules.installshift.installer.core.dao.InstalledComponentDAOImpl" 
-    project="installer-core" 
-    file="/installer-core/src/main/java/com/roche/modules/installshift/installer/core/dao/InstalledComponentDAOImpl.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="647" y="410"/>    
+  <class id="1" language="java" name="com.roche.infinity.install4j.wrapper.RocheButtonFinish" project="InfinityRocheLib" 
+    file="/InfinityRocheLib/src/main/java/com/roche/infinity/install4j/wrapper/RocheButtonFinish.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="136" width="301" x="188" y="145"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <realization id="3">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="1"/>  
-  </realization>  
+  <class id="2" language="java" name="com.roche.infinity.install4j.component.button.RocheButtonFinishBeanInfo" 
+    project="InfinityRocheLib" 
+    file="/InfinityRocheLib/src/main/java/com/roche/infinity/install4j/component/button/RocheButtonFinishBeanInfo.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="788" y="225"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

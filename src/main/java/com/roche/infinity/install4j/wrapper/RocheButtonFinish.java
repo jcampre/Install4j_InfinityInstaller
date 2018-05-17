@@ -1,11 +1,10 @@
-package com.roche.infinity.install4j.component.button;
+package com.roche.infinity.install4j.wrapper;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import com.install4j.api.Util;
-import com.roche.infinity.install4j.wrapper.RocheButtonWrapper;
 import com.roche.infinity.screen.component.RocheButton;
 import com.roche.infinity.screen.component.ui.RocheButtonUI;
 
