@@ -77,8 +77,8 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 		int x_icon=0;
 		if (imageIcon != null)
 		{
-			g.drawImage(imageIcon.getImage(), 0, 0, null);
-			x_icon = imageIcon.getIconWidth();
+			g.drawImage(imageIcon.getImage(), 5, ((int)d.getHeight()/2) - ((int)imageIcon.getIconHeight()/2), null);
+			x_icon = imageIcon.getIconWidth() + 5 ;
 		}
 		int x = x_icon + (d.width - fm.stringWidth(caption)) / 2;
 		int y = (d.height + fm.getAscent()) / 2;
