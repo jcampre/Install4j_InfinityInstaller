@@ -43,8 +43,8 @@ public class CancelActionListener extends AbstractActionListener {
 
 	public CancelActionListener(Context context) {
 		super(context);
-		dialogBoxTitle = "Cancel";
-		dialogBoxText = "¿Deseas cancelar la aplicación?";		
+		dialogBoxTitle = context.getMessage("screen.cancelDialogBox.title");
+		dialogBoxText = context.getMessage("screen.cancelDialogBox.text");		
 	}
 
 	@Override
@@ -56,6 +56,7 @@ public class CancelActionListener extends AbstractActionListener {
 		if (opcion == 0) { // YES
 			InstallationAction installAc = new InstallationAction(null);
 			installAc.rollback((InstallerContext) this.getContext());
+			
 		}
 	}
 }
