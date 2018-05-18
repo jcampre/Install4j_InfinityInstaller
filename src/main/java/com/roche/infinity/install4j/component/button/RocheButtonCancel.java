@@ -2,7 +2,7 @@ package com.roche.infinity.install4j.component.button;
 
 import javax.swing.JComponent;
 
-import com.roche.infinity.actionListeners.CancelActionListener;
+import com.roche.infinity.actionlistener.CancelActionListener;
 import com.roche.infinity.install4j.wrapper.button.RocheButtonWrapper;
 import com.roche.infinity.screen.component.button.RocheButton;
 import com.roche.infinity.screen.component.ui.button.RocheButtonUI;

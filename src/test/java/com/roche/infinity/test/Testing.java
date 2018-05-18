@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-import com.roche.infinity.actionListeners.CancelActionListener;
+import com.roche.infinity.actionlistener.CancelActionListener;
 
 public class Testing {
 

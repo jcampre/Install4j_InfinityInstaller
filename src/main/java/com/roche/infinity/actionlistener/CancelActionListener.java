@@ -1,4 +1,4 @@
-package com.roche.infinity.actionListeners;
+package com.roche.infinity.actionlistener;
 
 import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
