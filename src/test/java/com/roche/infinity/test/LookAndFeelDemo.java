@@ -92,6 +92,13 @@ public class LookAndFeelDemo implements ActionListener {
                      
                   UIManager.setLookAndFeel(new MetalLookAndFeel()); 
                 }	
+<<<<<<< HEAD
+=======
+                	
+                	
+                  
+                
+>>>>>>> look and feel test
             } 
             
             catch (ClassNotFoundException e) {
