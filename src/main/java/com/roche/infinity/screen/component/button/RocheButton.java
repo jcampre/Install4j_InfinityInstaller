@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
 
+import com.install4j.api.context.Context;
+
 /**
  * 
  * @author Jordi Campreciós
@@ -29,7 +31,7 @@ public class RocheButton extends JButton {
 	/**
 	 * Default constructor
 	 */
-	public RocheButton() {
+	public RocheButton(Context context) {
 		super();		
 		setDefaultButtonValues();
 	}

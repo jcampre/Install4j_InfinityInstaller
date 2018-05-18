@@ -1,7 +1,6 @@
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+package com.roche.infinity.test;
 
+import java.awt.*;
 import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -25,13 +24,8 @@ public class Testing {
 		f.setLocationRelativeTo(null);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
-		btn.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
-				System.exit(0);
-			}
-		});
+
+		btn.addActionListener(new CancelActionListener(null));
 	}
 
 	public void removeMinMaxClose(Component comp) {

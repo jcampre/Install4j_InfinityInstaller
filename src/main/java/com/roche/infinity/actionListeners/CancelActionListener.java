@@ -3,28 +3,63 @@ package com.roche.infinity.actionListeners;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
-import com.install4j.api.Util;
 import com.install4j.api.context.InstallerContext;
-import com.roche.infinity.install4j.component.button.RocheButtonCancel;
 import com.roche.infinity.install4j.installation.action.InstallationAction;
 
 public class CancelActionListener implements ActionListener {
 
+	private String dialogBoxTitle;
+	private String dialogBoxText;
+
+	/**
+	 * @return the dialogBoxLabel
+	 */
+	public String getDialogBoxTitle() {
+		return dialogBoxTitle;
+	}
+
+	/**
+	 * @param dialogBoxLabel
+	 *            the dialogBoxLabel to set
+	 */
+	public void setDialogBoxTitle(String dialogBoxTitle) {
+		this.dialogBoxTitle = dialogBoxTitle;
+	}
+
+	/**
+	 * @return the dialogBoxText
+	 */
+	public String getDialogBoxText() {
+		return dialogBoxText;
+	}
+
+	/**
+	 * @param dialogBoxText
+	 *            the dialogBoxText to set
+	 */
+	public void setDialogBoxText(String dialogBoxText) {
+		this.dialogBoxText = dialogBoxText;
+	}
+
+	public CancelActionListener(InstallerContext context) {
+		this.dialogBoxTitle = "Cancel";
+		this.dialogBoxText = "¿Deseas cancelar la aplicación?";
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		RocheButtonCancel button = (RocheButtonCancel) e.getSource();
-		int opcion = JOptionPane.showConfirmDialog(null, button.getDialogBoxText(), button.getDialogBoxTitle(),
+		//JButton button = (JButton) e.getSource();
+		
+		int opcion = JOptionPane.showConfirmDialog(null, getDialogBoxText(), getDialogBoxTitle(),
 				JOptionPane.YES_NO_OPTION);
 
 		if (opcion == 0) { // YES
-			InstallationAction installAc = new InstallationAction();
-			installAc.rollback((InstallerContext) button.getContext());
-		} else { // NO
-			Util.showMessage("no");
+			InstallationAction installAc = new InstallationAction(null);
+			installAc.rollback(null);
 		}
 	}
 }
-

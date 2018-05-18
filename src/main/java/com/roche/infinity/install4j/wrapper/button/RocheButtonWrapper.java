@@ -5,6 +5,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.border.Border;
 import com.install4j.api.beans.ExternalFile;
+import com.install4j.api.context.Context;
 import com.install4j.api.formcomponents.AbstractFormComponent;
 import com.roche.infinity.screen.component.button.RocheButton;
 
@@ -16,7 +17,7 @@ import com.roche.infinity.screen.component.button.RocheButton;
  */
 public class RocheButtonWrapper extends AbstractFormComponent{
 
-	protected RocheButton rocheButton;
+	private Context context;
 	private String textLabel;
 	private String textToolTip;
 	private int width;
@@ -30,6 +31,22 @@ public class RocheButtonWrapper extends AbstractFormComponent{
 	private Color focusBorder;
 	private ExternalFile buttonIconFile;
 	
+	protected RocheButton rocheButton;
+	
+	/**
+	 * @return the context
+	 */
+	public Context getContext() {
+		return context;
+	}
+
+	/**
+	 * @param context the context to set
+	 */
+	public void setContext(Context context) {
+		this.context = context;
+	}
+
 	/**
 	 * @return the rocheButton
 	 */
@@ -215,7 +232,9 @@ public class RocheButtonWrapper extends AbstractFormComponent{
 	/**
 	 * Overloaded constructor
 	 */
-	public RocheButtonWrapper() {		
+	public RocheButtonWrapper() {
+		this.context = this.getContext(); 
+		
 		background = Color.BLUE;
 		borderRaised = BorderFactory.createLineBorder(foreground);
 		borderPressed = BorderFactory.createLineBorder(foreground);

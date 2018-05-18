@@ -8,26 +8,32 @@ import com.install4j.api.context.UserCanceledException;
 /**
  * 
  * @author Jordi Campreciós
- * @date May 2018
- * Define the installation action
+ * @date May 2018 Define the installation action
  */
-public class InstallationAction extends AbstractInstallAction{
+public class InstallationAction extends AbstractInstallAction {
 
 	private static final long serialVersionUID = 1L;
+	private InstallerContext context = null;
+
+	public InstallationAction(InstallerContext context) {
+		if (context != null) {
+			this.context = context;
+		}
+	}
 
 	/**
 	 * 
 	 */
 	@Override
-	public boolean install(InstallerContext arg0) throws UserCanceledException {	
+	public boolean install(InstallerContext context) throws UserCanceledException {
+
 		return false;
 	}
-	
+
 	/**
-	 * 
-	 */
-	@Override
+	*
+	*/
 	public void rollback(InstallerContext context) {
-		Util.showMessage("In rollback");		
+		Util.showMessage("In rollback");
 	}
 }
