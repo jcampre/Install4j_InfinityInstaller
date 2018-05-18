@@ -9,7 +9,8 @@ import javax.swing.JFileChooser;
 
 /**
  * @author grebonfe
- *
+ * @date May 2018
+ * Define the file chooser properties
  */
 public class RocheFileChooser extends JFileChooser{
 

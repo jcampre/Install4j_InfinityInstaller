@@ -9,7 +9,8 @@ import com.roche.infinity.screen.component.filechooser.RocheFileChooser;
 
 /**
  * @author grebonfe
- *
+ * @date May 2018
+ * Define the file chooser wrapper
  */
 public class RocheFileChooserWrapper extends AbstractFormComponent{
 
@@ -30,7 +31,5 @@ public class RocheFileChooserWrapper extends AbstractFormComponent{
 	@Override
 	public boolean isFillCenterHorizontal() {		
 		return false;
-	}
-
-	
+	}	
 }

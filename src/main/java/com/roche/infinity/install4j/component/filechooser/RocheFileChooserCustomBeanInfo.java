@@ -10,7 +10,7 @@ import com.install4j.api.formcomponents.FormComponent;
  * @date May 2018
  * Define the button wrapper bean info
  */
-public class RocheFileChooser4jBeanInfo  extends FormComponentBeanInfo {
+public class RocheFileChooserCustomBeanInfo  extends FormComponentBeanInfo {
 
 	private static final String PROPERTY_DEFAULT_PATH = "defaultPath";
 	
@@ -22,7 +22,7 @@ public class RocheFileChooser4jBeanInfo  extends FormComponentBeanInfo {
 	 * @param sortKey
 	 * @param beanClass
 	 */
-	public RocheFileChooser4jBeanInfo(String displayName, String shortDescription, String category, Integer sortKey,
+	public RocheFileChooserCustomBeanInfo(String displayName, String shortDescription, String category, Integer sortKey,
 			Class<? extends FormComponent> beanClass) {
 		super(displayName, shortDescription, category, sortKey, beanClass);
 		setPropertyDescriptor();
@@ -31,8 +31,8 @@ public class RocheFileChooser4jBeanInfo  extends FormComponentBeanInfo {
 	/**
 	 * Wrapper bean info
 	 */
-    public RocheFileChooser4jBeanInfo() {
-        super("Custom Roche FileChooser", "The is a custom Roche file chooser component.", null, null, RocheFileChooser4j.class);
+    public RocheFileChooserCustomBeanInfo() {
+        super("Custom Roche FileChooser", "The is a custom Roche file chooser component.", null, null, RocheFileChooserCustom.class);
         setPropertyDescriptor();        
     }
     

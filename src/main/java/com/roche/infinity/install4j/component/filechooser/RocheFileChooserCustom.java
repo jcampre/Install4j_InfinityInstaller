@@ -11,9 +11,10 @@ import com.roche.infinity.screen.component.filechooser.RocheFileChooser;
 
 /**
  * @author grebonfe
- *
+ * @date May 2018
+ * Define the roche file chooser custom
  */
-public class RocheFileChooser4j extends RocheFileChooserWrapper{
+public class RocheFileChooserCustom extends RocheFileChooserWrapper{
 	ExternalFile defaultPath;
 	
 	/**
