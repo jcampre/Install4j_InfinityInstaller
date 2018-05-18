@@ -2,10 +2,9 @@ package com.roche.infinity.actionListeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
+import com.install4j.api.context.Context;
 import com.install4j.api.context.InstallerContext;
 import com.roche.infinity.install4j.installation.action.InstallationAction;
 
@@ -13,7 +12,8 @@ public class CancelActionListener implements ActionListener {
 
 	private String dialogBoxTitle;
 	private String dialogBoxText;
-
+	private Context context;
+	
 	/**
 	 * @return the dialogBoxLabel
 	 */
@@ -44,22 +44,21 @@ public class CancelActionListener implements ActionListener {
 		this.dialogBoxText = dialogBoxText;
 	}
 
-	public CancelActionListener(InstallerContext context) {
+	public CancelActionListener(Context context) {
 		this.dialogBoxTitle = "Cancel";
 		this.dialogBoxText = "¿Deseas cancelar la aplicación?";
+		this.context = context;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		//JButton button = (JButton) e.getSource();
-		
 		int opcion = JOptionPane.showConfirmDialog(null, getDialogBoxText(), getDialogBoxTitle(),
 				JOptionPane.YES_NO_OPTION);
 
 		if (opcion == 0) { // YES
 			InstallationAction installAc = new InstallationAction(null);
-			installAc.rollback(null);
+			installAc.rollback((InstallerContext) context);
 		}
 	}
 }

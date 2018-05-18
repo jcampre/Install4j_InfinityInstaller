@@ -18,7 +18,7 @@ public class InstallationAction extends AbstractInstallAction {
 	public InstallationAction(InstallerContext context) {
 		if (context != null) {
 			this.context = context;
-		}
+		}		
 	}
 
 	/**

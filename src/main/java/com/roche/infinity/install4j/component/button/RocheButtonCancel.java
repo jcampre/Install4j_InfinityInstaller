@@ -2,6 +2,7 @@ package com.roche.infinity.install4j.component.button;
 
 import javax.swing.JComponent;
 
+import com.roche.infinity.actionListeners.CancelActionListener;
 import com.roche.infinity.install4j.wrapper.button.RocheButtonWrapper;
 import com.roche.infinity.screen.component.button.RocheButton;
 import com.roche.infinity.screen.component.ui.button.RocheButtonUI;
@@ -19,7 +20,6 @@ public class RocheButtonCancel extends RocheButtonWrapper {
 	 */
 	@Override
 	public JComponent createCenterComponent() {
-		
 		rocheButton = new RocheButton(this.getWidth(), this.getHeight(), 
 				this.getTextLabel(), this.getTextToolTip(), null, 
 				this.getBorderRaised(), this.getBorderPressed(),
@@ -29,22 +29,8 @@ public class RocheButtonCancel extends RocheButtonWrapper {
 				this.getButtonIconFile());
 		
 		rocheButton.setUI(new RocheButtonUI());
-		//rocheButton.addActionListener(new CancelActionListener()); 
+		rocheButton.addActionListener(new CancelActionListener(this.getContext())); 
 
-	//		{
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//               
-//            	int opcion = JOptionPane.showConfirmDialog(null, RocheButtonCancel.this.getDialogBoxText(), RocheButtonCancel.this.getDialogBoxTitle(), JOptionPane.YES_NO_OPTION);
-//                
-//                if (opcion == 0) { //YES
-//                	InstallationAction installAc = new InstallationAction();
-//                	installAc.rollback((InstallerContext)getContext());
-//                } else { //NO
-//                	Util.showMessage("no");
-//                }
-//            }
-//        });
 		return rocheButton;
 	}
 

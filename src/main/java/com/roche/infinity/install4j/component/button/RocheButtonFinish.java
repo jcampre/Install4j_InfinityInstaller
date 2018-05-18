@@ -16,7 +16,7 @@ import com.roche.infinity.screen.component.ui.button.RocheButtonUI;
  * Define the roche button finish
  */
 public class RocheButtonFinish extends RocheButtonWrapper {
-
+	
 	/**
 	 * Creates the button
 	 */
@@ -32,19 +32,7 @@ public class RocheButtonFinish extends RocheButtonWrapper {
 				this.getButtonIconFile());
 		
 		rocheButton.setUI(new RocheButtonUI());
-		
-		rocheButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            	int opcion = JOptionPane.showConfirmDialog(null, null, null, JOptionPane.YES_NO_OPTION);
-                
-                if (opcion == 0) { //YES
-                	Util.showMessage("I will go back to the previous screen now.");
-                } else { //NO
-                	Util.showMessage("no");
-                }
-            }
-        });
+				
 		return rocheButton;
 	}
 

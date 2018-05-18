@@ -15,9 +15,8 @@ import com.roche.infinity.screen.component.button.RocheButton;
  * @date May 2018
  * Define the button wrapper
  */
-public class RocheButtonWrapper extends AbstractFormComponent{
+public abstract class RocheButtonWrapper extends AbstractFormComponent{
 
-	private Context context;
 	private String textLabel;
 	private String textToolTip;
 	private int width;
@@ -29,38 +28,10 @@ public class RocheButtonWrapper extends AbstractFormComponent{
 	private Color foreground;
 	private Color activeForeground;
 	private Color focusBorder;
-	private ExternalFile buttonIconFile;
+	private ExternalFile buttonIconFile;	
+	private Context context;
 	
 	protected RocheButton rocheButton;
-	
-	/**
-	 * @return the context
-	 */
-	public Context getContext() {
-		return context;
-	}
-
-	/**
-	 * @param context the context to set
-	 */
-	public void setContext(Context context) {
-		this.context = context;
-	}
-
-	/**
-	 * @return the rocheButton
-	 */
-	public RocheButton getRocheButton() {
-		return rocheButton;
-	}
-
-	/**
-	 * @param rocheButton the rocheButton to set
-	 */
-	public void setRocheButton(RocheButton rocheButton) {
-		this.rocheButton = rocheButton;
-	}
-
 	/**
 	 * @return the textLabel
 	 */
@@ -230,11 +201,25 @@ public class RocheButtonWrapper extends AbstractFormComponent{
 	}	
 	
 	/**
+	 * @return the context
+	 */
+	public Context getContext() {
+		return context;
+	}
+
+	/**
+	 * @param context the context to set
+	 */
+	public void setContext(Context context) {
+		this.context = context;
+	}
+
+	/**
 	 * Overloaded constructor
 	 */
 	public RocheButtonWrapper() {
-		this.context = this.getContext(); 
-		
+			
+		this.context = getContext(); 
 		background = Color.BLUE;
 		borderRaised = BorderFactory.createLineBorder(foreground);
 		borderPressed = BorderFactory.createLineBorder(foreground);
@@ -249,7 +234,7 @@ public class RocheButtonWrapper extends AbstractFormComponent{
 	 */
 	@Override
 	public JComponent createCenterComponent() {
-		return rocheButton;
+		return null;
 	}
 	
 	/**
