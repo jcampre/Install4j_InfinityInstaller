@@ -6,6 +6,12 @@ import com.install4j.api.context.Context;
 import com.install4j.api.context.InstallerContext;
 import com.roche.infinity.install4j.installation.action.InstallationAction;
 
+/**
+ * 
+ * @author Jordi Arenas
+ * @date May 2018
+ * 
+ */
 public class CancelActionListener extends AbstractActionListener {
 
 	private String dialogBoxTitle;
