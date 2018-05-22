@@ -118,11 +118,17 @@ public class LookAndFeelDemo implements ActionListener {
 
 		// Create and set up the window.
 		JFrame frame = new JFrame("SwingApplication");
+		
+//		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+//	    frame.setUndecorated(true);
+		
+		frame.setUndecorated(true); // Remove title bar
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		LookAndFeelDemo app = new LookAndFeelDemo();
-		Component contents = app.createComponents();
-		frame.getContentPane().add(contents, BorderLayout.CENTER);
+		
+//		LookAndFeelDemo app = new LookAndFeelDemo();
+//		Component contents = app.createComponents();
+//		frame.getContentPane().add(contents, BorderLayout.CENTER);
 
 		// Display the window.
 		frame.pack();

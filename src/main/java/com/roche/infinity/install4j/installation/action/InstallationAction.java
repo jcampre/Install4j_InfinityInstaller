@@ -13,11 +13,8 @@ import com.install4j.api.context.UserCanceledException;
 public class InstallationAction extends AbstractInstallAction {
 
 	private static final long serialVersionUID = 1L;
-	private InstallerContext context = null;
-
 	public InstallationAction(InstallerContext context) {
 		if (context != null) {
-			this.context = context;
 		}		
 	}
 
