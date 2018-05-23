@@ -2,42 +2,55 @@ package com.roche.infinity.system;
 
 /**
  * 
- * @author Gustavo Rebon
- * @date May 2018
- * Return the system properties
+ * @author grebonfe
+ * Bean that represents the system properties
  */
 public class SystemProperties {
 
-	protected int numberOfProcessors;
-	protected String architecture;
-	protected String operatingSystem;
-	protected String servicePack;
+	private String operatingSystemName;
+	private String servicePack;
+	private boolean isCompatible;
 	
 	/**
-	 * @return the numberOfProcessors
+	 * @return the operatingSystemName
 	 */
-	public static int getNumberOfProcessors() {
-		return Runtime.getRuntime().availableProcessors();
+	public String getOperatingSystemName() {
+		return operatingSystemName;
 	}
 	
 	/**
-	 * @return the architecture
+	 * @param operatingSystemName the operatingSystemName to set
 	 */
-	public static String getArchitecture() {
-		return System.getProperty("os.arch");
-	}
-	
-	/**
-	 * @return the operatingSystem
-	 */
-	public static String getOperatingSystem() {
-		return System.getProperty("os.name");
+	public void setOperatingSystemName(String operatingSystemName) {
+		this.operatingSystemName = operatingSystemName;
 	}
 	
 	/**
 	 * @return the servicePack
 	 */
-	public static String getServicePack() {
-		return System.getProperty("os.servicePack");
+	public String getServicePack() {
+		return servicePack;
+	}
+	
+	/**
+	 * @param servicePack the servicePack to set
+	 */
+	public void setServicePack(String servicePack) {
+		this.servicePack = servicePack;
+	}
+
+	/**
+	 * @return the isCompatible
+	 */
+	public boolean isCompatible() {
+		return isCompatible;
+	}
+
+	/**
+	 * @param isCompatible the isCompatible to set
+	 */
+	public void setCompatible(boolean isCompatible) {
+		this.isCompatible = isCompatible;
 	}		
+
 }

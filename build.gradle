@@ -3,8 +3,8 @@ apply plugin: 'eclipse'
 apply plugin: 'base'
 
 version = '1.0'
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 //create a single Jar with all dependencies
 task fatJar(type: Jar) {
@@ -21,10 +21,23 @@ task fatJar(type: Jar) {
 //Get dependencies from Maven central repository
 repositories {
     mavenCentral()
+     maven {
+        url 'https://repository.jboss.org/nexus/content/groups/public/'
+    }
+}
+
+ext {
+    droolsVersion = "6.0.1.Final" 
+        spockVersion = "1.0-groovy-2.4"
 }
 
 //Project dependencies
 dependencies {
-	compile 'ch.qos.logback:logback-classic:1.1.2'
-	compile files('lib/i4jruntime.jar')
+	compile "ch.qos.logback:logback-classic:1.1.2"
+	compile "org.kie:kie-api:${droolsVersion}"
+    compile "org.drools:drools-compiler:${droolsVersion}"
+    compile "ch.qos.logback:logback-classic:1.1.+"
+    compile "org.slf4j:slf4j-api:1.7.+"
+    testCompile "org.spockframework:spock-core:${spockVersion}"
+	compile files("lib/i4jruntime.jar")
 }
