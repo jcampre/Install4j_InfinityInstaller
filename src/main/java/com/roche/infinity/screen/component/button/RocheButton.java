@@ -10,6 +10,7 @@ import javax.swing.UIManager;
 import javax.swing.border.Border;
 
 import com.install4j.api.context.Context;
+import com.roche.infinity.screen.component.ui.button.DefaultButtonUI;
 
 /**
  * 
@@ -115,6 +116,7 @@ public class RocheButton extends JButton {
 	 * Set default values for a style button
 	 */
 	private void setDefaultButtonValues() {
+		UIManager.put("ButtonUI", DefaultButtonUI.class.getName());
 		UIManager.put("Button.border", borderRaised);
 		UIManager.put("Button.borderPressed", borderLowered);
 		UIManager.put("Button.background", backgroundNormal);
