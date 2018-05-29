@@ -6,22 +6,21 @@ import java.awt.Dimension;
 import javax.swing.JProgressBar;
 import javax.swing.UIManager;
 
-import com.roche.infinity.screen.component.ui.button.DefaultButtonUI;
+import com.install4j.api.Util;
 import com.roche.infinity.screen.component.ui.button.RocheProgressBarUI;
 
 public class RocheProgressBar extends JProgressBar {
 
 	private static final long serialVersionUID = 1L;
 
-	private static final int PROGRESSBAR_WIDTH = 300;
-	private static final int PROGRESSBAR_HEIGHT = 34;
-
+	
 	private Color background;
+	private int value;
 
-	@Override
-	public Dimension getPreferredSize() {
-		return new Dimension(PROGRESSBAR_WIDTH, PROGRESSBAR_HEIGHT);
-	}
+//	@Override
+//	public Dimension getPreferredSize() {
+//		return new Dimension(PROGRESSBAR_WIDTH, PROGRESSBAR_HEIGHT);
+//	}
 
 	/**
 	 * Default constructor
@@ -61,11 +60,29 @@ public class RocheProgressBar extends JProgressBar {
 	}
 
 	/**
+	 * Overloaded constructor
+	 * 
+	 * @param width
+	 * @param height
+	 * @param background
+	 */
+	public RocheProgressBar(int width, int height, Color background, int value) {
+		super();
+//		Util.showMessage("amplada " + width + " y alçada " + height + " background " + background + " y value " + value );
+		this.setPreferredSize(new Dimension(width, height));
+		this.background = background;
+		setValue(value);
+				
+		setDefaultButtonValues();
+	}
+
+	/**
 	 * Set default values for a style button
 	 */
 	private void setDefaultButtonValues() {
 		UIManager.put("ProgressBarUi", RocheProgressBarUI.class.getName());
 		UIManager.put("ProgressBar.background", background);
+
 		return;
 	}
 }

@@ -1,40 +1,31 @@
 package com.roche.infinity.install4j.wrappers;
 
 import java.awt.Color;
+import java.awt.Dimension;
 
 import javax.swing.JComponent;
-import javax.swing.UIManager;
-import javax.swing.plaf.ProgressBarUI;
-
-import com.install4j.api.context.Context;
 import com.install4j.api.formcomponents.AbstractFormComponent;
 import com.roche.infinity.install4j.components.RocheProgressBar;
-import com.roche.infinity.screen.component.ui.button.RocheButtonUI;
 import com.roche.infinity.screen.component.ui.button.RocheProgressBarUI;
 
-public class RocheProgressBarWrapper extends AbstractFormComponent{
+public class RocheProgressBarWrapper extends AbstractFormComponent {
+
+	private static final int PROGRESSBAR_WIDTH = 200;
+	private static final int PROGRESSBAR_HEIGHT = 14;
 
 	private Color background;
-	private Context context;
-	
+
 	private int width;
 	private int height;
-	
+	private int value;
+
 	protected RocheProgressBar rocheProgressBar;
-	
-	/**
-	 * Overloaded constructor
-	 */
-	public RocheProgressBarWrapper() {
-		this.context = getContext(); 
-		background = Color.RED;
-	}
-	
+
 	@Override
 	public JComponent createCenterComponent() {
-		rocheProgressBar = new RocheProgressBar(this.getWidth(), this.getHeight(), this.getBackground());
+		rocheProgressBar = new RocheProgressBar(getWidth(), getHeight(), getBackground(), this.getValue());
 		rocheProgressBar.setUI(new RocheProgressBarUI());
-		
+
 		return rocheProgressBar;
 	}
 
@@ -49,6 +40,7 @@ public class RocheProgressBarWrapper extends AbstractFormComponent{
 
 	public void setWidth(int width) {
 		this.width = width;
+		setSize();
 	}
 
 	public int getHeight() {
@@ -57,6 +49,7 @@ public class RocheProgressBarWrapper extends AbstractFormComponent{
 
 	public void setHeight(int height) {
 		this.height = height;
+		setSize();
 	}
 
 	public Color getBackground() {
@@ -66,19 +59,31 @@ public class RocheProgressBarWrapper extends AbstractFormComponent{
 	public void setBackground(Color background) {
 		this.background = background;
 	}
-	
-	/**
-	 * @return the context
-	 */
-	public Context getContext() {
-		return context;
+
+	public int getValue() {
+		return value;
 	}
 
-	/**
-	 * @param context the context to set
-	 */
-	public void setContext(Context context) {
-		this.context = context;
+	public void setValue(int value) {
+		this.value = value;
+		rocheProgressBar.setValue(value);
+	}
+
+	private void setSize() {
+		if ( ( getWidth() == 0 ) &&  (getHeight() == 0))
+		{
+			setPreferredSize();
+		}
+		else {
+			setCustomSize();
+		}
 	}
 	
+	private void setPreferredSize() {
+		rocheProgressBar.setPreferredSize(new Dimension(PROGRESSBAR_WIDTH, PROGRESSBAR_HEIGHT));
+	}
+
+	private void setCustomSize() {
+		rocheProgressBar.setPreferredSize(new Dimension(getWidth(), getHeight()));
+	}
 }

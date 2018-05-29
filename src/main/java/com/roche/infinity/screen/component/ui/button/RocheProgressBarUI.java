@@ -5,11 +5,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Point2D;
 import java.awt.geom.RoundRectangle2D;
+import java.io.Serializable;
+
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicProgressBarUI;
+
+import org.drools.core.command.GetDefaultValue;
+
+import com.install4j.api.Util;
 
 /**
  * 
@@ -25,13 +31,14 @@ import javax.swing.plaf.basic.BasicProgressBarUI;
  * 
  */
 
-public class RocheProgressBarUI extends BasicProgressBarUI implements java.io.Serializable {
+public class RocheProgressBarUI extends BasicProgressBarUI implements Serializable {
 
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 1L;
 	private static final RocheProgressBarUI progressBarUI = new RocheProgressBarUI();
-	
-	private final Color outlineColor = Color.decode("#A7A7A7");
-	private final Color barColor = Color.decode("#0066CC");
+
+	private final Color OUTLINE_COLOR = Color.decode("#A7A7A7");
+	private final Color BAR_COLOR = Color.decode("#0066CC");
 
 	private Handler handler;
 	private double renderProgress = 0;
@@ -41,7 +48,7 @@ public class RocheProgressBarUI extends BasicProgressBarUI implements java.io.Se
 	private Timer paintTimer;
 
 	protected Color background = UIManager.getColor("ProgressBar.background");
-	
+
 	public RocheProgressBarUI() {
 		repaintTimer = new Timer(25, new ActionListener() {
 			@Override
@@ -95,7 +102,7 @@ public class RocheProgressBarUI extends BasicProgressBarUI implements java.io.Se
 	public void uninstallUI(JComponent c) {
 		super.uninstallUI(c);
 	}
-	
+
 	protected void requestRepaint() {
 		repaintTimer.restart();
 	}
@@ -105,6 +112,8 @@ public class RocheProgressBarUI extends BasicProgressBarUI implements java.io.Se
 		super.installDefaults();
 		progressBar.setOpaque(false);
 		progressBar.setBorder(null);
+		
+		setRenderProgress(progressBar.getValue());
 	}
 
 	public void setRenderProgress(double value) {
@@ -135,11 +144,14 @@ public class RocheProgressBarUI extends BasicProgressBarUI implements java.io.Se
 
 		float iStrokeWidth = 0.5f;
 		g2d.setStroke(new BasicStroke(iStrokeWidth, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
-		g2d.setColor(outlineColor);
+		g2d.setColor(OUTLINE_COLOR);
 
 		int width = c.getWidth();
 		int height = c.getHeight();
-
+		
+		
+		Util.showMessage("amplada " + width + " y alçada " + height + " background " + OUTLINE_COLOR + ");
+		
 		RoundRectangle2D outline = new RoundRectangle2D.Double((iStrokeWidth / 2), (iStrokeWidth / 2),
 				width - iStrokeWidth, height - iStrokeWidth, height, height);
 
@@ -159,7 +171,7 @@ public class RocheProgressBarUI extends BasicProgressBarUI implements java.io.Se
 
 		float[] dist = { 0.0f, 0.25f, 1.0f };
 		// Color[] colors = { barColor, barColor.brighter(), barColor.darker() };
-		Color[] colors = { barColor, barColor, barColor };
+		Color[] colors = { BAR_COLOR, BAR_COLOR, BAR_COLOR };
 		LinearGradientPaint p = new LinearGradientPaint(start, end, dist, colors);
 
 		g2d.setPaint(p);
@@ -210,7 +222,6 @@ public class RocheProgressBarUI extends BasicProgressBarUI implements java.io.Se
 			}
 
 			setRenderProgress(dProgress);
-
 		}
 	}
 }
