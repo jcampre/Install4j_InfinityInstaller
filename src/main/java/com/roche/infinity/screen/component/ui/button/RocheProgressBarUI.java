@@ -148,9 +148,8 @@ public class RocheProgressBarUI extends BasicProgressBarUI implements Serializab
 
 		int width = c.getWidth();
 		int height = c.getHeight();
-		
-		
-		Util.showMessage("amplada " + width + " y alçada " + height + " background " + OUTLINE_COLOR + ");
+				
+//		Util.showMessage("amplada " + width + " y alçada " + height + " background " + OUTLINE_COLOR);
 		
 		RoundRectangle2D outline = new RoundRectangle2D.Double((iStrokeWidth / 2), (iStrokeWidth / 2),
 				width - iStrokeWidth, height - iStrokeWidth, height, height);

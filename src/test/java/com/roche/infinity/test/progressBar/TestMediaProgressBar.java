@@ -27,6 +27,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.plaf.basic.BasicProgressBarUI;
 
+import com.roche.infinity.install4j.components.RocheProgressBar;
 import com.roche.infinity.screen.component.ui.button.RocheProgressBarUI;
 
 public class TestMediaProgressBar {
@@ -62,14 +63,14 @@ public class TestMediaProgressBar {
 		 */
 		private static final long serialVersionUID = -2160278964056291355L;
 		
-		private MediaProgressBar pb;
+		private RocheProgressBar pb;
 		private int value = 0;
 		private int delta = 25;
 
 		public TestPane() {
 			// setBackground(Color.BLACK);
 			setLayout(new GridBagLayout());
-			pb = new MediaProgressBar();
+			pb = new RocheProgressBar(400,200);
 			add(pb);
 
 			Timer timer = new Timer(500, new ActionListener() {
@@ -97,9 +98,12 @@ public class TestMediaProgressBar {
 
 	public class MediaProgressBar extends JProgressBar {
 
-		private static final int progessBarWidth = 200;
-		private static final int progessBarHeigh = 14;
+		private static final int progressBarWidth = 200;
+		private static final int progressBarHeigh = 14;
 	
+		public int width = progressBarWidth;
+		public int height = progressBarHeigh;
+		
 		/**
 		 * 
 		 */
@@ -112,7 +116,7 @@ public class TestMediaProgressBar {
 		@Override
 		public Dimension getPreferredSize() {
 
-			return new Dimension(progessBarWidth, progessBarHeigh);
+			return new Dimension(width, height);
 
 		}
 	}

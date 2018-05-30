@@ -11,21 +11,22 @@ import com.roche.infinity.screen.component.ui.button.RocheProgressBarUI;
 public class RocheProgressBarWrapper extends AbstractFormComponent {
 
 	private static final int PROGRESSBAR_WIDTH = 200;
-	private static final int PROGRESSBAR_HEIGHT = 14;
+	private static final int PROGRESSBAR_HEIGHT = 141;
 
 	private Color background;
 
-	private int width;
-	private int height;
+	private int width = PROGRESSBAR_WIDTH;
+	private int height =  PROGRESSBAR_HEIGHT;
 	private int value;
+	
+	
 
 	protected RocheProgressBar rocheProgressBar;
 
 	@Override
 	public JComponent createCenterComponent() {
 		rocheProgressBar = new RocheProgressBar(getWidth(), getHeight(), getBackground(), this.getValue());
-		rocheProgressBar.setUI(new RocheProgressBarUI());
-
+		
 		return rocheProgressBar;
 	}
 
@@ -80,7 +81,8 @@ public class RocheProgressBarWrapper extends AbstractFormComponent {
 	}
 	
 	private void setPreferredSize() {
-		rocheProgressBar.setPreferredSize(new Dimension(PROGRESSBAR_WIDTH, PROGRESSBAR_HEIGHT));
+		rocheProgressBar.setWidth(getWidth());
+		rocheProgressBar.setHeight(getHeight());
 	}
 
 	private void setCustomSize() {

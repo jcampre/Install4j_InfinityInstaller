@@ -6,3 +6,4 @@ bin/
 .settings/
 build/
 lib/messages/
+/Thumbs.db
