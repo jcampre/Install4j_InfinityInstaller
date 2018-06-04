@@ -6,7 +6,6 @@ import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import com.install4j.api.Util;
 import com.roche.infinity.install4j.utils.Utilidades.StyleProperties;
 
 /**

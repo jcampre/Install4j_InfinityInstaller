@@ -1,4 +1,3 @@
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -7,16 +6,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import com.roche.infinity.install4j.utils.Utilidades.StyleProperties;
-import com.roche.infinity.install4j.utils.Utilidades.StyleProperties.ButtonSizes;
 import com.roche.infinity.screen.component.button.RocheButton;
 import com.roche.infinity.screen.component.ui.button.RocheButtonUI;
 
 public class SimpleRocheButtonUI {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
 	private final static RocheButtonUI m_buttonUI = new RocheButtonUI();
 
@@ -31,9 +24,6 @@ public class SimpleRocheButtonUI {
 		
 		bt1.setUI(m_buttonUI);
 		bt1.setFont(StyleProperties.BUTTON_FONT);
-		
-//		ButtonSizes b = ButtonSizes.MEDIUM;
-//		Dimension d = new Dimension(StyleProperties.buttonSizesList.get(b.name()));
 		
 		p.add(bt1);
 		f.getContentPane().add(p);

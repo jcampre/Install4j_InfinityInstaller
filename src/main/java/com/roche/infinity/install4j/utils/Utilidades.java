@@ -52,7 +52,7 @@ public class Utilidades {
 		public static final Color ACTIVE_BUTTON_BORDER_COLOR = Color.decode("#0066CC");
 		public static final Color ACTIVE_BUTTON_FOREGROUND_COLOR = Color.decode("#FFFFFFF");
 
-		public static final Font BUTTON_FONT = new Font("Roboto Medium", Font.PLAIN, 14);
+		public static final Font BUTTON_FONT = new Font("Roboto Medium", Font.PLAIN, 36);
 		public static final Font PARAGRAPH_FONT = new Font("Roboto", Font.PLAIN, 14);
 
 		public static final int BUTTON_WIDTH_SMALL_SIZE = 88;

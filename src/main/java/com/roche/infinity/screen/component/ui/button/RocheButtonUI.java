@@ -55,7 +55,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	public void installUI(JComponent c) {
 		super.installUI(c);
 		c.addMouseListener(this);
-		c.addKeyListener(this);
+//		c.addKeyListener(this);
 	}
 
 	/**
@@ -65,7 +65,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	public void uninstallUI(JComponent c) {
 		super.uninstallUI(c);
 		c.removeMouseListener(this);
-		c.removeKeyListener(this);
+//		c.removeKeyListener(this);
 	}
 
 	/**
@@ -122,6 +122,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 		c.setBorder(borderPressed);
 		c.setBackground(backgroundPressed);
 		c.setForeground(foregroundPressed);
+		c.repaint();
 	}
 
 	/**
@@ -132,6 +133,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 		c.setBorder(borderActive);
 		c.setBackground(backgroundActive);
 		c.setForeground(foregroundActive);
+		c.repaint();
 	}
 
 	/**
@@ -184,7 +186,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 			JComponent c = (JComponent) e.getComponent();
 			c.setBorder(borderNormal);
 			c.setBackground(backgroundNormal);
-//			c.setForeground(foregroundNormal);
+			c.setForeground(foregroundNormal);
 		}
 	}
 }
