@@ -2,23 +2,81 @@ package com.roche.infinity.install4j.components;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.beans.Visibility;
 
 import javax.swing.JProgressBar;
 import javax.swing.UIManager;
 
 import com.install4j.api.Util;
+import com.roche.infinity.install4j.utils.Utilidades.StyleProperties;
 import com.roche.infinity.screen.component.ui.button.RocheProgressBarUI;
 
 public class RocheProgressBar extends JProgressBar {
 
 	private static final long serialVersionUID = 1L;
-	private static final int progessBarWidth = 200;
-	private static final int progessBarHeigh = 14;
-
-	private int width = progessBarWidth;
-	private int height = progessBarHeigh;
+	
+	private int width = StyleProperties.PROGRESSBAR_WIDTH;
+	private int height = StyleProperties.PROGRESSBAR_HEIGHT;
+	
 	private Color background;
 	private int value;
+	private boolean hideInitially;
+	
+	private RocheProgressBarUI rocheProgressBarUI = new RocheProgressBarUI();
+
+	/**
+	 * @return the value
+	 */
+	public int getValue() {
+		return value;
+	}
+
+	/**
+	 * @param value the value to set
+	 */
+	public void setValue(int value) {
+		this.value = value;
+	}
+
+	/**
+	 * @return the hideInitially
+	 */
+	public boolean isHideInitially() {
+		return hideInitially;
+	}
+	
+	public void setHideInitially(boolean hideInitially) {
+		this.hideInitially = hideInitially;
+		setVisible(hideInitially);
+	}
+	
+	/**
+	 * @return the width
+	 */
+	public int getWidth() {
+		return width;
+	}
+
+	/**
+	 * @param width the width to set
+	 */
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+	/**
+	 * @return the height
+	 */
+	public int getHeight() {
+		return height;
+	}
+
+	/**
+	 * @param height the height to set
+	 */
+	public void setHeight(int height) {
+		this.height = height;
+	}
 
 	@Override
 	public Dimension getPreferredSize() {
@@ -76,50 +134,21 @@ public class RocheProgressBar extends JProgressBar {
 		this.width = width;
 		this.height = height;
 
-		Util.showMessage(
-				"amplada " + width + " y alçada " + height + " background " + background + " y value " + value);
-		this.background = background;
+//		Util.showMessage(
+//				"amplada " + width + " y alçada " + height + " background " + background + " y value " + value);
+		
+		setBackground(background);
 		setValue(value);
 
 		setDefaultButtonValues();
 	}
 
 	/**
-	 * @return the width
-	 */
-	public int getWidth() {
-		return width;
-	}
-
-	/**
-	 * @param width the width to set
-	 */
-	public void setWidth(int width) {
-		this.width = width;
-	}
-
-	/**
-	 * @return the height
-	 */
-	public int getHeight() {
-		return height;
-	}
-
-	/**
-	 * @param height the height to set
-	 */
-	public void setHeight(int height) {
-		this.height = height;
-	}
-
-	/**
 	 * Set default values for a style button
 	 */
 	private void setDefaultButtonValues() {
-		this.setUI(new RocheProgressBarUI());
-		UIManager.put("ProgressBarUi", RocheProgressBarUI.class.getName());
-		UIManager.put("ProgressBar.background", background);
-
+		this.setUI(rocheProgressBarUI);
 		return;
 	}
+
 }

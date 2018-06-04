@@ -1,16 +1,13 @@
 package com.roche.infinity.screen.component.button;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.UIManager;
-import javax.swing.border.Border;
 
-import com.install4j.api.context.Context;
-import com.roche.infinity.screen.component.ui.button.DefaultButtonUI;
+import com.install4j.api.Util;
+import com.roche.infinity.install4j.utils.Utilidades.StyleProperties;
 
 /**
  * 
@@ -21,20 +18,12 @@ import com.roche.infinity.screen.component.ui.button.DefaultButtonUI;
 public class RocheButton extends JButton {
 	
 	private static final long serialVersionUID = 1L;
-	private transient Border borderRaised;
-	private transient Border borderLowered;
-	private Color backgroundNormal;
-	private Color backgroundPressed;
-	private Color foregroundNormal;
-	private Color foregroundActive;
-	private Color focusBorder;
 	
 	/**
 	 * Default constructor
 	 */
-	public RocheButton(Context context) {
-		super();		
-		setDefaultButtonValues();
+	public RocheButton() {
+		super();
 	}
 	
 	/**
@@ -43,8 +32,7 @@ public class RocheButton extends JButton {
 	 * @param text
 	 */
 	public RocheButton(String text) {
-		super(text);		
-		setDefaultButtonValues();
+		super(text);
 	}
 	
 	/**
@@ -55,7 +43,6 @@ public class RocheButton extends JButton {
 	 */
 	public RocheButton(String text, ImageIcon buttonImage) {
 		super(text, buttonImage);		
-		setDefaultButtonValues();
 	}
 	
 	/**
@@ -67,9 +54,7 @@ public class RocheButton extends JButton {
 	 */	 
 	public RocheButton(int width, int height, String textLabel) {
 		super(textLabel);		
-		this.setPreferredSize(new Dimension(width, height));
-		setDefaultButtonValues();
-			
+		this.setPreferredSize(new Dimension(width, height));			
 	}
 
 	/**
@@ -80,49 +65,29 @@ public class RocheButton extends JButton {
 	 * @param textLabel
 	 * @param textToolTip
 	 * @param buttonFont
-	 * @param borderRaised
-	 * @param borderPressed
-	 * @param background
-	 * @param pressedBackground
-	 * @param foreground
-	 * @param activeForeground
-	 * @param focusBorder
 	 * @param buttonImage
+	 * @param hide
+	 * @param bgcolor
+	 * @param fgcolor
+	 * @param font
 	 */
 	public RocheButton(int width, int height, String textLabel, String textToolTip, 
-			Font buttonFont, Border borderRaised, Border borderPressed, Color background, 
-			Color pressedBackground, Color foreground, Color activeForeground, Color focusBorder,
-			File buttonImage) {
+			Font buttonFont, File buttonImage, boolean hide) {
 		
 		super(textLabel);
-		if (buttonImage != null)
-			this.setIcon(new ImageIcon(buttonImage.getAbsolutePath()));
+		
+//		Util.showMessage("amplada " + this.getWidth() + " y alçada " + height + " getTextLabel " + textLabel);
+		
+//		if (buttonImage != null)
+//			this.setIcon(new ImageIcon(buttonImage.getAbsolutePath()));
+		this.setIcon(null);
 		
 		this.setToolTipText(textToolTip);
 		this.setPreferredSize(new Dimension(width, height));
-		this.setFont(buttonFont);			
-		this.borderRaised=borderRaised;
-		this.borderLowered=borderPressed;
-		this.backgroundNormal=background;
-		this.backgroundPressed=pressedBackground;
-		this.foregroundNormal=foreground;
-		this.foregroundActive=activeForeground;
-		this.focusBorder=focusBorder;
-		
-		setDefaultButtonValues();
-	}
-	
-	/**
-	 * Set default values for a style button
-	 */
-	private void setDefaultButtonValues() {
-		UIManager.put("ButtonUI", DefaultButtonUI.class.getName());
-		UIManager.put("Button.border", borderRaised);
-		UIManager.put("Button.borderPressed", borderLowered);
-		UIManager.put("Button.background", backgroundNormal);
-		UIManager.put("Button.pressedBackground", backgroundPressed);
-		UIManager.put("Button.foreground", foregroundNormal);
-		UIManager.put("Button.activeForeground", foregroundActive);
-		UIManager.put("Button.focusBorder", focusBorder);
+		this.setFont(buttonFont);
+		this.setVisible(!hide);
+		this.setBackground(StyleProperties.NORMAL_BUTTON_BACKGROUND_COLOR);
+		this.setForeground(StyleProperties.NORMAL_BUTTON_FOREGROUND_COLOR);
+
 	}
 }

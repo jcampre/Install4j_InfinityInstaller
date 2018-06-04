@@ -8,11 +8,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridBagLayout;
 import java.awt.LinearGradientPaint;
-import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.geom.Area;
 import java.awt.geom.Point2D;
 import java.awt.geom.RoundRectangle2D;
 import javax.swing.BoundedRangeModel;
@@ -70,24 +68,26 @@ public class TestMediaProgressBar {
 		public TestPane() {
 			// setBackground(Color.BLACK);
 			setLayout(new GridBagLayout());
-			pb = new RocheProgressBar(400,200);
+			pb = new RocheProgressBar(200,14, Color.RED, 1 );
 			add(pb);
-
-			Timer timer = new Timer(500, new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					if (value + delta > 100) {
-						delta *= -1;
-						value = 100;
-					} else if (value + delta < 0) {
-						delta *= -1;
-						value = 0;
-					}
-					value += delta;
-					pb.setValue(value);
-				}
-			});
-			timer.start();
+				
+			pb.setValue(33);
+			
+//			Timer timer = new Timer(500, new ActionListener() {
+//				@Override
+//				public void actionPerformed(ActionEvent e) {
+//					if (value + delta > 100) {
+//						delta *= -1;
+//						value = 100;
+//					} else if (value + delta < 0) {
+//						delta *= -1;
+//						value = 0;
+//					}
+//					value += delta;
+//					pb.setValue(value);
+//				}
+//			});
+//			timer.start();
 		}
 
 		@Override

@@ -1,21 +1,18 @@
 package com.roche.infinity.screen.component.ui.button;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.geom.Point2D;
 import java.awt.geom.RoundRectangle2D;
 import java.io.Serializable;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicProgressBarUI;
 
-import org.drools.core.command.GetDefaultValue;
-
 import com.install4j.api.Util;
+
+//import org.drools.core.command.GetDefaultValue;
+
 
 /**
  * 
@@ -33,14 +30,13 @@ import com.install4j.api.Util;
 
 public class RocheProgressBarUI extends BasicProgressBarUI implements Serializable {
 
-	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 1L;
 	private static final RocheProgressBarUI progressBarUI = new RocheProgressBarUI();
 
 	private final Color OUTLINE_COLOR = Color.decode("#A7A7A7");
 	private final Color BAR_COLOR = Color.decode("#0066CC");
 
-	private Handler handler;
+//	private Handler handler;
 	private double renderProgress = 0;
 	private double targetProgress = 0;
 	private double progressDelta = 0.04;
@@ -50,37 +46,37 @@ public class RocheProgressBarUI extends BasicProgressBarUI implements Serializab
 	protected Color background = UIManager.getColor("ProgressBar.background");
 
 	public RocheProgressBarUI() {
-		repaintTimer = new Timer(25, new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				progressBar.repaint();
-			}
-		});
-		repaintTimer.setRepeats(false);
-		repaintTimer.setCoalesce(true);
-
-		paintTimer = new Timer(40, new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (progressDelta < 0) {
-
-					if (renderProgress + progressDelta < targetProgress) {
-						((Timer) e.getSource()).stop();
-						renderProgress = targetProgress + progressDelta;
-					}
-
-				} else {
-
-					if (renderProgress + progressDelta > targetProgress) {
-						((Timer) e.getSource()).stop();
-						renderProgress = targetProgress - progressDelta;
-					}
-
-				}
-				renderProgress += progressDelta;
-				requestRepaint();
-			}
-		});
+//		repaintTimer = new Timer(25, new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				progressBar.repaint();
+//			}
+//		});
+//		repaintTimer.setRepeats(false);
+//		repaintTimer.setCoalesce(true);
+//
+//		paintTimer = new Timer(40, new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				if (progressDelta < 0) {
+//
+//					if (renderProgress + progressDelta < targetProgress) {
+//						((Timer) e.getSource()).stop();
+//						renderProgress = targetProgress + progressDelta;
+//					}
+//
+//				} else {
+//
+//					if (renderProgress + progressDelta > targetProgress) {
+//						((Timer) e.getSource()).stop();
+//						renderProgress = targetProgress - progressDelta;
+//					}
+//
+//				}
+//				renderProgress += progressDelta;
+//				requestRepaint();
+//			}
+//		});
 	}
 
 	public static ComponentUI createUI(JComponent c) {
@@ -104,7 +100,7 @@ public class RocheProgressBarUI extends BasicProgressBarUI implements Serializab
 	}
 
 	protected void requestRepaint() {
-		repaintTimer.restart();
+//		repaintTimer.restart();
 	}
 
 	@Override
@@ -113,23 +109,27 @@ public class RocheProgressBarUI extends BasicProgressBarUI implements Serializab
 		progressBar.setOpaque(false);
 		progressBar.setBorder(null);
 		
-		setRenderProgress(progressBar.getValue());
+//		setRenderProgress(progressBar.getValue());
+		//setRenderProgress(0.01f);
 	}
 
 	public void setRenderProgress(double value) {
-		if (value != targetProgress) {
-			paintTimer.stop();
-
-			targetProgress = value;
-			if (targetProgress < renderProgress && progressDelta > 0) {
-				progressDelta *= -1;
-			} else if (targetProgress > renderProgress && progressDelta < 0) {
-				progressDelta *= -1;
-			}
-			System.out.println(progressDelta);
-
-			paintTimer.start();
-		}
+		
+		renderProgress = value;
+		
+//		if (value != targetProgress) {
+//			paintTimer.stop();
+//
+//			targetProgress = value;
+//			if (targetProgress < renderProgress && progressDelta > 0) {
+//				progressDelta *= -1;
+//			} else if (k > renderProgress && progressDelta < 0) {
+//				progressDelta *= -1;
+//			}
+//			System.out.println(progressDelta);
+//
+//			paintTimer.start();
+//		}
 	}
 
 	public double getRenderProgress() {
@@ -183,44 +183,44 @@ public class RocheProgressBarUI extends BasicProgressBarUI implements Serializab
 		g2d.dispose();
 	}
 
-	@Override
-	protected void installListeners() {
-		super.installListeners();
-		progressBar.addChangeListener(getChangeHandler());
-	}
-
-	protected ChangeListener getChangeHandler() {
-
-		return getHandler();
-
-	}
-
-	protected Handler getHandler() {
-
-		if (handler == null) {
-			handler = new Handler();
-		}
-
-		return handler;
-
-	}
-
-	public class Handler implements ChangeListener {
-
-		@Override
-		public void stateChanged(ChangeEvent e) {
-
-			BoundedRangeModel model = progressBar.getModel();
-			int newRange = model.getMaximum() - model.getMinimum();
-			double dProgress = (double) (model.getValue() / (double) newRange);
-
-			if (dProgress < 0) {
-				dProgress = 0;
-			} else if (dProgress > 1) {
-				dProgress = 1;
-			}
-
-			setRenderProgress(dProgress);
-		}
-	}
+//	@Override
+//	protected void installListeners() {
+//		super.installListeners();
+//		progressBar.addChangeListener(getChangeHandler());
+//	}
+//
+//	protected ChangeListener getChangeHandler() {
+//
+//		return getHandler();
+//
+//	}
+//
+//	protected Handler getHandler() {
+//
+//		if (handler == null) {
+//			handler = new Handler();
+//		}
+//
+//		return handler;
+//
+//	}
+//
+//	public class Handler implements ChangeListener {
+//
+//		@Override
+//		public void stateChanged(ChangeEvent e) {
+//
+//			BoundedRangeModel model = progressBar.getModel();
+//			int newRange = model.getMaximum() - model.getMinimum();
+//			double dProgress = (double) (model.getValue() / (double) newRange);
+//
+//			if (dProgress < 0) {
+//				dProgress = 0;
+//			} else if (dProgress > 1) {
+//				dProgress = 1;
+//			}
+//
+//			setRenderProgress(dProgress);
+//		}
+//	}
 }

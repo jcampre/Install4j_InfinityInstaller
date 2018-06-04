@@ -6,6 +6,7 @@ import com.install4j.api.context.Context;
 import com.install4j.api.context.InstallerContext;
 import com.roche.infinity.install4j.installation.action.InstallationAction;
 
+
 /**
  * 
  * @author Jordi Arenas
@@ -47,10 +48,10 @@ public class CancelActionListener extends AbstractActionListener {
 		this.dialogBoxText = dialogBoxText;
 	}
 
-	public CancelActionListener(Context context) {
+	public CancelActionListener(Context context) {	
 		super(context);
-		dialogBoxTitle = context.getMessage("screen.cancelDialogBox.title");
-		dialogBoxText = context.getMessage("screen.cancelDialogBox.text");		
+		dialogBoxTitle = this.getContext().getMessage("screen.cancelDialogBox.title");
+		dialogBoxText = this.getContext().getMessage("screen.cancelDialogBox.text");		
 	}
 
 	@Override

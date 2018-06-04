@@ -1,37 +1,51 @@
 package com.roche.infinity.install4j.wrapper.button;
 
-import java.awt.Color;
-import javax.swing.BorderFactory;
+import java.awt.Font;
+
 import javax.swing.JComponent;
-import javax.swing.border.Border;
+
 import com.install4j.api.beans.ExternalFile;
 import com.install4j.api.context.Context;
 import com.install4j.api.formcomponents.AbstractFormComponent;
+import com.roche.infinity.install4j.utils.Utilidades.StyleProperties;
+import com.roche.infinity.install4j.utils.Utilidades.StyleProperties.ButtonSizes;
 import com.roche.infinity.screen.component.button.RocheButton;
 
 /**
  * 
- * @author Jordi Campreciós
- * @date May 2018
- * Define the button wrapper
+ * @author Jordi Campreciós i Jordi Arenas
+ * @date May 2018 Define the button wrapper
  */
-public abstract class RocheButtonWrapper extends AbstractFormComponent{
+public abstract class RocheButtonWrapper extends AbstractFormComponent {
 
-	private String textLabel;
-	private String textToolTip;
-	private int width;
-	private int height;
-	private Border borderRaised;
-	private Border borderPressed;
-	private Color background;
-	private Color pressedBackground;
-	private Color foreground;
-	private Color activeForeground;
-	private Color focusBorder;
-	private ExternalFile buttonIconFile;	
 	private Context context;
-	
+	private String textLabel = "button";
+	private String textToolTip = "button tooltip";
+	private ButtonSizes size = ButtonSizes.MEDIUM;
+	private int width = 112;
+	private int height = 36;
+	private boolean hide = false;
+	private Font font = StyleProperties.BUTTON_FONT;
+	private ExternalFile buttonIconFile = null;
+
 	protected RocheButton rocheButton;
+
+	public ButtonSizes getSize() {
+		return size;
+	}
+
+	public void setSize(ButtonSizes size) {
+		this.size = size;
+		
+		if ( StyleProperties.buttonSizesList.isEmpty())
+		{
+			StyleProperties.setDefaultButtonSizes();
+		}
+
+		this.setWidth(StyleProperties.buttonSizesList.get(size.name()).width);
+		this.setHeight(StyleProperties.buttonSizesList.get(size.name()).height);
+	}
+
 	/**
 	 * @return the textLabel
 	 */
@@ -40,7 +54,8 @@ public abstract class RocheButtonWrapper extends AbstractFormComponent{
 	}
 
 	/**
-	 * @param textLabel the textLabel to set
+	 * @param textLabel
+	 *            the textLabel to set
 	 */
 	public void setTextLabel(String textLabel) {
 		this.textLabel = textLabel;
@@ -54,7 +69,8 @@ public abstract class RocheButtonWrapper extends AbstractFormComponent{
 	}
 
 	/**
-	 * @param textToolTip the textToolTip to set
+	 * @param textToolTip
+	 *            the textToolTip to set
 	 */
 	public void setTextToolTip(String textToolTip) {
 		this.textToolTip = textToolTip;
@@ -68,7 +84,8 @@ public abstract class RocheButtonWrapper extends AbstractFormComponent{
 	}
 
 	/**
-	 * @param width the width to set
+	 * @param width
+	 *            the width to set
 	 */
 	public void setWidth(int width) {
 		this.width = width;
@@ -82,108 +99,56 @@ public abstract class RocheButtonWrapper extends AbstractFormComponent{
 	}
 
 	/**
-	 * @param height the height to set
+	 * @param height
+	 *            the height to set
 	 */
 	public void setHeight(int height) {
 		this.height = height;
 	}
 
 	/**
-	 * @return the borderRaised
+	 * @return the hide
 	 */
-	public Border getBorderRaised() {
-		return borderRaised;
+	public boolean isHide() {
+		return hide;
 	}
 
 	/**
-	 * @param borderRaised the borderRaised to set
+	 * @param hide
+	 *            the hide to set
 	 */
-	public void setBorderRaised(Border borderRaised) {
-		this.borderRaised = borderRaised;
+	public void setHide(boolean hide) {
+		this.hide = hide;
 	}
 
 	/**
-	 * @return the borderPressed
+	 * @return the font
 	 */
-	public Border getBorderPressed() {
-		return borderPressed;
+	public Font getFont() {
+		return font;
 	}
 
 	/**
-	 * @param borderPressed the borderPressed to set
+	 * @param font
+	 *            the font to set
 	 */
-	public void setBorderPressed(Border borderPressed) {
-		this.borderPressed = borderPressed;
+	public void setFont(Font font) {
+		this.font = font;
 	}
 
 	/**
-	 * @return the background
+	 * @return the context
 	 */
-	public Color getBackground() {
-		return background;
+	public Context getContext() {
+		return context;
 	}
 
 	/**
-	 * @param background the background to set
+	 * @param context
+	 *            the context to set
 	 */
-	public void setBackground(Color background) {
-		this.background = background;
-	}
-
-	/**
-	 * @return the pressedBackground
-	 */
-	public Color getPressedBackground() {
-		return pressedBackground;
-	}
-
-	/**
-	 * @param pressedBackground the pressedBackground to set
-	 */
-	public void setPressedBackground(Color pressedBackground) {
-		this.pressedBackground = pressedBackground;
-	}
-
-	/**
-	 * @return the foreground
-	 */
-	public Color getForeground() {
-		return foreground;
-	}
-
-	/**
-	 * @param foreground the foreground to set
-	 */
-	public void setForeground(Color foreground) {
-		this.foreground = foreground;
-	}
-
-	/**
-	 * @return the activeForeground
-	 */
-	public Color getActiveForeground() {
-		return activeForeground;
-	}
-
-	/**
-	 * @param activeForeground the activeForeground to set
-	 */
-	public void setActiveForeground(Color activeForeground) {
-		this.activeForeground = activeForeground;
-	}
-
-	/**
-	 * @return the focusBorder
-	 */
-	public Color getFocusBorder() {
-		return focusBorder;
-	}
-
-	/**
-	 * @param focusBorder the focusBorder to set
-	 */
-	public void setFocusBorder(Color focusBorder) {
-		this.focusBorder = focusBorder;
+	public void setContext(Context context) {
+		this.context = context;
 	}
 
 	/**
@@ -194,49 +159,28 @@ public abstract class RocheButtonWrapper extends AbstractFormComponent{
 	}
 
 	/**
-	 * @param buttonIconFile the buttonIconFile to set
+	 * @param buttonIconFile
+	 *            the buttonIconFile to set
 	 */
 	public void setButtonIconFile(ExternalFile buttonIconFile) {
 		this.buttonIconFile = buttonIconFile;
-	}	
-	
-	/**
-	 * @return the context
-	 */
-	public Context getContext() {
-		return context;
-	}
-
-	/**
-	 * @param context the context to set
-	 */
-	public void setContext(Context context) {
-		this.context = context;
 	}
 
 	/**
 	 * Overloaded constructor
 	 */
 	public RocheButtonWrapper() {
-			
-		this.context = getContext(); 
-		background = Color.BLUE;
-		borderRaised = BorderFactory.createLineBorder(foreground);
-		borderPressed = BorderFactory.createLineBorder(foreground);
-		pressedBackground = Color.CYAN;
-		foreground = Color.RED;
-		activeForeground = Color.GREEN;
-		focusBorder = Color.ORANGE;
+		this.context = getContext();		
 	}
-	
+
 	/**
 	 * 
 	 */
 	@Override
-	public JComponent createCenterComponent() {
+	public JComponent createCenterComponent() {		
 		return null;
 	}
-	
+
 	/**
 	 * 
 	 */
@@ -244,5 +188,5 @@ public abstract class RocheButtonWrapper extends AbstractFormComponent{
 	public boolean isFillCenterHorizontal() {
 		return false;
 	}
-	
+
 }

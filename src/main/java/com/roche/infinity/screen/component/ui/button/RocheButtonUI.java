@@ -12,30 +12,39 @@ import java.awt.event.MouseListener;
 import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
-import javax.swing.UIManager;
 import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicButtonUI;
 
+import com.roche.infinity.install4j.utils.Utilidades.StyleProperties;
+
 /**
  * 
- * @author Jordi Campreciós
- * @date May 2018
+ * @author Jordi Campreciós i Jordi Arenas
+ * @date May/juny 2018
  * Define the button actions and the style
  */
 public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable, MouseListener, KeyListener {
 
 	private static final long serialVersionUID = 1L;
+	
 	private static final RocheButtonUI buttonUI = new RocheButtonUI();
-	protected transient Border borderRaised = UIManager.getBorder("Button.border");
-	protected transient Border borderLowered = UIManager.getBorder("Button.borderPressed");
-	protected Color backgroundNormal = UIManager.getColor("Button.background");
-	protected Color backgroundPressed = UIManager.getColor("Button.pressedBackground");
-	protected Color foregroundNormal = UIManager.getColor("Button.foreground");
-	protected Color foregroundActive = UIManager.getColor("Button.activeForeground");
-	protected Color focusBorder = UIManager.getColor("Button.focusBorder");
+	
+//	protected transient Border borderRaised = new LineBorder(StyleProperties.normalButtonBorderColor);
+//	protected transient Border borderLowered = new LineBorder(StyleProperties.pressedButtonBorderColor);
+	
+	protected transient Color backgroundNormal = StyleProperties.NORMAL_BUTTON_BACKGROUND_COLOR;
+	protected transient Color backgroundPressed = StyleProperties.PRESSED_BUTTON_BACKGROUND_COLOR;
+	protected transient Color backgroundActive = StyleProperties.ACTIVE_BUTTON_BACKGROUND_COLOR;
+	protected transient Color foregroundNormal = StyleProperties.NORMAL_BUTTON_FOREGROUND_COLOR;
+	protected transient Color foregroundPressed = StyleProperties.PRESSED_BUTTON_FOREGROUND_COLOR;
+	protected transient Color foregroundActive = StyleProperties.ACTIVE_BUTTON_FOREGROUND_COLOR;
+	protected transient Border borderNormal = new LineBorder(StyleProperties.NORMAL_BUTTON_BORDER_COLOR);
+	protected transient Border borderPressed = new LineBorder(StyleProperties.PRESSED_BUTTON_BORDER_COLOR);
+	protected transient Border borderActive = new LineBorder(StyleProperties.ACTIVE_BUTTON_BORDER_COLOR);
 
-	public static ComponentUI createUI(JComponent c) {
+	public static ComponentUI createUI(JComponent component) {
 		return buttonUI;
 	}
 
@@ -74,13 +83,13 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 		String caption = b.getText();
 		
 		ImageIcon  imageIcon = (ImageIcon) b.getIcon();
-		int x_icon=0;
+		int xIcon=0;
 		if (imageIcon != null)
 		{
-			g.drawImage(imageIcon.getImage(), 5, ((int)d.getHeight()/2) - ((int)imageIcon.getIconHeight()/2), null);
-			x_icon = imageIcon.getIconWidth() + 5 ;
+			g.drawImage(imageIcon.getImage(), 5, ((int)d.getHeight()/2) - (imageIcon.getIconHeight()/2), null);
+			xIcon = imageIcon.getIconWidth() + 5 ;
 		}
-		int x = x_icon + (d.width - fm.stringWidth(caption)) / 2;
+		int x = xIcon + (d.width - fm.stringWidth(caption)) / 2;
 		int y = (d.height + fm.getAscent()) / 2;
 		g.drawString(caption, x, y);
 	}
@@ -91,8 +100,8 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	@Override
 	public Dimension getPreferredSize(JComponent c) {
 		Dimension d = super.getPreferredSize(c);
-		if (borderRaised != null) {
-			Insets ins = borderRaised.getBorderInsets(c);
+		if (borderNormal != null) {
+			Insets ins = borderNormal.getBorderInsets(c);
 			d.setSize(d.width + ins.left + ins.right, d.height + ins.top + ins.bottom);
 		}
 		return d;
@@ -110,8 +119,9 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	 */
 	public void mousePressed(MouseEvent e) {
 		JComponent c = (JComponent) e.getComponent();
-		c.setBorder(borderLowered);
+		c.setBorder(borderPressed);
 		c.setBackground(backgroundPressed);
+		c.setForeground(foregroundPressed);
 	}
 
 	/**
@@ -119,8 +129,9 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	 */
 	public void mouseReleased(MouseEvent e) {
 		JComponent c = (JComponent) e.getComponent();
-		c.setBorder(borderRaised);
-		c.setBackground(backgroundNormal);
+		c.setBorder(borderActive);
+		c.setBackground(backgroundActive);
+		c.setForeground(foregroundActive);
 	}
 
 	/**
@@ -128,6 +139,8 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	 */
 	public void mouseEntered(MouseEvent e) {
 		JComponent c = (JComponent) e.getComponent();
+		c.setBorder(borderActive);
+		c.setBackground(backgroundActive);
 		c.setForeground(foregroundActive);
 		c.repaint();
 	}
@@ -137,6 +150,8 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	 */
 	public void mouseExited(MouseEvent e) {
 		JComponent c = (JComponent) e.getComponent();
+		c.setBorder(borderNormal);
+		c.setBackground(backgroundNormal);
 		c.setForeground(foregroundNormal);
 		c.repaint();
 	}
@@ -154,8 +169,9 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 		int code = e.getKeyCode();
 		if (code == KeyEvent.VK_ENTER || code == KeyEvent.VK_SPACE) {
 			JComponent c = (JComponent) e.getComponent();
-			c.setBorder(borderLowered);
+			c.setBorder(borderPressed);
 			c.setBackground(backgroundPressed);
+			c.setForeground(Color.BLACK);
 		}
 	}
 
@@ -166,8 +182,9 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 		int code = e.getKeyCode();
 		if (code == KeyEvent.VK_ENTER || code == KeyEvent.VK_SPACE) {
 			JComponent c = (JComponent) e.getComponent();
-			c.setBorder(borderRaised);
+			c.setBorder(borderNormal);
 			c.setBackground(backgroundNormal);
+//			c.setForeground(foregroundNormal);
 		}
 	}
 }

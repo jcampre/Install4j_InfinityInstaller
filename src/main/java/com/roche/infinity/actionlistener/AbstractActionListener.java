@@ -21,15 +21,10 @@ public abstract class AbstractActionListener implements ActionListener {
 		return context;
 	}
 
-	/**
-	 * @param context the context to set
-	 */
-	public void setContext(Context context) {
-		this.context = context;
-	}
+	
 
 	public AbstractActionListener(Context context) {		
-		this.setContext(context);
+		this.context=context;
 	}
 
 	@Override

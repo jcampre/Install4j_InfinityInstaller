@@ -16,17 +16,21 @@ public class RocheProgressBarWrapper extends AbstractFormComponent {
 	private Color background;
 
 	private int width = PROGRESSBAR_WIDTH;
-	private int height =  PROGRESSBAR_HEIGHT;
+	private int height = PROGRESSBAR_HEIGHT;
 	private int value;
-	
+	private boolean hideInitially = false;
+
 	
 
 	protected RocheProgressBar rocheProgressBar;
 
 	@Override
 	public JComponent createCenterComponent() {
-		rocheProgressBar = new RocheProgressBar(getWidth(), getHeight(), getBackground(), this.getValue());
-		
+		if ((width == 0) || (height == 0))
+			rocheProgressBar = new RocheProgressBar();
+		else
+			rocheProgressBar = new RocheProgressBar(getWidth(), getHeight(), getBackground(), this.getValue());
+
 		return rocheProgressBar;
 	}
 
@@ -35,13 +39,28 @@ public class RocheProgressBarWrapper extends AbstractFormComponent {
 		return false;
 	}
 
+	/**
+	 * @return the hideInitially
+	 */
+	public boolean isHideInitially() {
+		return hideInitially;
+	}
+
+	/**
+	 * @param hideInitially the hideInitially to set
+	 */
+	public void setHideInitially(boolean hideInitially) {
+		this.hideInitially = hideInitially;
+		rocheProgressBar.setHideInitially(hideInitially);
+	}
+	
 	public int getWidth() {
 		return width;
 	}
 
 	public void setWidth(int width) {
 		this.width = width;
-		setSize();
+		// setSize();
 	}
 
 	public int getHeight() {
@@ -50,7 +69,7 @@ public class RocheProgressBarWrapper extends AbstractFormComponent {
 
 	public void setHeight(int height) {
 		this.height = height;
-		setSize();
+		// setSize();
 	}
 
 	public Color getBackground() {
@@ -68,24 +87,5 @@ public class RocheProgressBarWrapper extends AbstractFormComponent {
 	public void setValue(int value) {
 		this.value = value;
 		rocheProgressBar.setValue(value);
-	}
-
-	private void setSize() {
-		if ( ( getWidth() == 0 ) &&  (getHeight() == 0))
-		{
-			setPreferredSize();
-		}
-		else {
-			setCustomSize();
-		}
-	}
-	
-	private void setPreferredSize() {
-		rocheProgressBar.setWidth(getWidth());
-		rocheProgressBar.setHeight(getHeight());
-	}
-
-	private void setCustomSize() {
-		rocheProgressBar.setPreferredSize(new Dimension(getWidth(), getHeight()));
 	}
 }
