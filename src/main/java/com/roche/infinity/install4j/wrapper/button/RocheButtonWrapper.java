@@ -9,6 +9,7 @@ import com.install4j.api.context.Context;
 import com.install4j.api.formcomponents.AbstractFormComponent;
 import com.roche.infinity.install4j.utils.Utilidades.StyleProperties;
 import com.roche.infinity.install4j.utils.Utilidades.StyleProperties.ButtonSizes;
+import com.roche.infinity.install4j.utils.Utilidades.StyleProperties.ButtonTypes;
 import com.roche.infinity.screen.component.button.RocheButton;
 
 /**
@@ -22,6 +23,7 @@ public abstract class RocheButtonWrapper extends AbstractFormComponent {
 	private String textLabel = "button";
 	private String textToolTip = "button tooltip";
 	private ButtonSizes size = ButtonSizes.MEDIUM;
+	private ButtonTypes type = ButtonTypes.NORMAL;
 	private int width = 112;
 	private int height = 36;
 	private boolean hide = false;
@@ -30,6 +32,22 @@ public abstract class RocheButtonWrapper extends AbstractFormComponent {
 
 	protected RocheButton rocheButton;
 
+	public ButtonTypes getType() {
+		return type;
+	}
+
+	public void setType(ButtonTypes type) {
+		this.type = type;
+		
+//		if ( StyleProperties.buttonSizesList.isEmpty())
+//		{
+//			StyleProperties.setDefaultButtonSizes();
+//		}
+
+//		this.setWidth(StyleProperties.buttonSizesList.get(size.name()).width);
+//		this.setHeight(StyleProperties.buttonSizesList.get(size.name()).height);
+	}
+	
 	public ButtonSizes getSize() {
 		return size;
 	}

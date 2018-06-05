@@ -52,7 +52,7 @@ public class Utilidades {
 		public static final Color ACTIVE_BUTTON_BORDER_COLOR = Color.decode("#0066CC");
 		public static final Color ACTIVE_BUTTON_FOREGROUND_COLOR = Color.decode("#FFFFFFF");
 
-		public static final Font BUTTON_FONT = new Font("Roboto Medium", Font.PLAIN, 36);
+		public static final Font BUTTON_FONT = new Font("Roboto Medium", Font.PLAIN, 14);
 		public static final Font PARAGRAPH_FONT = new Font("Roboto", Font.PLAIN, 14);
 
 		public static final int BUTTON_WIDTH_SMALL_SIZE = 88;
@@ -64,19 +64,37 @@ public class Utilidades {
 
 		public static Hashtable<String, Dimension> buttonSizesList = new Hashtable<>();
 
-		public static enum ButtonSizes {
+		public static enum ButtonTypes {
+			NORMAL("Normal"), ACTIVE("Active");
+
+			private String name;
+
+			private ButtonTypes(String s) {
+				this.name = s;
+			}
+
+			public boolean equalsName(String otherName) {
+
+				return name.equals(otherName);
+			}
+
+			@Override
+			public String toString() {
+				return this.name;
+			}
+		};
+		
+		public enum ButtonSizes {
 			SMALL("Small"), MEDIUM("Medium"), LARGE("Large");
 
 			private String name;
 
 			private ButtonSizes(String s) {
 				this.name = s;
-				// Util.showMessage("Size " + this.name);
 			}
 
 			public boolean equalsName(String otherName) {
-				// (otherName == null) check is not needed because name.equals(null) returns
-				// false
+
 				return name.equals(otherName);
 			}
 
@@ -106,5 +124,4 @@ public class Utilidades {
 					new Dimension(BUTTON_WIDTH_LARGE_SIZE, BUTTON_HEIGHT_SMALL_SIZE));
 		}
 	}
-
 }
