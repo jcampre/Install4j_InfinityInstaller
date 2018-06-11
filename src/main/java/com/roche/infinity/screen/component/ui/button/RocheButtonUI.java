@@ -23,19 +23,18 @@ import com.roche.infinity.install4j.utils.Utilidades.StyleProperties;
 /**
  * 
  * @author Jordi Campreciós i Jordi Arenas
- * @date May/juny 2018
- * Define the button actions and the style
+ * @date May/juny 2018 Define the button actions and the style
  */
 public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable, MouseListener, KeyListener {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private final static RocheButtonUI buttonUI = new RocheButtonUI();
 	private static JComponent parentComponent;
-	
+
 	private transient Color backgroundDefault = StyleProperties.NORMAL_DEFAULT_BUTTON_BACKGROUND_COLOR;
 	private transient Color backgroundPressed = StyleProperties.NORMAL_PRESSED_BUTTON_BACKGROUND_COLOR;
-	private transient Color backgroundHover= StyleProperties.NORMAL_HOVER_BUTTON_BACKGROUND_COLOR;
+	private transient Color backgroundHover = StyleProperties.NORMAL_HOVER_BUTTON_BACKGROUND_COLOR;
 	private transient Color backgroundDisable = StyleProperties.NORMAL_DISABLE_BUTTON_BACKGROUND_COLOR;
 	private transient Color foregroundDefault = StyleProperties.NORMAL_DEFAULT_BUTTON_FOREGROUND_COLOR;
 	private transient Color foregroundPressed = StyleProperties.NORMAL_PRESSED_BUTTON_FOREGROUND_COLOR;
@@ -45,7 +44,9 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	private transient Border borderPressed = new LineBorder(StyleProperties.NORMAL_PRESSED_BUTTON_BORDER_COLOR);
 	private transient Border borderHover = new LineBorder(StyleProperties.NORMAL_HOVER_BUTTON_BORDER_COLOR);
 	private transient Border borderDisable = new LineBorder(StyleProperties.NORMAL_DISABLE_BUTTON_BORDER_COLOR);
-	
+
+	private transient boolean disable = false;
+
 	/**
 	 * @return the parentComponent
 	 */
@@ -54,7 +55,8 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	}
 
 	/**
-	 * @param parentComponent the parentComponent to set
+	 * @param parentComponent
+	 *            the parentComponent to set
 	 */
 	public static void setParentComponent(JComponent parentComponent) {
 		RocheButtonUI.parentComponent = parentComponent;
@@ -68,7 +70,8 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	}
 
 	/**
-	 * @param backgroundPressed the backgroundPressed to set
+	 * @param backgroundPressed
+	 *            the backgroundPressed to set
 	 */
 	public void setBackgroundPressed(Color backgroundPressed) {
 		this.backgroundPressed = backgroundPressed;
@@ -82,7 +85,8 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	}
 
 	/**
-	 * @param backgroundHover the backgroundHover to set
+	 * @param backgroundHover
+	 *            the backgroundHover to set
 	 */
 	public void setBackgroundHover(Color backgroundHover) {
 		this.backgroundHover = backgroundHover;
@@ -96,7 +100,8 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	}
 
 	/**
-	 * @param backgroundDisable the backgroundDisable to set
+	 * @param backgroundDisable
+	 *            the backgroundDisable to set
 	 */
 	public void setBackgroundDisable(Color backgroundDisable) {
 		this.backgroundDisable = backgroundDisable;
@@ -110,7 +115,8 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	}
 
 	/**
-	 * @param foregroundPressed the foregroundPressed to set
+	 * @param foregroundPressed
+	 *            the foregroundPressed to set
 	 */
 	public void setForegroundPressed(Color foregroundPressed) {
 		this.foregroundPressed = foregroundPressed;
@@ -124,7 +130,8 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	}
 
 	/**
-	 * @param foregroundHover the foregroundHover to set
+	 * @param foregroundHover
+	 *            the foregroundHover to set
 	 */
 	public void setForegroundHover(Color foregroundHover) {
 		this.foregroundHover = foregroundHover;
@@ -138,7 +145,8 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	}
 
 	/**
-	 * @param foregroundDisable the foregroundDisable to set
+	 * @param foregroundDisable
+	 *            the foregroundDisable to set
 	 */
 	public void setForegroundDisable(Color foregroundDisable) {
 		this.foregroundDisable = foregroundDisable;
@@ -152,7 +160,8 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	}
 
 	/**
-	 * @param borderPressed the borderPressed to set
+	 * @param borderPressed
+	 *            the borderPressed to set
 	 */
 	public void setBorderPressed(Border borderPressed) {
 		this.borderPressed = borderPressed;
@@ -166,7 +175,8 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	}
 
 	/**
-	 * @param borderHover the borderHover to set
+	 * @param borderHover
+	 *            the borderHover to set
 	 */
 	public void setBorderHover(Border borderHover) {
 		this.borderHover = borderHover;
@@ -180,7 +190,8 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	}
 
 	/**
-	 * @param borderDisable the borderDisable to set
+	 * @param borderDisable
+	 *            the borderDisable to set
 	 */
 	public void setBorderDisable(Border borderDisable) {
 		this.borderDisable = borderDisable;
@@ -201,14 +212,13 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	}
 
 	/**
-	 * @param disable the disable to set
+	 * @param disable
+	 *            the disable to set
 	 */
 	public void setDisable(boolean disable) {
 		this.disable = disable;
 	}
 
-	private transient boolean disable = false;
-	
 	/**
 	 * @return the disable
 	 */
@@ -217,32 +227,38 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	}
 
 	/**
-	 * @param disable the disable to set
+	 * @param disable
+	 *            the disable to set
 	 */
-	public void setDisable(JButton b , boolean disable) {
+	public void setDisable(JButton b, boolean disable) {
 		this.disable = disable;
+
+		if (disable) {
+			b.setBorder(getBorderDisable());
+			b.setBackground(getBackgroundDisable());
+			b.setForeground(getForegroundDisable());
+					
+			parentComponent.removeMouseListener(this);
+		}
+		else 
+		{
+			b.setBorder(getBorderDisable());
+			b.setBackground(getBackgroundDisable());
+			b.setForeground(getForegroundDisable());
+			
+			parentComponent.addMouseListener(this);
+		}
 		
-		System.out.println("setDisable");
-//		b.setBackgroundDefault(backgroundDisable);
-//		setForegroundDefault(foregroundDisable);
-//		setBorderDefault(borderDisable);
-		
-		b.setBorder(getBorderDisable());
-		b.setBackground(getBackgroundDisable());
-		b.setForeground(getForegroundDisable());
 		b.repaint();
-		
-		
 		parentComponent.repaint();
-		
-		parentComponent.removeMouseListener(this);
+	
 	}
 
 	public static ComponentUI createUI(JComponent component) {
 		System.out.println("Component en RocheButtonIO");
-		
+
 		parentComponent = component;
-		
+
 		return buttonUI;
 	}
 
@@ -254,7 +270,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 		super.installUI(c);
 		parentComponent = c;
 		c.addMouseListener(this);
-//		c.addKeyListener(this);
+		// c.addKeyListener(this);
 	}
 
 	/**
@@ -264,7 +280,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	public void uninstallUI(JComponent c) {
 		super.uninstallUI(c);
 		c.removeMouseListener(this);
-//		c.removeKeyListener(this);
+		// c.removeKeyListener(this);
 	}
 
 	/**
@@ -280,13 +296,12 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 
 		g.setColor(b.getForeground());
 		String caption = b.getText();
-		
-		ImageIcon  imageIcon = (ImageIcon) b.getIcon();
-		int xIcon=0;
-		if (imageIcon != null)
-		{
-			g.drawImage(imageIcon.getImage(), 5, ((int)d.getHeight()/2) - (imageIcon.getIconHeight()/2), null);
-			xIcon = imageIcon.getIconWidth() + 5 ;
+
+		ImageIcon imageIcon = (ImageIcon) b.getIcon();
+		int xIcon = 0;
+		if (imageIcon != null) {
+			g.drawImage(imageIcon.getImage(), 5, ((int) d.getHeight() / 2) - (imageIcon.getIconHeight() / 2), null);
+			xIcon = imageIcon.getIconWidth() + 5;
 		}
 		int x = xIcon + (d.width - fm.stringWidth(caption)) / 2;
 		int y = (d.height + fm.getAscent()) / 2;
@@ -305,7 +320,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 		}
 		return d;
 	}
-	
+
 	/**
 	 * Define the mouse clicked action
 	 */
@@ -359,7 +374,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 
 	/**
 	 * Define the key typed action
-	 */	
+	 */
 	public void keyTyped(KeyEvent e) {
 	}
 
