@@ -41,18 +41,36 @@ public class Utilidades {
 	}
 
 	public static class StyleProperties {
-		// Buttons colors
-		public static final Color NORMAL_BUTTON_BACKGROUND_COLOR = Color.decode("#FAFAFA");
-		public static final Color NORMAL_BUTTON_BORDER_COLOR = Color.decode("#BABABA");
-		public static final Color NORMAL_BUTTON_FOREGROUND_COLOR = Color.decode("#000000");
-		public static final Color PRESSED_BUTTON_BACKGROUND_COLOR = Color.decode("#E8E8E8");
-		public static final Color PRESSED_BUTTON_BORDER_COLOR = Color.decode("#A7A7A7");
-		public static final Color PRESSED_BUTTON_FOREGROUND_COLOR = Color.decode("#FFFFFF");
-		public static final Color ACTIVE_BUTTON_BACKGROUND_COLOR = Color.decode("#0066CC");
-		public static final Color ACTIVE_BUTTON_BORDER_COLOR = Color.decode("#0066CC");
-		public static final Color ACTIVE_BUTTON_FOREGROUND_COLOR = Color.decode("#FFFFFFF");
+		// Buttons normal colors
+		public static final Color NORMAL_DEFAULT_BUTTON_BACKGROUND_COLOR = Color.decode("#FAFAFA");
+		public static final Color NORMAL_DEFAULT_BUTTON_BORDER_COLOR = Color.decode("#BABABA");
+		public static final Color NORMAL_DEFAULT_BUTTON_FOREGROUND_COLOR = Color.decode("#000000");
+		public static final Color NORMAL_PRESSED_BUTTON_BACKGROUND_COLOR = Color.decode("#E8E8E8");
+		public static final Color NORMAL_PRESSED_BUTTON_BORDER_COLOR = Color.decode("#A7A7A7");
+		public static final Color NORMAL_PRESSED_BUTTON_FOREGROUND_COLOR = Color.decode("#000000");
+		public static final Color NORMAL_HOVER_BUTTON_BACKGROUND_COLOR = Color.decode("#0066CC");
+		public static final Color NORMAL_HOVER_BUTTON_BORDER_COLOR = Color.decode("#0066CC");
+		public static final Color NORMAL_HOVER_BUTTON_FOREGROUND_COLOR = Color.decode("#FFFFFF");
+		public static final Color NORMAL_DISABLE_BUTTON_BACKGROUND_COLOR = Color.decode("#FAFAFA");
+		public static final Color NORMAL_DISABLE_BUTTON_BORDER_COLOR = Color.decode("#EFEFEF");
+		public static final Color NORMAL_DISABLE_BUTTON_FOREGROUND_COLOR = Color.decode("#BABABA");
+		
+		// Buttons Active colors
+		public static final Color ACTIVE_DEFAULT_BUTTON_BACKGROUND_COLOR = Color.decode("#0066CC");
+		public static final Color ACTIVE_DEFAULT_BUTTON_BORDER_COLOR = Color.decode("#0066CC");
+		public static final Color ACTIVE_DEFAULT_BUTTON_FOREGROUND_COLOR = Color.decode("#FFFFFF");
+		public static final Color ACTIVE_PRESSED_BUTTON_BACKGROUND_COLOR = Color.decode("#638EB9");
+		public static final Color ACTIVE_PRESSED_BUTTON_BORDER_COLOR = Color.decode("#638EB9");
+		public static final Color ACTIVE_PRESSED_BUTTON_FOREGROUND_COLOR = Color.decode("#FFFFFF");
+		public static final Color ACTIVE_HOVER_BUTTON_BACKGROUND_COLOR = Color.decode("#0066CC");
+		public static final Color ACTIVE_HOVER_BUTTON_BORDER_COLOR = Color.decode("#FFFFFF");
+		public static final Color ACTIVE_HOVER_BUTTON_FOREGROUND_COLOR = Color.decode("#FFFFFF");
+		public static final Color ACTIVE_DISABLE_BUTTON_BACKGROUND_COLOR = Color.decode("#D3D3D3");
+		public static final Color ACTIVE_DISABLE_BUTTON_BORDER_COLOR = Color.decode("#D3D3D3");
+		public static final Color ACTIVE_DISABLE_BUTTON_FOREGROUND_COLOR = Color.decode("#EFEFEF");
+		
 
-		public static final Font BUTTON_FONT = new Font("Roboto Medium", Font.PLAIN, 14);
+		public static final Font BUTTON_FONT = new Font("Roboto Medium", Font.PLAIN, 34);
 		public static final Font PARAGRAPH_FONT = new Font("Roboto", Font.PLAIN, 14);
 
 		public static final int BUTTON_WIDTH_SMALL_SIZE = 88;

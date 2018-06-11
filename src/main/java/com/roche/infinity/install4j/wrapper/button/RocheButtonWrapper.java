@@ -11,6 +11,9 @@ import com.roche.infinity.install4j.utils.Utilidades.StyleProperties;
 import com.roche.infinity.install4j.utils.Utilidades.StyleProperties.ButtonSizes;
 import com.roche.infinity.install4j.utils.Utilidades.StyleProperties.ButtonTypes;
 import com.roche.infinity.screen.component.button.RocheButton;
+import com.roche.infinity.screen.component.ui.button.ActiveRocheButtonUI;
+import com.roche.infinity.screen.component.ui.button.NormalRocheButtonUI;
+import com.roche.infinity.screen.component.ui.button.RocheButtonUI;
 
 /**
  * 
@@ -27,10 +30,36 @@ public abstract class RocheButtonWrapper extends AbstractFormComponent {
 	private int width = 112;
 	private int height = 36;
 	private boolean hide = false;
+	private boolean disable = false;
 	private Font font = StyleProperties.BUTTON_FONT;
 	private ExternalFile buttonIconFile = null;
 
+	protected RocheButtonUI buttonUI;
+
 	protected RocheButton rocheButton;
+
+	public RocheButtonUI getButtonUI() {
+		return buttonUI;
+	}
+
+	public void setButtonUI(RocheButtonUI buttonUI) {
+		this.buttonUI = buttonUI;
+	}
+
+	/**
+	 * @return the disable
+	 */
+	public boolean isDisable() {
+		return disable;
+	}
+
+	/**
+	 * @param disable
+	 *            the disable to set
+	 */
+	public void setDisable(boolean disable) {
+		this.disable = disable;
+	}
 
 	public ButtonTypes getType() {
 		return type;
@@ -39,24 +68,24 @@ public abstract class RocheButtonWrapper extends AbstractFormComponent {
 	public void setType(ButtonTypes type) {
 		this.type = type;
 		
-//		if ( StyleProperties.buttonSizesList.isEmpty())
-//		{
-//			StyleProperties.setDefaultButtonSizes();
-//		}
-
-//		this.setWidth(StyleProperties.buttonSizesList.get(size.name()).width);
-//		this.setHeight(StyleProperties.buttonSizesList.get(size.name()).height);
+		switch (this.getType()) {
+		case NORMAL:
+			buttonUI = (RocheButtonUI) new NormalRocheButtonUI();
+			break;
+		case ACTIVE:
+			buttonUI = (RocheButtonUI) new ActiveRocheButtonUI();
+			break;
+		}
 	}
-	
+
 	public ButtonSizes getSize() {
 		return size;
 	}
 
 	public void setSize(ButtonSizes size) {
 		this.size = size;
-		
-		if ( StyleProperties.buttonSizesList.isEmpty())
-		{
+
+		if (StyleProperties.buttonSizesList.isEmpty()) {
 			StyleProperties.setDefaultButtonSizes();
 		}
 
@@ -188,15 +217,24 @@ public abstract class RocheButtonWrapper extends AbstractFormComponent {
 	 * Overloaded constructor
 	 */
 	public RocheButtonWrapper() {
-		this.context = getContext();		
+		this.context = getContext();
 	}
 
 	/**
 	 * 
 	 */
 	@Override
-	public JComponent createCenterComponent() {		
-		return null;
+	public JComponent createCenterComponent() {
+		switch (this.getType()) {
+		case NORMAL:
+			buttonUI = (RocheButtonUI) new NormalRocheButtonUI();
+			break;
+		case ACTIVE:
+			buttonUI = (RocheButtonUI) new ActiveRocheButtonUI();
+			break;
+		}
+
+		return rocheButton;
 	}
 
 	/**
@@ -206,5 +244,4 @@ public abstract class RocheButtonWrapper extends AbstractFormComponent {
 	public boolean isFillCenterHorizontal() {
 		return false;
 	}
-
 }

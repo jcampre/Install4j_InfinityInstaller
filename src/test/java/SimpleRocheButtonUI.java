@@ -6,12 +6,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import com.roche.infinity.install4j.utils.Utilidades.StyleProperties;
+import com.roche.infinity.install4j.utils.Utilidades.StyleProperties.ButtonTypes;
 import com.roche.infinity.screen.component.button.RocheButton;
+import com.roche.infinity.screen.component.ui.button.ActiveRocheButtonUI;
+import com.roche.infinity.screen.component.ui.button.NormalRocheButtonUI;
 import com.roche.infinity.screen.component.ui.button.RocheButtonUI;
 
 public class SimpleRocheButtonUI {
-
-	private final static RocheButtonUI m_buttonUI = new RocheButtonUI();
 
 	public static void main(String argv[]) {
 		JFrame f = new JFrame();
@@ -19,13 +20,16 @@ public class SimpleRocheButtonUI {
 		f.getContentPane().setLayout(new FlowLayout());
 
 		JPanel p = new JPanel();
-		JButton bt1 = new RocheButton(StyleProperties.BUTTON_WIDTH_MEDIUM_SIZE, StyleProperties.BUTTON_HEIGHT_MEDIUM_SIZE, "Click Me", "Això és un botó", 
-				StyleProperties.BUTTON_FONT, null, false);
+		JButton bt1 = new RocheButton( ButtonTypes.NORMAL, StyleProperties.BUTTON_WIDTH_LARGE_SIZE, StyleProperties.BUTTON_HEIGHT_LARGE_SIZE, "Click Me", "Això és un botó", 
+				StyleProperties.BUTTON_FONT, null, false, false);
 		
-		bt1.setUI(m_buttonUI);
-		bt1.setFont(StyleProperties.BUTTON_FONT);
+		JButton bt2 = new RocheButton( ButtonTypes.ACTIVE, StyleProperties.BUTTON_WIDTH_LARGE_SIZE, StyleProperties.BUTTON_HEIGHT_LARGE_SIZE, "Click Me", "Això és un botó", 
+				StyleProperties.BUTTON_FONT, null, false, false);
+		
 		
 		p.add(bt1);
+		p.add(bt2);
+		
 		f.getContentPane().add(p);
 		WindowListener wndCloser = new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {

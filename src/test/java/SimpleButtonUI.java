@@ -95,32 +95,32 @@ public class SimpleButtonUI extends BasicButtonUI implements java.io.Serializabl
 
 	public void mousePressed(MouseEvent e) {
 		JComponent c = (JComponent) e.getComponent();
-		c.setBorder(new LineBorder(StyleProperties.PRESSED_BUTTON_BORDER_COLOR));
-		c.setForeground(Color.black);
-		c.setBackground(StyleProperties.PRESSED_BUTTON_BACKGROUND_COLOR);
+		c.setBorder(new LineBorder(StyleProperties.NORMAL_PRESSED_BUTTON_BORDER_COLOR));
+		c.setForeground(StyleProperties.NORMAL_PRESSED_BUTTON_FOREGROUND_COLOR);
+		c.setBackground(StyleProperties.NORMAL_PRESSED_BUTTON_BACKGROUND_COLOR);
 	}
 
 	public void mouseReleased(MouseEvent e) {
 		JComponent c = (JComponent) e.getComponent();
 		// c.setBorder(m_borderRaised);
-		c.setBorder(new LineBorder(StyleProperties.NORMAL_BUTTON_BORDER_COLOR));
-		c.setForeground(StyleProperties.NORMAL_BUTTON_FOREGROUND_COLOR);
-		c.setBackground(StyleProperties.NORMAL_BUTTON_BACKGROUND_COLOR);
+		c.setBorder(new LineBorder(StyleProperties.NORMAL_DEFAULT_BUTTON_BORDER_COLOR));
+		c.setForeground(StyleProperties.NORMAL_DEFAULT_BUTTON_FOREGROUND_COLOR);
+		c.setBackground(StyleProperties.NORMAL_DEFAULT_BUTTON_BACKGROUND_COLOR);
 	}
 
 	public void mouseEntered(MouseEvent e) {
 		JComponent c = (JComponent) e.getComponent();
-		c.setBorder(new LineBorder(StyleProperties.ACTIVE_BUTTON_BORDER_COLOR));
-		c.setForeground(StyleProperties.ACTIVE_BUTTON_FOREGROUND_COLOR);
-		c.setBackground(StyleProperties.ACTIVE_BUTTON_BACKGROUND_COLOR);
+		c.setBorder(new LineBorder(StyleProperties.NORMAL_HOVER_BUTTON_BORDER_COLOR));
+		c.setForeground(StyleProperties.NORMAL_HOVER_BUTTON_FOREGROUND_COLOR);
+		c.setBackground(StyleProperties.NORMAL_HOVER_BUTTON_BACKGROUND_COLOR);
 		c.repaint();
 	}
 
 	public void mouseExited(MouseEvent e) {
 		JComponent c = (JComponent) e.getComponent();
-		c.setBorder(new LineBorder(StyleProperties.NORMAL_BUTTON_BORDER_COLOR));
-		c.setForeground(StyleProperties.NORMAL_BUTTON_FOREGROUND_COLOR);
-		c.setBackground(StyleProperties.NORMAL_BUTTON_BACKGROUND_COLOR);
+		c.setBorder(new LineBorder(StyleProperties.NORMAL_DEFAULT_BUTTON_BORDER_COLOR));
+		c.setForeground(StyleProperties.NORMAL_DEFAULT_BUTTON_FOREGROUND_COLOR);
+		c.setBackground(StyleProperties.NORMAL_DEFAULT_BUTTON_BACKGROUND_COLOR);
 		c.repaint();
 	}
 

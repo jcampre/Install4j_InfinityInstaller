@@ -20,9 +20,9 @@ public class RocheButtonNext extends RocheButtonWrapper {
 	@Override
 	public JComponent createCenterComponent() {
 		
-		rocheButton = new RocheButton(this.getWidth(), this.getHeight(), 
-				this.getTextLabel(), this.getTextToolTip(), null, 
-				this.getButtonIconFile(), this.isHide());		
+		rocheButton = new RocheButton(this.getType(), this.getWidth(), this.getHeight(), this.getTextLabel(),
+				this.getTextToolTip(), this.getFont(), this.getButtonIconFile(), this.isHide(), this.isDisable());
+
 	
 		rocheButton.addActionListener(new NextActionListener(this.getContext())); 
 

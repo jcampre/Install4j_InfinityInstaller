@@ -10,7 +10,7 @@ import java.awt.event.WindowListener;
 import javax.swing.*;
 import javax.swing.UIManager.LookAndFeelInfo;
 
-import com.roche.infinity.screen.component.ui.button.DefaultButtonUI;
+import com.roche.infinity.screen.component.ui.button.DefaultButtonUI2;
 
 @SuppressWarnings("serial")
 public class LookAndFeelCreate extends JFrame {
@@ -26,7 +26,7 @@ public class LookAndFeelCreate extends JFrame {
 			}
 		});
 
-		UIManager.put("ButtonUI", DefaultButtonUI.class.getName()); // Here is the relevant line
+		UIManager.put("ButtonUI", DefaultButtonUI2.class.getName()); // Here is the relevant line
 
 		UIManager.put("Panel.background", Color.LIGHT_GRAY);
 

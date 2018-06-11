@@ -42,12 +42,12 @@ import com.roche.infinity.install4j.components.RoundedBorder;
  * 
  */
 
-public class DefaultButtonUI extends BasicButtonUI {
+public class DefaultButtonUI2 extends BasicButtonUI {
 
 	public static final int BUTTON_WIDTH = 80;
 	public static final int BUTTON_HEIGHT = 24;
 
-	private static final DefaultButtonUI INSTANCE = new DefaultButtonUI();
+	private static final DefaultButtonUI2 INSTANCE = new DefaultButtonUI2();
 	private static final int MARGIN_VALUE = 30;
 	private static final Insets BUTTON_MARGIN = new Insets(MARGIN_VALUE, 0, MARGIN_VALUE, 0);
 	private static final Border BUTTON_BORDER = BorderFactory.createLineBorder(Color.GRAY);
