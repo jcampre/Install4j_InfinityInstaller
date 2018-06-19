@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-import com.roche.infinity.actionlistener.CancelActionListener;
+import com.roche.infinity.actionlistener.CancelButtonActionListener;
 
 public class Testing {
 
@@ -25,7 +25,7 @@ public class Testing {
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
 
-		btn.addActionListener(new CancelActionListener(null));
+		btn.addActionListener(new CancelButtonActionListener(null));
 	}
 
 	public void removeMinMaxClose(Component comp) {

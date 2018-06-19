@@ -1,5 +1,9 @@
 buildscript {
   repositories {
+   	mavenCentral()
+    maven {
+        url "http://central.maven.org/maven2/"
+    }
     maven {
       url "https://plugins.gradle.org/m2/"
     }
@@ -48,6 +52,7 @@ ext {
 
 //Project dependencies
 dependencies {
+	compile group: 'commons-io', name: 'commons-io', version: '2.6'
 	compile "ch.qos.logback:logback-classic:1.1.2"
 	compile "org.kie:kie-api:${droolsVersion}"
     compile "org.drools:drools-compiler:${droolsVersion}"
@@ -55,4 +60,8 @@ dependencies {
     compile "org.slf4j:slf4j-api:1.7.+"
     testCompile "org.spockframework:spock-core:${spockVersion}"
 	compile files("lib/i4jruntime.jar")
+	compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.11.0'
+  	compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.0'
+  	compile "com.googlecode.json-simple:json-simple:1.1.1"
+	
 }

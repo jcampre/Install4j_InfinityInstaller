@@ -1,3 +1,5 @@
+package com.roche.infinity.test.Buttons;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -20,10 +22,14 @@ public class SimpleRocheButtonUI {
 		f.getContentPane().setLayout(new FlowLayout());
 
 		JPanel p = new JPanel();
-		JButton bt1 = new RocheButton( ButtonTypes.NORMAL, StyleProperties.BUTTON_WIDTH_LARGE_SIZE, StyleProperties.BUTTON_HEIGHT_LARGE_SIZE, "Click Me", "Això és un botó", 
+		JButton bt1 = new RocheButton( ButtonTypes.NORMAL, 
+				new Dimension(StyleProperties.BUTTON_WIDTH_LARGE_SIZE, StyleProperties.BUTTON_HEIGHT_LARGE_SIZE), 
+				"Click Me", "Això és un botó", 
 				StyleProperties.BUTTON_FONT, null, false, false);
 		
-		JButton bt2 = new RocheButton( ButtonTypes.ACTIVE, StyleProperties.BUTTON_WIDTH_LARGE_SIZE, StyleProperties.BUTTON_HEIGHT_LARGE_SIZE, "Click Me", "Això és un botó", 
+		JButton bt2 = new RocheButton( ButtonTypes.ACTIVE,
+				new Dimension(StyleProperties.BUTTON_WIDTH_LARGE_SIZE, StyleProperties.BUTTON_HEIGHT_LARGE_SIZE), 
+				"Click Me", "Això és un botó", 
 				StyleProperties.BUTTON_FONT, null, false, false);
 		
 		

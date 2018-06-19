@@ -12,7 +12,7 @@ import com.install4j.api.context.Context;
  */
 public abstract class AbstractActionListener implements ActionListener {
 	
-	private Context context;
+	private final Context context;
 
 	/**
 	 * @return the context
@@ -21,12 +21,17 @@ public abstract class AbstractActionListener implements ActionListener {
 		return context;
 	}
 
-	
-
+	/**
+	 * 
+	 * @param context
+	 */
 	public AbstractActionListener(Context context) {		
 		this.context=context;
 	}
 
+	/**
+	 * @param e
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		

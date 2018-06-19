@@ -11,7 +11,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
@@ -29,8 +28,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 
 	private static final long serialVersionUID = 1L;
 
-	private final static RocheButtonUI buttonUI = new RocheButtonUI();
-	private static JComponent parentComponent;
+	private static final RocheButtonUI buttonUI = new RocheButtonUI();
 
 	private transient Color backgroundDefault = StyleProperties.NORMAL_DEFAULT_BUTTON_BACKGROUND_COLOR;
 	private transient Color backgroundPressed = StyleProperties.NORMAL_PRESSED_BUTTON_BACKGROUND_COLOR;
@@ -45,21 +43,19 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	private transient Border borderHover = new LineBorder(StyleProperties.NORMAL_HOVER_BUTTON_BORDER_COLOR);
 	private transient Border borderDisable = new LineBorder(StyleProperties.NORMAL_DISABLE_BUTTON_BORDER_COLOR);
 
-	private transient boolean disable = false;
-
 	/**
-	 * @return the parentComponent
+	 * @return the backgroundDefault
 	 */
-	public static JComponent getParentComponent() {
-		return parentComponent;
+	public Color getBackgroundDefault() {
+		return backgroundDefault;
 	}
 
 	/**
-	 * @param parentComponent
-	 *            the parentComponent to set
+	 * @param backgroundDefault
+	 *            the backgroundDefault to set
 	 */
-	public static void setParentComponent(JComponent parentComponent) {
-		RocheButtonUI.parentComponent = parentComponent;
+	public void setBackgroundDefault(Color backgroundDefault) {
+		this.backgroundDefault = backgroundDefault;
 	}
 
 	/**
@@ -108,6 +104,21 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	}
 
 	/**
+	 * @return the foregroundDefault
+	 */
+	public Color getForegroundDefault() {
+		return foregroundDefault;
+	}
+
+	/**
+	 * @param foregroundDefault
+	 *            the foregroundDefault to set
+	 */
+	public void setForegroundDefault(Color foregroundDefault) {
+		this.foregroundDefault = foregroundDefault;
+	}
+
+	/**
 	 * @return the foregroundPressed
 	 */
 	public Color getForegroundPressed() {
@@ -150,6 +161,21 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	 */
 	public void setForegroundDisable(Color foregroundDisable) {
 		this.foregroundDisable = foregroundDisable;
+	}
+
+	/**
+	 * @return the borderDefault
+	 */
+	public Border getBorderDefault() {
+		return borderDefault;
+	}
+
+	/**
+	 * @param borderDefault
+	 *            the borderDefault to set
+	 */
+	public void setBorderDefault(Border borderDefault) {
+		this.borderDefault = borderDefault;
 	}
 
 	/**
@@ -197,69 +223,26 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 		this.borderDisable = borderDisable;
 	}
 
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	/**
-	 * @return the buttonui
-	 */
-	public static RocheButtonUI getButtonui() {
-		return buttonUI;
-	}
-
-	/**
-	 * @param disable
-	 *            the disable to set
-	 */
-	public void setDisable(boolean disable) {
-		this.disable = disable;
-	}
-
-	/**
-	 * @return the disable
-	 */
-	public boolean isDisable() {
-		return disable;
-	}
-
-	/**
-	 * @param disable
-	 *            the disable to set
-	 */
-	public void setDisable(JButton b, boolean disable) {
-		this.disable = disable;
-
-		if (disable) {
-			b.setBorder(getBorderDisable());
-			b.setBackground(getBackgroundDisable());
-			b.setForeground(getForegroundDisable());
-					
-			parentComponent.removeMouseListener(this);
-		}
-		else 
-		{
-			b.setBorder(getBorderDisable());
-			b.setBackground(getBackgroundDisable());
-			b.setForeground(getForegroundDisable());
-			
-			parentComponent.addMouseListener(this);
-		}
-		
-		b.repaint();
-		parentComponent.repaint();
-	
-	}
-
 	public static ComponentUI createUI(JComponent component) {
-		System.out.println("Component en RocheButtonIO");
-
-		parentComponent = component;
-
 		return buttonUI;
+	}
+
+	/**
+	 * 
+	 * @param c
+	 */
+	public void disableButton(JComponent c) {
+		c.removeMouseListener(this);
+		c.removeKeyListener(this);
+	}
+
+	/**
+	 * 
+	 * @param c
+	 */
+	public void enableButton(JComponent c) {
+		c.addMouseListener(this);
+		c.addKeyListener(this);
 	}
 
 	/**
@@ -268,9 +251,8 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	@Override
 	public void installUI(JComponent c) {
 		super.installUI(c);
-		parentComponent = c;
 		c.addMouseListener(this);
-		// c.addKeyListener(this);
+		c.addKeyListener(this);
 	}
 
 	/**
@@ -280,7 +262,7 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	public void uninstallUI(JComponent c) {
 		super.uninstallUI(c);
 		c.removeMouseListener(this);
-		// c.removeKeyListener(this);
+		c.removeKeyListener(this);
 	}
 
 	/**
@@ -402,29 +384,5 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 			c.setBackground(getBackgroundDefault());
 			c.setForeground(getForegroundDefault());
 		}
-	}
-
-	public Border getBorderDefault() {
-		return borderDefault;
-	}
-
-	public void setBorderDefault(Border borderDefault) {
-		this.borderDefault = borderDefault;
-	}
-
-	public Color getBackgroundDefault() {
-		return backgroundDefault;
-	}
-
-	public void setBackgroundDefault(Color backgroundDefault) {
-		this.backgroundDefault = backgroundDefault;
-	}
-
-	public Color getForegroundDefault() {
-		return foregroundDefault;
-	}
-
-	public void setForegroundDefault(Color foregroundDefault) {
-		this.foregroundDefault = foregroundDefault;
 	}
 }

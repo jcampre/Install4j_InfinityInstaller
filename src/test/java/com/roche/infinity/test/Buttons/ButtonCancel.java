@@ -1,3 +1,5 @@
+package com.roche.infinity.test.Buttons;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -23,10 +25,11 @@ import javax.swing.border.LineBorder;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicButtonUI;
 
+import com.roche.infinity.actionlistener.CancelButtonActionListener;
 import com.roche.infinity.install4j.utils.Utilidades.StyleProperties;
 import com.roche.infinity.screen.component.ui.button.RocheButtonUI;
 
-public class SimpleButtonUI extends BasicButtonUI implements java.io.Serializable, MouseListener, KeyListener {
+public class ButtonCancel extends BasicButtonUI implements java.io.Serializable, MouseListener, KeyListener {
 
 	/**
 	 * 
@@ -57,13 +60,13 @@ public class SimpleButtonUI extends BasicButtonUI implements java.io.Serializabl
 		super.installUI(c);
 
 		c.addMouseListener(this);
-//		c.addKeyListener(this);
+		// c.addKeyListener(this);
 	}
 
 	public void uninstallUI(JComponent c) {
 		super.uninstallUI(c);
 		c.removeMouseListener(this);
-//		c.removeKeyListener(this);
+		// c.removeKeyListener(this);
 	}
 
 	public void paint(Graphics g, JComponent c) {
@@ -156,6 +159,7 @@ public class SimpleButtonUI extends BasicButtonUI implements java.io.Serializabl
 		bt1.setPreferredSize(new Dimension(200, 54));
 		bt1.setUI(m_buttonUI);
 		bt1.setFont(StyleProperties.BUTTON_FONT);
+		bt1.addActionListener(new CancelButtonActionListener(null));
 
 		p.add(bt1);
 		f.getContentPane().add(p);
