@@ -1,5 +1,7 @@
 package com.roche.infinity.action;
 
+import java.io.File;
+
 import com.install4j.api.context.Context;
 import com.roche.infinity.installer.install4j.utils.Utils;
 
@@ -25,7 +27,7 @@ public class CopyAction extends AbstractRocheAction  {
 
 	@Override
 	protected boolean execute(Context context) throws Exception {
-		Utils.copyFolder((String)context.getVariable("backupFolder"));
+		Utils.copyFolder(new File((String)context.getVariable("backupFolder")), new File ((String)context.getVariable("backupFolder")));
 		return false;
 	}
 

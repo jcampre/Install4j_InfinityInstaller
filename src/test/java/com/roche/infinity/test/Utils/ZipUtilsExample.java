@@ -14,8 +14,8 @@ import java.util.zip.ZipOutputStream;
 public class ZipUtilsExample {
 
     private List <String> fileList;
-    private String outputZipFile = "Folder.zip";
-    private String sourceFolder = "C:\\Temp"; // SourceFolder path
+    private static String outputZipFile = "Folder.zip";
+    private static final String sourceFolder = "C:\\Temp"; // SourceFolder path
 
     public ZipUtilsExample() {
         fileList = new ArrayList < String > ();
@@ -24,7 +24,7 @@ public class ZipUtilsExample {
     public static void main(String[] args) {
         ZipUtilsExample appZip = new ZipUtilsExample();
         appZip.generateFileList(new File(sourceFolder));
-        appZip.zipIt(getOUTPUT_ZIP_FILE());
+        appZip.zipIt(outputZipFile);
     }
 
     public void zipIt(String zipFile) {

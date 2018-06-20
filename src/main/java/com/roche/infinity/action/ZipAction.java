@@ -1,11 +1,16 @@
 package com.roche.infinity.action;
 
+import java.io.File;
+
 import com.install4j.api.context.Context;
 import com.install4j.api.context.InstallerContext;
 import com.install4j.api.context.UserCanceledException;
+import com.roche.infinity.installer.install4j.utils.ZipUtils;
 
 public class ZipAction extends AbstractRocheAction {
 
+	ZipUtils appZip = null; 
+	
 	/**
 	 * 
 	 */
@@ -26,8 +31,10 @@ public class ZipAction extends AbstractRocheAction {
 
 	@Override
 	protected boolean execute(Context context) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
+		appZip.generateFileList(new File(sourceFolder));
+        appZip.zipIt(appZip.getOutputZipFile());
+        
+		return true;
 	}
 
 	@Override
@@ -38,8 +45,9 @@ public class ZipAction extends AbstractRocheAction {
 
 	@Override
 	protected boolean preaction(Context context) {
-		// TODO Auto-generated method stub
-		return false;
+		appZip = new ZipUtils();
+		
+		return true;
 	}
 
 	@Override
