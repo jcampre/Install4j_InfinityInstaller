@@ -71,6 +71,7 @@ public java1426() {
     });
     ventana.getContentPane().add( new java1426(),BorderLayout.CENTER );
     ventana.setSize( 300,100 );
-    ventana.show();
+//    ventana.show();
+    ventana.setVisible(true);
   }
 }

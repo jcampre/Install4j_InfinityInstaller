@@ -2,8 +2,6 @@ package com.roche.infinity.installer.install4j.utils;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,22 +9,16 @@ import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
-
 import javax.swing.JProgressBar;
 import com.install4j.api.context.Context;
 import com.install4j.api.formcomponents.FormComponent;
 import com.install4j.api.formcomponents.FormEnvironment;
 import com.install4j.api.screens.FormPanelContainer;
 import com.install4j.api.screens.Screen;
-import com.roche.infinity.test.Utils.ZipUtilsExample;
 import com.install4j.api.context.InstallationComponentSetup;
 
 /**
@@ -243,6 +235,11 @@ public class Utils {
 			LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), "Failed to delete file: " + f);
 		}
 	}
+	
+	public static void deleteFile(String sourceFile) throws IOException {
+		File file = new File(sourceFile);
+		file.delete();
+	}
 
 	/**
 	 * Copy Log File (infinityInstaller_%DATE)
@@ -434,4 +431,6 @@ public class Utils {
 					"File copied successfully to ::" + destinationFolder);
 		}
 	}
+
+	
 }

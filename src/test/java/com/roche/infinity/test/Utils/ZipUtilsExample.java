@@ -85,12 +85,4 @@ public class ZipUtilsExample {
     private String generateZipEntry(String file) {
         return file.substring(sourceFolder.length() + 1, file.length());
     }
-
-	public String getOutputZipFile() {
-		return outputZipFile;
-	}
-
-	public void setOutputZipFile(String destinationZipFile) {
-		outputZipFile = destinationZipFile;
-	}
 }
