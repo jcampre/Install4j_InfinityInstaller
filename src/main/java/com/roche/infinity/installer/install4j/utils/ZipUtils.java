@@ -11,10 +11,12 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+import com.install4j.api.Util;
+
 public class ZipUtils {
 
     private List <String> fileList;
-    private String outputZipFile = "Folder.zip";
+    private String outputZipFile = "C:\\tmp\\Folder.zip";
     private String sourceFolder = "C:\\Temp"; // SourceFolder path
 
     public String getOutputZipFile() {
@@ -48,6 +50,8 @@ public class ZipUtils {
     }
 
     public void zipIt(String zipFile) {
+    	
+    	Util.logInfo(null, "fitxer extern : " + zipFile); 
         byte[] buffer = new byte[1024];
         String source = new File(sourceFolder).getName();
         FileOutputStream fos = null;
@@ -76,6 +80,7 @@ public class ZipUtils {
 
             zos.closeEntry();
             System.out.println("Folder successfully compressed");
+            Util.showMessage("Folder successfully compressed");
 
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -91,6 +96,7 @@ public class ZipUtils {
     public void generateFileList(File node) {
         // add file only
         if (node.isFile()) {
+        	Util.logInfo(null, node.toString());
             fileList.add(generateZipEntry(node.toString()));
         }
 
