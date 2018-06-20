@@ -6,7 +6,7 @@ import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import com.roche.infinity.install4j.utils.Utilidades.StyleProperties.ButtonTypes;
+import com.roche.infinity.install4j.utils.StyleUtils.StyleProperties.ButtonTypes;
 import com.roche.infinity.screen.component.ui.button.ActiveRocheButtonUI;
 import com.roche.infinity.screen.component.ui.button.NormalRocheButtonUI;
 import com.roche.infinity.screen.component.ui.button.RocheButtonUI;

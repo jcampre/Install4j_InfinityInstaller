@@ -13,11 +13,11 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 import com.install4j.api.Util;
-import com.roche.infinity.install4j.utils.Utilidades.StyleProperties;
+import com.roche.infinity.install4j.utils.StyleUtils.StyleProperties;
 
-public class Utilidades {
+public class StyleUtils {
 
-	private Utilidades() {
+	private StyleUtils() {
 
 	}
 

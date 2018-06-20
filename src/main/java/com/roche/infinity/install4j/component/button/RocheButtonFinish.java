@@ -5,7 +5,7 @@ import javax.swing.JComponent;
 
 import com.roche.infinity.actionlistener.CancelButtonActionListener;
 import com.roche.infinity.actionlistener.FinishButtonActionListener;
-import com.roche.infinity.install4j.utils.Utilidades.StyleProperties.ButtonTypes;
+import com.roche.infinity.install4j.utils.StyleUtils.StyleProperties.ButtonTypes;
 import com.roche.infinity.install4j.wrapper.button.RocheButtonWrapper;
 import com.roche.infinity.screen.component.button.RocheButton;
 

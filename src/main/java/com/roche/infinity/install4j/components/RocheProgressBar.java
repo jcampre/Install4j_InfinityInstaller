@@ -8,7 +8,7 @@ import javax.swing.JProgressBar;
 import javax.swing.UIManager;
 
 import com.install4j.api.Util;
-import com.roche.infinity.install4j.utils.Utilidades.StyleProperties;
+import com.roche.infinity.install4j.utils.StyleUtils.StyleProperties;
 import com.roche.infinity.screen.component.ui.button.RocheProgressBarUI;
 
 public class RocheProgressBar extends JProgressBar {

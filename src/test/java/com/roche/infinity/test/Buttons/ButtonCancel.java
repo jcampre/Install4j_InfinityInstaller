@@ -26,7 +26,7 @@ import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicButtonUI;
 
 import com.roche.infinity.actionlistener.CancelButtonActionListener;
-import com.roche.infinity.install4j.utils.Utilidades.StyleProperties;
+import com.roche.infinity.install4j.utils.StyleUtils.StyleProperties;
 import com.roche.infinity.screen.component.ui.button.RocheButtonUI;
 
 public class ButtonCancel extends BasicButtonUI implements java.io.Serializable, MouseListener, KeyListener {
