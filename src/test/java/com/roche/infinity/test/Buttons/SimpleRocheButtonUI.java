@@ -7,12 +7,10 @@ import java.awt.event.WindowListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import com.roche.infinity.install4j.utils.StyleUtils.StyleProperties;
-import com.roche.infinity.install4j.utils.StyleUtils.StyleProperties.ButtonTypes;
-import com.roche.infinity.screen.component.button.RocheButton;
-import com.roche.infinity.screen.component.ui.button.ActiveRocheButtonUI;
-import com.roche.infinity.screen.component.ui.button.NormalRocheButtonUI;
-import com.roche.infinity.screen.component.ui.button.RocheButtonUI;
+
+import com.roche.infinity.installer.install4j.screen.component.button.RocheButton;
+import com.roche.infinity.installer.install4j.style.utilities.Utilities.StyleProperties;
+import com.roche.infinity.installer.install4j.style.utilities.Utilities.StyleProperties.ButtonTypes;
 
 public class SimpleRocheButtonUI {
 

@@ -7,7 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-import com.roche.infinity.actionlistener.CancelButtonActionListener;
+import com.roche.infinity.installer.install4j.actionlistener.CancelButtonActionListener;
+
 
 public class Testing {
 

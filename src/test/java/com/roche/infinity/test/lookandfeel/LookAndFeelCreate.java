@@ -10,7 +10,9 @@ import java.awt.event.WindowListener;
 import javax.swing.*;
 import javax.swing.UIManager.LookAndFeelInfo;
 
-import com.roche.infinity.screen.component.ui.button.DefaultButtonUI2;
+import com.roche.infinity.installer.install4j.component.button.ui.DefaultButtonUI2;
+
+
 
 @SuppressWarnings("serial")
 public class LookAndFeelCreate extends JFrame {

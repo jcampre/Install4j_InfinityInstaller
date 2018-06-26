@@ -11,7 +11,7 @@ public class ComponentList {
 
 	   private static JSONArray components = null;
 	   
-	   protected ComponentList() {}
+	   private ComponentList() {}
 	   
 	   public static JSONArray getInstance() {
 	      if(components == null) {

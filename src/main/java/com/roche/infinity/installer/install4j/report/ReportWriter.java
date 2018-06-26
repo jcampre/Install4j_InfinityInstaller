@@ -3,7 +3,6 @@ package com.roche.infinity.installer.install4j.report;
 import java.io.FileWriter;
 import java.io.IOException;
 import org.json.simple.JSONArray;
-import com.install4j.api.Util;
 import com.roche.infinity.installer.install4j.utils.LoggerManager;
 
 /**
@@ -19,13 +18,14 @@ public class ReportWriter {
 	 * @param jsonArray
 	 * @param fileWriter
 	 */
-	public static synchronized void writeJSON(JSONArray jsonArray, FileWriter fileWriter){
-		
+	public static synchronized void writeJSON(JSONArray jsonArray, FileWriter fileWriter){		
 	      try {
 	    	  fileWriter.write(jsonArray.toJSONString());
 	    	  fileWriter.flush();
 	      } catch (IOException e) {
-	    	  LoggerManager.getInstance(ReportWriter.class).error(ReportWriter.class.getSimpleName(), "Error when  trying to save the installation report: " + e.getLocalizedMessage(), e);
+	    	  LoggerManager.getInstance(ReportWriter.class).
+	    	  error(ReportWriter.class.getSimpleName(), "Error when  trying to save the installation report: " 
+	    	  + e.getLocalizedMessage(), e);
 	      }
 	}    
 }

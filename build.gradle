@@ -52,7 +52,20 @@ ext {
 
 //Project dependencies
 dependencies {
-	compile group: 'commons-io', name: 'commons-io', version: '2.6'
+compile group: 'commons-io', name: 'commons-io', version: '2.6'
+    compile "ch.qos.logback:logback-classic:1.1.2"
+    compile "org.kie:kie-api:${droolsVersion}"
+    compile "org.drools:drools-compiler:${droolsVersion}"
+    compile "ch.qos.logback:logback-classic:1.1.+"
+    compile "org.slf4j:slf4j-api:1.7.+"
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.11.0'
+  	compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.0'
+    compile files("lib/i4jruntime.jar")    
+    compile "com.googlecode.json-simple:json-simple:1.1.1"
+    compile "org.springframework:spring-core:5.0.4.RELEASE"
+    testCompile "org.spockframework:spock-core:${spockVersion}"
+    
+	/*compile group: 'commons-io', name: 'commons-io', version: '2.6'
 	compile "ch.qos.logback:logback-classic:1.1.2"
 	compile "org.kie:kie-api:${droolsVersion}"
     compile "org.drools:drools-compiler:${droolsVersion}"
@@ -63,5 +76,7 @@ dependencies {
 	compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.11.0'
   	compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.0'
   	compile "com.googlecode.json-simple:json-simple:1.1.1"
-	
+  	compile "org.springframework:spring-core:5.0.4.RELEASE"
+    testCompile "org.spockframework:spock-core:${spockVersion}"
+	*/
 }

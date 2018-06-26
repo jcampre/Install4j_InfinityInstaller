@@ -25,8 +25,9 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.plaf.basic.BasicProgressBarUI;
 
-import com.roche.infinity.install4j.components.RocheProgressBar;
-import com.roche.infinity.screen.component.ui.button.RocheProgressBarUI;
+import com.roche.infinity.installer.install4j.component.progressbar.RocheProgressBar;
+import com.roche.infinity.installer.install4j.component.progressbar.ui.RocheProgressBarUI;
+
 
 public class TestMediaProgressBar {
 

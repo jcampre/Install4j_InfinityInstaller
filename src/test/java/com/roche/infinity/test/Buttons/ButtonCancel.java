@@ -1,6 +1,7 @@
 package com.roche.infinity.test.Buttons;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.FontMetrics;
@@ -25,12 +26,45 @@ import javax.swing.border.LineBorder;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicButtonUI;
 
-import com.roche.infinity.actionlistener.CancelButtonActionListener;
-import com.roche.infinity.install4j.utils.StyleUtils.StyleProperties;
-import com.roche.infinity.screen.component.ui.button.RocheButtonUI;
+import com.roche.infinity.installer.install4j.actionlistener.CancelButtonActionListener;
+import com.roche.infinity.installer.install4j.component.button.ui.RocheButtonUI;
+import com.roche.infinity.installer.install4j.style.utilities.Utilities.StyleProperties;
 
 public class ButtonCancel extends BasicButtonUI implements java.io.Serializable, MouseListener, KeyListener {
 
+	@SuppressWarnings("unused")
+	private static class RoundedBorder implements Border {
+
+	    private int radius;
+
+
+	    @SuppressWarnings("unused")
+		RoundedBorder(int radius) {
+	        this.radius = radius;
+	    }
+
+
+		@Override
+		public Insets getBorderInsets(Component c) {
+			return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
+		}
+
+
+		@Override
+		public boolean isBorderOpaque() {
+			return true;
+		}
+
+
+		@Override
+		public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+			g.drawRoundRect(x, y, width-1, height-1, radius, radius);
+		}
+
+
+	   
+	}
+	
 	/**
 	 * 
 	 */
@@ -77,13 +111,21 @@ public class ButtonCancel extends BasicButtonUI implements java.io.Serializable,
 		FontMetrics fm = g.getFontMetrics();
 
 		g.setColor(b.getForeground());
+		g.fillRoundRect(0,0,d.width,d.height,18,18);
+		
 		String caption = b.getText();
 		int x = (d.width - fm.stringWidth(caption)) / 2;
 		int y = (d.height + fm.getAscent()) / 2;
 		g.drawString(caption, x, y);
-
+		//g.drawRoundRect(x, y, d.width, d.height, 1, 1);
 	}
 
+
+	protected void paintBorder(Graphics g) {
+		g.setColor(Color.darkGray);
+		g.drawOval(0, 0, 1, 1);
+	}
+  
 	public Dimension getPreferredSize(JComponent c) {
 		Dimension d = super.getPreferredSize(c);
 		if (m_borderRaised != null) {
@@ -121,7 +163,8 @@ public class ButtonCancel extends BasicButtonUI implements java.io.Serializable,
 
 	public void mouseExited(MouseEvent e) {
 		JComponent c = (JComponent) e.getComponent();
-		c.setBorder(new LineBorder(StyleProperties.NORMAL_DEFAULT_BUTTON_BORDER_COLOR));
+		//c.setBorder(new LineBorder(StyleProperties.NORMAL_DEFAULT_BUTTON_BORDER_COLOR));
+		c.setBorder(new RoundedBorder(10)); //10 is the radius
 		c.setForeground(StyleProperties.NORMAL_DEFAULT_BUTTON_FOREGROUND_COLOR);
 		c.setBackground(StyleProperties.NORMAL_DEFAULT_BUTTON_BACKGROUND_COLOR);
 		c.repaint();
@@ -158,7 +201,8 @@ public class ButtonCancel extends BasicButtonUI implements java.io.Serializable,
 		JButton bt1 = new JButton("Click Me");
 		bt1.setPreferredSize(new Dimension(200, 54));
 		bt1.setUI(m_buttonUI);
-		bt1.setFont(StyleProperties.BUTTON_FONT);
+		//bt1.setFont(BUTTON_FONT);
+		bt1.setBorder(new RoundedBorder(10)); //10 is the radius
 		bt1.addActionListener(new CancelButtonActionListener(null));
 
 		p.add(bt1);
