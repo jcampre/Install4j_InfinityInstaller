@@ -6,8 +6,7 @@ import com.install4j.api.formcomponents.FormComponent;
 
 /**
  * 
- * @author Jordi Campreciós
- * @date May 2018
+ * @author Jordi Camprecios
  * Define the button wrapper bean info
  */
 public class RocheButtonWrapperBeanInfo  extends FormComponentBeanInfo {
@@ -26,11 +25,11 @@ public class RocheButtonWrapperBeanInfo  extends FormComponentBeanInfo {
   
 	/**
 	 * 
-	 * @param displayName
-	 * @param shortDescription
-	 * @param category
-	 * @param sortKey
-	 * @param beanClass
+	 * @param displayName display name
+	 * @param shortDescription short description
+	 * @param category category
+	 * @param sortKey sort key
+	 * @param beanClass bean class
 	 */
 	
 	public RocheButtonWrapperBeanInfo(String displayName, String shortDescription, String category, Integer sortKey,

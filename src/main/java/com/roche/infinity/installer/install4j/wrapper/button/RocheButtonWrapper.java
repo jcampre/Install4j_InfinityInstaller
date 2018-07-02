@@ -5,14 +5,14 @@ import javax.swing.JComponent;
 import com.install4j.api.beans.ExternalFile;
 import com.install4j.api.formcomponents.AbstractFormComponent;
 import com.roche.infinity.installer.install4j.screen.component.button.RocheButton;
+import com.roche.infinity.installer.install4j.style.utilities.ButtonFonts;
 import com.roche.infinity.installer.install4j.style.utilities.Utilities.StyleProperties;
 import com.roche.infinity.installer.install4j.style.utilities.Utilities.StyleProperties.ButtonSizes;
 import com.roche.infinity.installer.install4j.style.utilities.Utilities.StyleProperties.ButtonTypes;
 
 /**
  * 
- * @author Jordi Campreciós
- * @date May 2018
+ * @author Jordi Camprecios
  * Define the button wrapper
  */
 public abstract class RocheButtonWrapper extends AbstractFormComponent {
@@ -25,7 +25,7 @@ public abstract class RocheButtonWrapper extends AbstractFormComponent {
 	private int height = 36;
 	private boolean hide = false;
 	private boolean disable = false;
-	private Font font = StyleProperties.BUTTON_FONT;
+	private Font font = ButtonFonts.BUTTON_FONT.getFont();
 	private ButtonSizes size = ButtonSizes.MEDIUM;
 	
 	protected RocheButton rocheButton;
@@ -189,5 +189,5 @@ public abstract class RocheButtonWrapper extends AbstractFormComponent {
 	@Override
 	public boolean isFillCenterHorizontal() {
 		return false;
-	}	
+	}
 }

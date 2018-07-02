@@ -26,7 +26,8 @@ import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicButtonUI;
 
 import com.roche.infinity.installer.install4j.component.button.ui.RocheButtonUI;
-import com.roche.infinity.installer.install4j.style.utilities.Utilities.StyleProperties;
+import com.roche.infinity.installer.install4j.style.utilities.ButtonFonts;
+import com.roche.infinity.installer.install4j.style.utilities.ButtonNormalColors;
 
 
 public class SimpleButtonUI extends BasicButtonUI implements java.io.Serializable, MouseListener, KeyListener {
@@ -98,32 +99,32 @@ public class SimpleButtonUI extends BasicButtonUI implements java.io.Serializabl
 
 	public void mousePressed(MouseEvent e) {
 		JComponent c = (JComponent) e.getComponent();
-		c.setBorder(new LineBorder(StyleProperties.NORMAL_PRESSED_BUTTON_BORDER_COLOR, 3, true));
-		c.setForeground(StyleProperties.NORMAL_PRESSED_BUTTON_FOREGROUND_COLOR);
-		c.setBackground(StyleProperties.NORMAL_PRESSED_BUTTON_BACKGROUND_COLOR);
+		c.setBorder(new LineBorder(ButtonNormalColors.NORMAL_PRESSED_BUTTON_BORDER_COLOR.getColor(), 3, true));
+		c.setForeground(ButtonNormalColors.NORMAL_PRESSED_BUTTON_FOREGROUND_COLOR.getColor());
+		c.setBackground(ButtonNormalColors.NORMAL_PRESSED_BUTTON_BACKGROUND_COLOR.getColor());
 	}
 
 	public void mouseReleased(MouseEvent e) {
 		JComponent c = (JComponent) e.getComponent();
 		// c.setBorder(m_borderRaised);
-		c.setBorder(new LineBorder(StyleProperties.NORMAL_DEFAULT_BUTTON_BORDER_COLOR, 3, true));
-		c.setForeground(StyleProperties.NORMAL_DEFAULT_BUTTON_FOREGROUND_COLOR);
-		c.setBackground(StyleProperties.NORMAL_DEFAULT_BUTTON_BACKGROUND_COLOR);
+		c.setBorder(new LineBorder(ButtonNormalColors.NORMAL_DEFAULT_BUTTON_BORDER_COLOR.getColor(), 3, true));
+		c.setForeground(ButtonNormalColors.NORMAL_DEFAULT_BUTTON_FOREGROUND_COLOR.getColor());
+		c.setBackground(ButtonNormalColors.NORMAL_DEFAULT_BUTTON_BACKGROUND_COLOR.getColor());
 	}
 
 	public void mouseEntered(MouseEvent e) {
 		JComponent c = (JComponent) e.getComponent();
-		c.setBorder(new LineBorder(StyleProperties.NORMAL_HOVER_BUTTON_BORDER_COLOR, 3, true));
-		c.setForeground(StyleProperties.NORMAL_HOVER_BUTTON_FOREGROUND_COLOR);
-		c.setBackground(StyleProperties.NORMAL_HOVER_BUTTON_BACKGROUND_COLOR);
+		c.setBorder(new LineBorder(ButtonNormalColors.NORMAL_HOVER_BUTTON_BORDER_COLOR.getColor(), 3, true));
+		c.setForeground(ButtonNormalColors.NORMAL_HOVER_BUTTON_FOREGROUND_COLOR.getColor());
+		c.setBackground(ButtonNormalColors.NORMAL_HOVER_BUTTON_BACKGROUND_COLOR.getColor());
 		c.repaint();
 	}
 
 	public void mouseExited(MouseEvent e) {
 		JComponent c = (JComponent) e.getComponent();
-		c.setBorder(new LineBorder(StyleProperties.NORMAL_DEFAULT_BUTTON_BORDER_COLOR, 3, true));
-		c.setForeground(StyleProperties.NORMAL_DEFAULT_BUTTON_FOREGROUND_COLOR);
-		c.setBackground(StyleProperties.NORMAL_DEFAULT_BUTTON_BACKGROUND_COLOR);
+		c.setBorder(new LineBorder(ButtonNormalColors.NORMAL_DEFAULT_BUTTON_BORDER_COLOR.getColor(), 3, true));
+		c.setForeground(ButtonNormalColors.NORMAL_DEFAULT_BUTTON_FOREGROUND_COLOR.getColor());
+		c.setBackground(ButtonNormalColors.NORMAL_DEFAULT_BUTTON_BACKGROUND_COLOR.getColor());
 		c.repaint();
 	}
 
@@ -161,7 +162,7 @@ public class SimpleButtonUI extends BasicButtonUI implements java.io.Serializabl
 		JButton bt1 = new JButton("Click Me");
 		bt1.setPreferredSize(new Dimension(200, 54));
 		bt1.setUI(m_buttonUI);
-		bt1.setFont(StyleProperties.BUTTON_FONT);
+		bt1.setFont(ButtonFonts.BUTTON_FONT.getFont());
 
 		p.add(bt1);
 		f.getContentPane().add(p);

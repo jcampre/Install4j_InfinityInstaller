@@ -3,13 +3,11 @@ package com.roche.infinity.installer.install4j.component.button.ui;
 import javax.swing.JComponent;
 import javax.swing.border.LineBorder;
 import javax.swing.plaf.ComponentUI;
-
-import com.roche.infinity.installer.install4j.style.utilities.Utilities.StyleProperties;
+import com.roche.infinity.installer.install4j.style.utilities.ButtonActiveColors;
 
 /**
  * 
- * @author Jordi Campreciós i Jordi Arenas
- * @date May/juny 2018
+ * @author Jordi Camprecios i Jordi Arenas
  * Define the button actions and the style
  */
 public class ActiveRocheButtonUI extends RocheButtonUI {
@@ -27,27 +25,32 @@ public class ActiveRocheButtonUI extends RocheButtonUI {
 	public static ComponentUI createUI(JComponent component) {
 		return buttonUI;
 	}
-	
-	private void setDefaultColors() {
-		setBackgroundDefault(StyleProperties.ACTIVE_DEFAULT_BUTTON_BACKGROUND_COLOR);
-		setBackgroundPressed(StyleProperties.ACTIVE_PRESSED_BUTTON_BACKGROUND_COLOR);
-		setBackgroundHover(StyleProperties.ACTIVE_HOVER_BUTTON_BACKGROUND_COLOR);
-		setForegroundDefault(StyleProperties.ACTIVE_DEFAULT_BUTTON_FOREGROUND_COLOR);
-		setForegroundPressed(StyleProperties.ACTIVE_PRESSED_BUTTON_FOREGROUND_COLOR);
-		setForegroundHover(StyleProperties.ACTIVE_HOVER_BUTTON_FOREGROUND_COLOR);
-		setBorderDefault(new LineBorder(StyleProperties.ACTIVE_DEFAULT_BUTTON_BORDER_COLOR));
-		setBorderPressed(new LineBorder(StyleProperties.ACTIVE_PRESSED_BUTTON_BORDER_COLOR));
-		setBorderHover(new LineBorder(StyleProperties.ACTIVE_HOVER_BUTTON_BORDER_COLOR));
+
+	@Override
+	protected void setDefaultColors() {
+		setBackgroundDefault(ButtonActiveColors.ACTIVE_DEFAULT_BUTTON_BACKGROUND_COLOR.getColor());
+		setBackgroundPressed(ButtonActiveColors.ACTIVE_PRESSED_BUTTON_BACKGROUND_COLOR.getColor());
+		setBackgroundHover(ButtonActiveColors.ACTIVE_HOVER_BUTTON_BACKGROUND_COLOR.getColor());
+		setBackgroundDisable(ButtonActiveColors.ACTIVE_DISABLE_BUTTON_BACKGROUND_COLOR.getColor());
+		setForegroundDefault(ButtonActiveColors.ACTIVE_DEFAULT_BUTTON_FOREGROUND_COLOR.getColor());
+		setForegroundPressed(ButtonActiveColors.ACTIVE_PRESSED_BUTTON_FOREGROUND_COLOR.getColor());
+		setForegroundHover(ButtonActiveColors.ACTIVE_HOVER_BUTTON_FOREGROUND_COLOR.getColor());
+		setForegroundDisable(ButtonActiveColors.ACTIVE_DISABLE_BUTTON_FOREGROUND_COLOR.getColor());
+		setBorderDefault(new LineBorder(ButtonActiveColors.ACTIVE_DEFAULT_BUTTON_BORDER_COLOR.getColor()));
+		setBorderPressed(new LineBorder(ButtonActiveColors.ACTIVE_PRESSED_BUTTON_BORDER_COLOR.getColor()));
+		setBorderHover(new LineBorder(ButtonActiveColors.ACTIVE_HOVER_BUTTON_BORDER_COLOR.getColor()));
+		setBorderDisable(new LineBorder(ButtonActiveColors.ACTIVE_DISABLE_BUTTON_BORDER_COLOR.getColor()));
 	}
-	
+
 	/**
 	 * 
 	 * @param c
+	 *            JComponent
 	 */
-	@Override
+	/*@Override
 	public void enableButton(JComponent c) {
 		this.setDefaultColors();
 		c.addMouseListener(this);
 		c.addKeyListener(this);
-	}
+	}*/
 }

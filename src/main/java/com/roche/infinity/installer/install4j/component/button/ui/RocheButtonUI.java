@@ -17,12 +17,12 @@ import javax.swing.border.LineBorder;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicButtonUI;
 
-import com.roche.infinity.installer.install4j.style.utilities.Utilities.StyleProperties;
+import com.install4j.api.Util;
+import com.roche.infinity.installer.install4j.style.utilities.ButtonNormalColors;
 
 /**
  * 
- * @author Jordi Campreciós i Jordi Arenas
- * @date May/juny 2018
+ * @author Jordi Camprecios and Jordi Arenas
  * Define the button actions and the style
  */
 public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable, MouseListener, KeyListener {
@@ -31,18 +31,18 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	
 	private static final RocheButtonUI buttonUI = new RocheButtonUI();
 
-	private transient Color backgroundDefault = StyleProperties.NORMAL_DEFAULT_BUTTON_BACKGROUND_COLOR;
-	private transient Color backgroundPressed = StyleProperties.NORMAL_PRESSED_BUTTON_BACKGROUND_COLOR;
-	private transient Color backgroundHover = StyleProperties.NORMAL_HOVER_BUTTON_BACKGROUND_COLOR;
-	private transient Color backgroundDisable = StyleProperties.NORMAL_DISABLE_BUTTON_BACKGROUND_COLOR;
-	private transient Color foregroundDefault = StyleProperties.NORMAL_DEFAULT_BUTTON_FOREGROUND_COLOR;
-	private transient Color foregroundPressed = StyleProperties.NORMAL_PRESSED_BUTTON_FOREGROUND_COLOR;
-	private transient Color foregroundHover = StyleProperties.NORMAL_HOVER_BUTTON_FOREGROUND_COLOR;
-	private transient Color foregroundDisable = StyleProperties.NORMAL_DISABLE_BUTTON_FOREGROUND_COLOR;
-	private transient Border borderDefault = new LineBorder(StyleProperties.NORMAL_DEFAULT_BUTTON_BORDER_COLOR);
-	private transient Border borderPressed = new LineBorder(StyleProperties.NORMAL_PRESSED_BUTTON_BORDER_COLOR);
-	private transient Border borderHover = new LineBorder(StyleProperties.NORMAL_HOVER_BUTTON_BORDER_COLOR);
-	private transient Border borderDisable = new LineBorder(StyleProperties.NORMAL_DISABLE_BUTTON_BORDER_COLOR);
+	private transient Color backgroundDefault = ButtonNormalColors.NORMAL_DEFAULT_BUTTON_BACKGROUND_COLOR.getColor();
+	private transient Color backgroundPressed = ButtonNormalColors.NORMAL_PRESSED_BUTTON_BACKGROUND_COLOR.getColor();
+	private transient Color backgroundHover = ButtonNormalColors.NORMAL_HOVER_BUTTON_BACKGROUND_COLOR.getColor();
+	private transient Color backgroundDisable = ButtonNormalColors.NORMAL_DISABLE_BUTTON_BACKGROUND_COLOR.getColor();
+	private transient Color foregroundDefault = ButtonNormalColors.NORMAL_DEFAULT_BUTTON_FOREGROUND_COLOR.getColor();
+	private transient Color foregroundPressed = ButtonNormalColors.NORMAL_PRESSED_BUTTON_FOREGROUND_COLOR.getColor();
+	private transient Color foregroundHover = ButtonNormalColors.NORMAL_HOVER_BUTTON_FOREGROUND_COLOR.getColor();
+	private transient Color foregroundDisable = ButtonNormalColors.NORMAL_DISABLE_BUTTON_FOREGROUND_COLOR.getColor();
+	private transient Border borderDefault = new LineBorder(ButtonNormalColors.NORMAL_DEFAULT_BUTTON_BORDER_COLOR.getColor());
+	private transient Border borderPressed = new LineBorder(ButtonNormalColors.NORMAL_PRESSED_BUTTON_BORDER_COLOR.getColor());
+	private transient Border borderHover = new LineBorder(ButtonNormalColors.NORMAL_HOVER_BUTTON_BORDER_COLOR.getColor());
+	private transient Border borderDisable = new LineBorder(ButtonNormalColors.NORMAL_DISABLE_BUTTON_BORDER_COLOR.getColor());
 
 
 	/**
@@ -219,30 +219,48 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 
 	/**
 	 * 
-	 * @param c
+	 * @param c JComponent
 	 */
 	public void disableButton(JComponent c) {
+		this.setDefaultColors();
 		c.removeMouseListener(this);
 		c.removeKeyListener(this);
 	}
 	
 	/**
 	 * 
-	 * @param c
+	 * @param c JComponent
 	 */
 	public void enableButton(JComponent c) {
+		this.setDefaultColors();
 		c.addMouseListener(this);
 		c.addKeyListener(this);
 	}
 	
+	protected void setDefaultColors()
+	{
+		setBackgroundDefault(backgroundDefault);
+		setBackgroundPressed(backgroundPressed);
+		setBackgroundHover(backgroundHover);
+		setBackgroundDisable(backgroundDisable);
+		setForegroundDefault(foregroundDefault);
+		setForegroundPressed(foregroundPressed);
+		setForegroundHover(foregroundHover);
+		setForegroundDisable(foregroundDisable);
+		setBorderDefault(borderDefault);
+		setBorderPressed(borderPressed);
+		setBorderHover(borderHover);
+		setBorderDisable(borderDisable);
+	};
+
 	/**
 	 * 
 	 */
 	@Override
 	public void installUI(JComponent c) {
 		super.installUI(c);
-		c.addMouseListener(this);
-		c.addKeyListener(this);
+		//c.addMouseListener(this);
+		//c.addKeyListener(this);
 	}
 
 	/**
@@ -251,8 +269,8 @@ public class RocheButtonUI extends BasicButtonUI implements java.io.Serializable
 	@Override
 	public void uninstallUI(JComponent c) {
 		super.uninstallUI(c);
-		c.removeMouseListener(this);
-		c.removeKeyListener(this);
+		//c.removeMouseListener(this);
+//		c.removeKeyListener(this);
 	}
 
 	/**
