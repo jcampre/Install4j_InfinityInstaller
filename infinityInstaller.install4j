@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <install4j version="7.0.6" transformSequenceNumber="7">
-  <directoryPresets config="../../../Install4j_InfinityInstaller/build/libs" />
+  <directoryPresets config="./build/libs" />
   <application name="${i18n:app.name}" distributionSourceDir="" applicationId="1709-1325-7289-2515" mediaDir="setup" mediaFilePattern="${compiler:sys.shortName}_${compiler:sys.platform}_${compiler:sys.version}" compression="6" lzmaCompression="false" pack200Compression="false" excludeSignedFromPacking="true" commonExternalFiles="false" createMd5Sums="true" shrinkRuntime="true" shortName="Infinity" publisher="roche" publisherWeb="http://www.roche.es/" version="${compiler:infinity_version}" allPathsRelative="true" backupOnSave="false" autoSave="false" convertDotsToUnderscores="true" macSignature="????" macVolumeId="4ee007125f3cc893" javaMinVersion="1.7" javaMaxVersion="" allowBetaVM="false" jdkMode="runtimeJre" jdkName="">
     <languages skipLanguageSelection="false" languageSelectionInPrincipalLanguage="false">
       <principalLanguage id="en" customLocalizationFile="./resources/internalization_en.utf8" />
@@ -34,7 +34,7 @@
   <installerGui installerType="1" addOnAppId="" suggestPreviousLocations="true" autoUpdateDescriptorUrl="" useAutoUpdateBaseUrl="false" autoUpdateBaseUrl="">
     <staticMembers script="static void addCancelButton(Context context)&#xA;{&#xA;    JButton b=new JButton(&quot;Click Here&quot;);  &#xA;    b.setBounds(50,100,95,30);  &#xA;    context.getWizardContext().pressCancelButton();&#xA;}&#xA;" />
     <customCode>
-      <archive location="../../../Install4j_InfinityInstaller/build/libs/InfinityRocheLib-1.0.jar" />
+      <archive location="./build/libs/InfinityRocheLib-1.0.jar" />
     </customCode>
     <autoUpdate useMinUpdatableVersion="false" minUpdatableVersion="" useMaxUpdatableVersion="false" maxUpdatableVersion="">
       <commentFiles />
@@ -95,176 +95,28 @@
           </screen>
         </startup>
         <screens>
-          <screen name="Form with Buttons" id="824" customizedId="" beanClass="com.install4j.runtime.beans.screens.FormScreen" enabled="true" commentSet="false" comment="" actionElevationType="inherit" styleId="561" rollbackBarrier="false" rollbackBarrierExitCode="0" backButton="2" finishScreen="false" wizardIndexChangeType="unchanged" wizardIndexKey="">
+          <screen name="" id="2260" customizedId="" beanClass="com.install4j.runtime.beans.screens.FormScreen" enabled="true" commentSet="false" comment="" actionElevationType="inherit" styleId="" rollbackBarrier="false" rollbackBarrierExitCode="0" backButton="2" finishScreen="false" wizardIndexChangeType="unchanged" wizardIndexKey="">
             <serializedBean>
               <java class="java.beans.XMLDecoder">
-                <object class="com.install4j.runtime.beans.screens.FormScreen">
-                  <void property="title">
-                    <string>form</string>
-                  </void>
-                </object>
+                <object class="com.install4j.runtime.beans.screens.FormScreen" />
               </java>
             </serializedBean>
-            <styleOverrides>
-              <styleOverride name="BProperties" enabled="true">
-                <formComponent name="" id="1611" customizedId="" beanClass="com.roche.infinity.install4j.component.button.RocheButtonCancel" enabled="true" commentSet="false" comment="" insetTop="" insetLeft="" insetBottom="" insetRight="" resetInitOnPrevious="false" useExternalParametrization="false" externalParametrizationName="BProperties" externalParametrizationMode="all">
-                  <serializedBean>
-                    <java class="java.beans.XMLDecoder">
-                      <object class="com.roche.infinity.install4j.component.button.RocheButtonCancel">
-                        <void property="hide">
-                          <boolean>true</boolean>
-                        </void>
-                        <void property="size">
-                          <object class="java.lang.Enum" method="valueOf">
-                            <class>com.roche.infinity.install4j.utils.Utilidades$StyleProperties$ButtonSizes</class>
-                            <string>LARGE</string>
-                          </object>
-                        </void>
-                      </object>
-                    </java>
-                  </serializedBean>
-                  <initScript />
-                  <visibilityScript />
-                  <externalParametrizationPropertyNames />
-                </formComponent>
-              </styleOverride>
-              <styleOverride name="ButtonProperties" enabled="true">
-                <formComponent name="" id="1773" customizedId="" beanClass="com.roche.infinity.install4j.component.button.RocheButtonCancel" enabled="true" commentSet="false" comment="" insetTop="17" insetLeft="19" insetBottom="18" insetRight="21" resetInitOnPrevious="false" useExternalParametrization="true" externalParametrizationName="ButtonProperties" externalParametrizationMode="all">
-                  <serializedBean>
-                    <java class="java.beans.XMLDecoder">
-                      <object class="com.roche.infinity.install4j.component.button.RocheButtonCancel">
-                        <void property="hide">
-                          <boolean>true</boolean>
-                        </void>
-                        <void property="textLabel">
-                          <string>button2</string>
-                        </void>
-                        <void property="textToolTip">
-                          <string>button tooltip asasdfs</string>
-                        </void>
-                        <void property="visible">
-                          <boolean>false</boolean>
-                        </void>
-                      </object>
-                    </java>
-                  </serializedBean>
-                  <initScript>JButton b = (JButton) component.getConfigurationObject();
-b.setText("PEPE");
-b.updateUI();
-context.notifyAll();</initScript>
-                  <visibilityScript />
-                  <externalParametrizationPropertyNames />
-                </formComponent>
-              </styleOverride>
-              <styleOverride name="SampleForm" enabled="true">
-                <formComponent name="" id="1935" customizedId="" beanClass="SampleFormComponent" enabled="true" commentSet="false" comment="" insetTop="" insetLeft="" insetBottom="" insetRight="" resetInitOnPrevious="false" useExternalParametrization="true" externalParametrizationName="SampleForm" externalParametrizationMode="all">
-                  <serializedBean>
-                    <java class="java.beans.XMLDecoder">
-                      <object class="SampleFormComponent">
-                        <void property="labelText">
-                          <string>Prova1 label2</string>
-                        </void>
-                        <void property="text">
-                          <string>Prova1  overides</string>
-                        </void>
-                      </object>
-                    </java>
-                  </serializedBean>
-                  <initScript />
-                  <visibilityScript />
-                  <externalParametrizationPropertyNames />
-                </formComponent>
-              </styleOverride>
-              <styleOverride name="Customize title bar" enabled="true">
-                <group name="" id="2097" customizedId="" beanClass="com.install4j.runtime.beans.groups.VerticalFormComponentGroup" enabled="true" commentSet="false" comment="" actionElevationType="inherit" useExternalParametrization="true" externalParametrizationName="Customize title bar" externalParametrizationMode="include">
-                  <serializedBean>
-                    <java class="java.beans.XMLDecoder">
-                      <object class="com.install4j.runtime.beans.groups.VerticalFormComponentGroup">
-                        <void property="anchor">
-                          <object class="java.lang.Enum" method="valueOf">
-                            <class>com.install4j.api.beans.Anchor</class>
-                            <string>CENTER</string>
-                          </object>
-                        </void>
-                        <void property="backgroundColor">
-                          <object class="java.awt.Color">
-                            <int>255</int>
-                            <int>255</int>
-                            <int>255</int>
-                            <int>255</int>
-                          </object>
-                        </void>
-                        <void property="borderSides">
-                          <object class="com.install4j.runtime.beans.formcomponents.BorderSides">
-                            <void property="bottom">
-                              <boolean>true</boolean>
-                            </void>
-                          </object>
-                        </void>
-                        <void property="borderWidth">
-                          <int>0</int>
-                        </void>
-                        <void property="imageAnchor">
-                          <object class="java.lang.Enum" method="valueOf">
-                            <class>com.install4j.api.beans.Anchor</class>
-                            <string>NORTH</string>
-                          </object>
-                        </void>
-                        <void property="imageEdgeBorderWidth">
-                          <int>2</int>
-                        </void>
-                        <void property="imageFile">
-                          <object class="com.install4j.api.beans.ExternalFile">
-                            <string>../../../install4j-external-code/Styles/Render/Header/Header ui 720.png</string>
-                          </object>
-                        </void>
-                      </object>
-                    </java>
-                  </serializedBean>
-                  <beans />
-                  <externalParametrizationPropertyNames>
-                    <propertyName>backgroundColor</propertyName>
-                    <propertyName>foregroundColor</propertyName>
-                    <propertyName>imageAnchor</propertyName>
-                    <propertyName>imageFile</propertyName>
-                    <propertyName>imageOverlap</propertyName>
-                  </externalParametrizationPropertyNames>
-                </group>
-              </styleOverride>
-              <styleOverride name="ToolbarStyle" enabled="true">
-                <formComponent name="Toolbar Buttons" id="2098" customizedId="" beanClass="com.install4j.runtime.beans.styles.NestedStyleComponent" enabled="true" commentSet="false" comment="" insetTop="0" insetLeft="" insetBottom="0" insetRight="" resetInitOnPrevious="false" useExternalParametrization="true" externalParametrizationName="ToolbarStyle" externalParametrizationMode="all">
-                  <serializedBean>
-                    <java class="java.beans.XMLDecoder">
-                      <object class="com.install4j.runtime.beans.styles.NestedStyleComponent">
-                        <void property="styleId">
-                          <string>1276</string>
-                        </void>
-                      </object>
-                    </java>
-                  </serializedBean>
-                  <initScript />
-                  <visibilityScript />
-                  <externalParametrizationPropertyNames>
-                    <propertyName>styleId</propertyName>
-                  </externalParametrizationPropertyNames>
-                </formComponent>
-              </styleOverride>
-            </styleOverrides>
+            <styleOverrides />
             <condition />
             <validation />
             <preActivation />
             <postActivation />
             <actions />
             <formComponents>
-              <formComponent name="" id="1107" customizedId="" beanClass="com.install4j.runtime.beans.formcomponents.DirectoryChooserComponent" enabled="true" commentSet="false" comment="" insetTop="" insetLeft="" insetBottom="" insetRight="" resetInitOnPrevious="false" useExternalParametrization="false" externalParametrizationName="" externalParametrizationMode="all">
+              <formComponent name="" id="2261" customizedId="" beanClass="com.roche.infinity.installer.install4j.component.button.RocheButtonCancel" enabled="true" commentSet="false" comment="" insetTop="" insetLeft="" insetBottom="" insetRight="" resetInitOnPrevious="false" useExternalParametrization="false" externalParametrizationName="" externalParametrizationMode="all">
                 <serializedBean>
                   <java class="java.beans.XMLDecoder">
-                    <object class="com.install4j.runtime.beans.formcomponents.DirectoryChooserComponent">
-                      <void property="initialFile">
-                        <string>${installer:dirChooser}</string>
+                    <object class="com.roche.infinity.installer.install4j.component.button.RocheButtonCancel">
+                      <void property="disable">
+                        <boolean>true</boolean>
                       </void>
-                      <void property="variableName">
-                        <string>dirChooser</string>
+                      <void property="textLabel">
+                        <string>Prova</string>
                       </void>
                     </object>
                   </java>
@@ -2088,7 +1940,7 @@ return console.askYesNo(message, true);
                         <visibilityScript />
                         <externalParametrizationPropertyNames />
                       </formComponent>
-                      <formComponent name="Back button" id="570" customizedId="footer_back_button" beanClass="com.install4j.runtime.beans.styles.StandardControlButtonComponent" enabled="false" commentSet="false" comment="" insetTop="0" insetLeft="" insetBottom="0" insetRight="" resetInitOnPrevious="true" useExternalParametrization="false" externalParametrizationName="" externalParametrizationMode="all">
+                      <formComponent name="Back button" id="570" customizedId="footer_back_button" beanClass="com.install4j.runtime.beans.styles.StandardControlButtonComponent" enabled="true" commentSet="false" comment="" insetTop="0" insetLeft="" insetBottom="0" insetRight="" resetInitOnPrevious="true" useExternalParametrization="false" externalParametrizationName="" externalParametrizationMode="all">
                         <serializedBean>
                           <java class="java.beans.XMLDecoder">
                             <object class="com.install4j.runtime.beans.styles.StandardControlButtonComponent">
@@ -2115,7 +1967,7 @@ return console.askYesNo(message, true);
                         <visibilityScript />
                         <externalParametrizationPropertyNames />
                       </formComponent>
-                      <formComponent name="Next button" id="571" customizedId="footer_next_button" beanClass="com.install4j.runtime.beans.styles.StandardControlButtonComponent" enabled="false" commentSet="false" comment="" insetTop="0" insetLeft="" insetBottom="0" insetRight="" resetInitOnPrevious="false" useExternalParametrization="false" externalParametrizationName="" externalParametrizationMode="all">
+                      <formComponent name="Next button" id="571" customizedId="footer_next_button" beanClass="com.install4j.runtime.beans.styles.StandardControlButtonComponent" enabled="true" commentSet="false" comment="" insetTop="0" insetLeft="" insetBottom="0" insetRight="" resetInitOnPrevious="false" useExternalParametrization="false" externalParametrizationName="" externalParametrizationMode="all">
                         <serializedBean>
                           <java class="java.beans.XMLDecoder">
                             <object class="com.install4j.runtime.beans.styles.StandardControlButtonComponent">
@@ -2147,7 +1999,7 @@ configurationObject.updateUI();</initScript>
                         <visibilityScript />
                         <externalParametrizationPropertyNames />
                       </formComponent>
-                      <formComponent name="Cancel button" id="572" customizedId="" beanClass="com.install4j.runtime.beans.styles.StandardControlButtonComponent" enabled="false" commentSet="false" comment="" insetTop="0" insetLeft="" insetBottom="0" insetRight="" resetInitOnPrevious="false" useExternalParametrization="false" externalParametrizationName="5454" externalParametrizationMode="all">
+                      <formComponent name="Cancel button" id="572" customizedId="" beanClass="com.install4j.runtime.beans.styles.StandardControlButtonComponent" enabled="true" commentSet="false" comment="" insetTop="0" insetLeft="" insetBottom="0" insetRight="" resetInitOnPrevious="false" useExternalParametrization="false" externalParametrizationName="5454" externalParametrizationMode="all">
                         <serializedBean>
                           <java class="java.beans.XMLDecoder">
                             <object class="com.install4j.runtime.beans.styles.StandardControlButtonComponent">
@@ -2176,36 +2028,6 @@ configurationObject.setBorderPainted(false);
 configurationObject.setMargin(new Insets(0,0,0,0));
 
 configurationObject.updateUI();</initScript>
-                        <visibilityScript />
-                        <externalParametrizationPropertyNames />
-                      </formComponent>
-                      <formComponent name="" id="1617" customizedId="" beanClass="com.roche.infinity.install4j.component.button.RocheButtonCancel" enabled="true" commentSet="false" comment="" insetTop="17" insetLeft="19" insetBottom="18" insetRight="21" resetInitOnPrevious="false" useExternalParametrization="true" externalParametrizationName="ButtonProperties" externalParametrizationMode="all">
-                        <serializedBean>
-                          <java class="java.beans.XMLDecoder">
-                            <object class="com.roche.infinity.install4j.component.button.RocheButtonCancel" />
-                          </java>
-                        </serializedBean>
-                        <initScript>JButton b = (JButton) component.getConfigurationObject();
-b.setText("PEPE");
-b.updateUI();
-context.notifyAll();</initScript>
-                        <visibilityScript />
-                        <externalParametrizationPropertyNames />
-                      </formComponent>
-                      <formComponent name="" id="1934" customizedId="" beanClass="SampleFormComponent" enabled="true" commentSet="false" comment="" insetTop="" insetLeft="" insetBottom="" insetRight="" resetInitOnPrevious="false" useExternalParametrization="true" externalParametrizationName="SampleForm" externalParametrizationMode="all">
-                        <serializedBean>
-                          <java class="java.beans.XMLDecoder">
-                            <object class="SampleFormComponent">
-                              <void property="labelText">
-                                <string>Prova1 label</string>
-                              </void>
-                              <void property="text">
-                                <string>Prova1 </string>
-                              </void>
-                            </object>
-                          </java>
-                        </serializedBean>
-                        <initScript />
                         <visibilityScript />
                         <externalParametrizationPropertyNames />
                       </formComponent>
@@ -2397,34 +2219,6 @@ context.notifyAll();</initScript>
                                       </void>
                                       <void property="labelText">
                                         <string>Detail</string>
-                                      </void>
-                                    </object>
-                                  </java>
-                                </serializedBean>
-                                <initScript />
-                                <visibilityScript />
-                                <externalParametrizationPropertyNames />
-                              </formComponent>
-                              <formComponent name="" id="1431" customizedId="" beanClass="com.roche.infinity.install4j.wrappers.RocheProgressBarWrapper" enabled="true" commentSet="false" comment="" insetTop="" insetLeft="" insetBottom="" insetRight="" resetInitOnPrevious="false" useExternalParametrization="false" externalParametrizationName="" externalParametrizationMode="all">
-                                <serializedBean>
-                                  <java class="java.beans.XMLDecoder">
-                                    <object class="com.roche.infinity.install4j.wrappers.RocheProgressBarWrapper">
-                                      <void property="background">
-                                        <object class="java.awt.Color">
-                                          <int>128</int>
-                                          <int>128</int>
-                                          <int>0</int>
-                                          <int>255</int>
-                                        </object>
-                                      </void>
-                                      <void property="height">
-                                        <int>333</int>
-                                      </void>
-                                      <void property="value">
-                                        <int>55</int>
-                                      </void>
-                                      <void property="width">
-                                        <int>333</int>
                                       </void>
                                     </object>
                                   </java>

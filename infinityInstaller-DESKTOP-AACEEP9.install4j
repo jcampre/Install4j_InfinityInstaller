@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <install4j version="7.0.6" transformSequenceNumber="7">
-  <directoryPresets config="../../../Install4j_InfinityInstaller/build/libs" />
+  <directoryPresets config="./build/libs" />
   <application name="${i18n:app.name}" distributionSourceDir="" applicationId="1709-1325-7289-2515" mediaDir="setup" mediaFilePattern="${compiler:sys.shortName}_${compiler:sys.platform}_${compiler:sys.version}" compression="6" lzmaCompression="false" pack200Compression="false" excludeSignedFromPacking="true" commonExternalFiles="false" createMd5Sums="true" shrinkRuntime="true" shortName="Infinity" publisher="roche" publisherWeb="http://www.roche.es/" version="${compiler:infinity_version}" allPathsRelative="true" backupOnSave="false" autoSave="false" convertDotsToUnderscores="true" macSignature="????" macVolumeId="4ee007125f3cc893" javaMinVersion="1.7" javaMaxVersion="" allowBetaVM="false" jdkMode="runtimeJre" jdkName="">
     <languages skipLanguageSelection="false" languageSelectionInPrincipalLanguage="false">
       <principalLanguage id="en" customLocalizationFile="./resources/internalization_en.utf8" />
@@ -34,7 +34,7 @@
   <installerGui installerType="1" addOnAppId="" suggestPreviousLocations="true" autoUpdateDescriptorUrl="" useAutoUpdateBaseUrl="false" autoUpdateBaseUrl="">
     <staticMembers script="static void addCancelButton(Context context)&#xA;{&#xA;    JButton b=new JButton(&quot;Click Here&quot;);  &#xA;    b.setBounds(50,100,95,30);  &#xA;    context.getWizardContext().pressCancelButton();&#xA;}&#xA;" />
     <customCode>
-      <archive location="../../../Install4j_InfinityInstaller/build/libs/InfinityRocheLib-1.0.jar" />
+      <archive location="./build/libs/InfinityRocheLib-1.0.jar" />
     </customCode>
     <autoUpdate useMinUpdatableVersion="false" minUpdatableVersion="" useMaxUpdatableVersion="false" maxUpdatableVersion="">
       <commentFiles />
@@ -1902,31 +1902,6 @@ configurationObject.setBorderPainted(false);
 configurationObject.setMargin(new Insets(0,0,0,0));
 
 configurationObject.updateUI();</initScript>
-                        <visibilityScript />
-                        <externalParametrizationPropertyNames />
-                      </formComponent>
-                      <formComponent name="" id="1104" customizedId="" beanClass="com.roche.infinity.install4j.component.button.RocheButtonCancel" enabled="true" commentSet="false" comment="" insetTop="" insetLeft="" insetBottom="" insetRight="" resetInitOnPrevious="false" useExternalParametrization="false" externalParametrizationName="" externalParametrizationMode="all">
-                        <serializedBean>
-                          <java class="java.beans.XMLDecoder">
-                            <object class="com.roche.infinity.install4j.component.button.RocheButtonCancel">
-                              <void property="buttonIconFile">
-                                <object class="com.install4j.api.beans.ExternalFile">
-                                  <string>../../../../../../InfinityInstall4j/icons/Delete.png</string>
-                                </object>
-                              </void>
-                              <void property="height">
-                                <int>20</int>
-                              </void>
-                              <void property="textLabel">
-                                <string>Cancel</string>
-                              </void>
-                              <void property="width">
-                                <int>100</int>
-                              </void>
-                            </object>
-                          </java>
-                        </serializedBean>
-                        <initScript />
                         <visibilityScript />
                         <externalParametrizationPropertyNames />
                       </formComponent>
