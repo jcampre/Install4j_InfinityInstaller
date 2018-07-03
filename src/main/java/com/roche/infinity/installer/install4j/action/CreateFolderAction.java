@@ -1,6 +1,8 @@
 package com.roche.infinity.installer.install4j.action;
 
 import java.io.File;
+
+import com.install4j.api.Util;
 import com.install4j.api.context.Context;
 import com.install4j.api.context.InstallerContext;
 import com.roche.infinity.installer.install4j.utils.FileUtils;
@@ -8,12 +10,11 @@ import com.roche.infinity.installer.install4j.utils.FileUtils;
 /**
  * Create Folder action
  * @author jcamprec
- * @Date June 2018
  */
 public class CreateFolderAction extends AbstractRocheAction {
 
-	private static final String BACKUP_FOLDER = "backupFolder";
 	private boolean preaction=true;
+	private String folder;
 	/**
 	 * 
 	 */
@@ -26,9 +27,23 @@ public class CreateFolderAction extends AbstractRocheAction {
 		super();
 	}
 	
+	/**
+	 * @return the folder
+	 */
+	public String getFolder() {		
+		return replaceVariables(folder);
+	}
+
+	/**
+	 * @param folder the folder to set
+	 */
+	public void setFolder(String folder) {		
+		this.folder = folder;		
+	}
+
 	private boolean createFolder(Context context) {
-		//create folder
-		return FileUtils.createFolder((String)context.getVariable(BACKUP_FOLDER));
+		//create folder		
+		return FileUtils.createFolder(getFolder());
 	}
 	/**
 	 * 
@@ -51,17 +66,15 @@ public class CreateFolderAction extends AbstractRocheAction {
 
 	@Override
 	public void reportFailure(Context context, Exception e) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 	/**
 	 * atomic rollback
-	 * @param context
+	 * @param context - install4j installer context
 	 */
 	@Override
 	public void rollback(InstallerContext context) {
-		File folder = new File((String)context.getVariable(BACKUP_FOLDER));
+		File folder = new File(this.folder);
 		if (folder.exists())
 			FileUtils.delete(folder);
 	}
@@ -69,8 +82,7 @@ public class CreateFolderAction extends AbstractRocheAction {
 	@Override
 	public boolean preaction(Context context) { 
 		//if error on preaction, change preaction to false
-		return preaction;
-		
+		return preaction;		
 	}
 
 	@Override

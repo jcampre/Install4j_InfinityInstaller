@@ -9,8 +9,7 @@ import com.roche.infinity.installer.install4j.wrapper.button.RocheButtonWrapper;
 
 /**
  * 
- * @author Jordi Campreciós
- * @date May 2018
+ * @author Jordi Camprecios
  * Define the roche button cancel
  */
 public class RocheButtonPrevious extends RocheButtonWrapper {	
@@ -52,4 +51,14 @@ public class RocheButtonPrevious extends RocheButtonWrapper {
     public void initialize() {
         super.initialize();
     }
+	
+	/**
+	 * Create a variable to handle the button
+	 * 
+	 */
+	@Override
+	public void formWillActivate() {
+		if (getContext() != null)
+			getContext().setVariable("previous_button", this);
+	}
 }

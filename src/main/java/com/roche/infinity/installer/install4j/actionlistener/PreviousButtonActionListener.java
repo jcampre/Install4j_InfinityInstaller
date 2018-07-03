@@ -9,23 +9,22 @@ import com.roche.infinity.installer.install4j.utils.LoggerManager;
 /**
  * 
  * @author Jordi Arenas
- * @date May 2018
  * 
  */
 public class PreviousButtonActionListener extends AbstractActionListener {
 	/**
 	 * 
-	 * @param context
+	 * @param context -  the install4j context
 	 */
 	public PreviousButtonActionListener(Context context) {
 		super(context);		
 	}
 
 	/**
-	 * @param ActionEvent
+	 * @param actionEvent - the ActionEvent
 	 */
 	@Override	
-	public void actionPerformed(ActionEvent e) {		
+	public void actionPerformed(ActionEvent actionEvent) {		
 		PreviousButtonAction ac = new PreviousButtonAction();
 		try {
 			ac.install((InstallerContext)this.getContext());

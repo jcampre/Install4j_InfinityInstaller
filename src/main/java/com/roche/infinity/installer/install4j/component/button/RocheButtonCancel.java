@@ -2,7 +2,6 @@ package com.roche.infinity.installer.install4j.component.button;
 
 import java.awt.Dimension;
 import javax.swing.JComponent;
-
 import com.roche.infinity.installer.install4j.actionlistener.CancelButtonActionListener;
 import com.roche.infinity.installer.install4j.wrapper.button.RocheButtonWrapper;
 import com.roche.infinity.installer.install4j.screen.component.button.RocheButton;
@@ -10,8 +9,7 @@ import com.roche.infinity.installer.install4j.style.utilities.Utilities.StylePro
 
 /**
  * 
- * @author Jordi Campreciós
- * @date May 2018
+ * @author Jordi Camprecios 
  * Define the roche button cancel
  */
 public class RocheButtonCancel extends RocheButtonWrapper {	
@@ -27,8 +25,7 @@ public class RocheButtonCancel extends RocheButtonWrapper {
 	 * Creates the button
 	 */
 	@Override
-	public JComponent createCenterComponent() {
-		
+	public JComponent createCenterComponent() {		
 		Dimension d = new Dimension(this.getWidth(), this.getHeight());
 		rocheButton = new RocheButton(ButtonTypes.NORMAL, d, this.getTextLabel(), this.getTextToolTip(), this.getFont(), 
 				this.getButtonIconFile(), this.isHide(), this.isDisable());		
@@ -44,5 +41,15 @@ public class RocheButtonCancel extends RocheButtonWrapper {
 	@Override
 	public boolean isFillCenterHorizontal() {		
 		return false;
+	}
+	
+	/**
+	 * Create a variable to handle the button
+	 * 
+	 */
+	@Override
+	public void formWillActivate() {
+		if (getContext() != null)
+			getContext().setVariable("cancel_button", this);
 	}
 }

@@ -1,0 +1,24 @@
+package com.roche.infinity.installer.install4j
+
+import com.roche.infinity.installer.install4j.system.SystemProperties
+
+rule "Windows 10, 64 bits, with no service pack"
+	when 
+		systemProperties: SystemProperties((operatingSystemName.equalsIgnoreCase("Windows 10")) && (servicePack==null) && (operatingSystemArchitecture.contains("64")))
+	then	
+		systemProperties.setCompatible(true);
+	end
+	
+rule "Windows Server 2008 R2, 64 bits, with Service Pack 1"
+	when 
+		systemProperties: SystemProperties((operatingSystemName.equalsIgnoreCase("Windows Server 2008 R2")) && (servicePack.equalsIgnoreCase("SP1")) && (operatingSystemArchitecture.contains("64")))
+	then	
+		systemProperties.setCompatible(true);
+	end
+	
+rule "Windows Server 2012 R2, 64 bits, with no service pack"
+	when 
+		systemProperties: SystemProperties((operatingSystemName.equalsIgnoreCase("Windows Server 2012")) && (servicePack==null) && (operatingSystemArchitecture.contains("64")))
+	then	
+		systemProperties.setCompatible(true);
+	end

@@ -5,8 +5,8 @@ import com.install4j.api.screens.Screen;
 
 /**
  * 
- * @author Jordi Campreciós
- * @date May 2018 Define the installation action
+ * @author Jordi Camprecios
+ * Define the installation action
  */
 public class ForwardToAction extends AbstractRocheAction {
 

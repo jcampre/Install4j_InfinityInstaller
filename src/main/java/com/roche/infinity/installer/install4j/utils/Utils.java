@@ -7,14 +7,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.Map;
 import com.install4j.api.context.Context;
-import com.install4j.api.context.InstallationComponentSetup;
 
 /**
  * @author jcamprec
@@ -22,7 +20,11 @@ import com.install4j.api.context.InstallationComponentSetup;
  * Implements all generic methods used in Install4j
  */
 public class Utils {
+
 	
+	private static final String FORMAT_2_DECIMALS = "%.2f";
+	private static final String JDK1_8_0_101 = "jdk1.8.0_101";
+	private static final String BACKUP_BIN_FOLDER = "backup_binFolder";
 	private static final String DATE_TIME_FORMAT = "MM-dd-yyyy-hhmmss";
 	private static final String BACKUP_EXT = ".dat";
 	private static final String UNINSTALL_TOMCAT_SERVICE = "uninstall";
@@ -37,93 +39,20 @@ public class Utils {
 	private static final String SC_QUERY = "query";
 	private static final String C_WINDOWS_SYSTEM32_SC_EXE = "C:\\Windows\\System32\\sc.exe";	
 	
+	private static final String GB = "GB";
+	private static final String MB = "MB";
+	private static final long  BYTE = 1024L;
+	
+	//List that will hold already installed components. Loaded when program starts
+	private static ArrayList<String> installedComponents = new ArrayList<String>();
+	
 	private Utils(){}
-		
-	/**
-	 * return all selected components to be installed
-	 * 
-	 * @param context
-	 * @return
-	 */
-	public static int getSelectedComponents(Context context) {
-		Collection<InstallationComponentSetup> col = context.getInstallationComponents();
-		int i=0;
-		Iterator<InstallationComponentSetup> it = col.iterator(); 
-		while (it.hasNext()){
-		    InstallationComponentSetup comp = it.next();
-		    if (comp.isSelected())            
-		        i++;
-		}
-
-		return i;
-	}
-	
-	/**
-	 * return all components in the fileset
-	 * 
-	 * @param context
-	 * @return
-	 */
-	public static int getAllComponents(Context context) {
-		Collection<InstallationComponentSetup> col = context.getInstallationComponents();
-		if (col != null)
-			return col.size();
-		
-		return 0;
-	}
-	
-	/**
-	 * 
-	 * @param context
-	 * @return
-	 */
-	public static boolean isAllComponentsSelected(Context context) {
-		return getAllComponents(context) == getSelectedComponents(context);
-	}
-	/**
-	 * return all selected components to be installed
-	 * 
-	 * @param context
-	 * @return
-	 */
-	public static void setAllComponentsSelected(Context context) {
-		Collection<InstallationComponentSetup> col = context.getInstallationComponents();
-		Iterator<InstallationComponentSetup> it = col.iterator();
-		LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), "Setting all components to be installed.");
-		while (it.hasNext()){
-		    InstallationComponentSetup comp = it.next();
-		    comp.setSelected(true);
-		    LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), "Component: " + comp.getName() +" checked for installation.");
-		}
-	}
-	
-	/**
-	 * Calculate all required disk space considering all selected components to be installed
-	 * 
-	 * @param context
-	 * @return
-	 */
-	public static String getComponentRequiredDiskSpaceForSelectedComponents(Context context) {
-		Collection<InstallationComponentSetup> col = context.getInstallationComponents();
-		long diskSpace=0;
-		Iterator<InstallationComponentSetup> it = col.iterator(); 
-		while (it.hasNext()){
-		    InstallationComponentSetup comp = it.next();
-		    if (comp.isSelected()) {
-		    	//only if value (disk space required) defined for that selected component
-		    	if (context.getCompilerVariable(comp.getId()+"DiskSpace") != null)
-		    		diskSpace = diskSpace+(Integer.valueOf(context.getCompilerVariable(comp.getId()+"DiskSpace")));
-		    }
-		}
-		
-		return String.valueOf(diskSpace);
-	}
 	
 	
 	
 	/**
 	 * Return the current date with this format: MM-dd-yyyy hh:mm:ss
-	 * @return
+	 * @return the date with format 
 	 */
 	public static String getFormattedCurrentDate(){
 	     SimpleDateFormat sdf = new SimpleDateFormat(DATE_TIME_FORMAT);
@@ -132,7 +61,8 @@ public class Utils {
 	
 	/**
 	 * Return the current date with any format passed as parameter
-	 * @return
+	 * @param formatDate the date format
+	 * @return the date with format
 	 */
 	public static String getFormattedCurrentDate(String formatDate){
 	     SimpleDateFormat sdf = new SimpleDateFormat(formatDate);
@@ -141,22 +71,62 @@ public class Utils {
 	
 	/**
 	 * Return the date with this format: MM-dd-yyyy hh:mm:ss
-	 * @return
+	 * @param formatDate - the date format
+	 * @param date - the date 
+	 * @return the date  with format
 	 */
-	public static String getFormattedDate(Date d, String formatDate){
+	public static String getFormattedDate(Date date, String formatDate){
 	     SimpleDateFormat sdf = new SimpleDateFormat(formatDate);	     
-	     return sdf.format(d);
+	     return sdf.format(date);
 	     
 	}	
 	
 	/**
+	 * Return a string formatted with 2 decimals
+	 * @param str input string
+	 * @return the string formatted
+	 */
+	public static String formatString2Decimals(String str) {
+		Double d = Double.valueOf(str);		
+		return String.format(FORMAT_2_DECIMALS, d);
+	}
+	
+	/**
+	 * 
+	 * @param requiredSpaceDisk - the disk space required
+	 * @return the required space unit unit of measurement
+	 */
+	public static String isMBorGB(Double requiredSpaceDisk) {
+		
+		if (requiredSpaceDisk < BYTE)
+		    return MB;
+		else {
+		    return GB;
+		}
+	}
+	
+	/**
+	 * 
+	 * @param requiredSpaceDisk - the disk space required
+	 * @return the required space formatted as MB or GB
+	 */
+	public static String getDiskSpaceAsMBorGB(Double requiredSpaceDisk) {
+		
+		if (requiredSpaceDisk < BYTE)
+		    return String.valueOf(requiredSpaceDisk);
+		else {		    
+		    return String.valueOf(requiredSpaceDisk/BYTE);
+		}
+	}
+	
+	/**
 	 * Checks the status of a windows service 
-	 * @param serviceName
-	 * @return
-	 * -1: Unknow error
-	 * 0 : Service not installed
-	 * 1: service running
-	 * 2: service stopped
+	 * @param serviceName -the name of the service to check
+	 * @return the status
+	 * -1: Unknown error
+	 *  0: Service not installed
+	 *  1: service running
+	 *  2: service stopped
 	 */
 	public static int checkService(String serviceName) {
 		try {
@@ -190,11 +160,17 @@ public class Utils {
 		  } 
 	}
 	
+	/**
+	 * Stop the service of tomcat
+	 * @param context - the install4j context
+	 * @param serviceName -  the service name
+	 * @param servicePath -  the service path
+	 */
 	public static void stopTomcatService(Context context, String serviceName, String servicePath) {
 		try {
 			ProcessBuilder process = new ProcessBuilder(servicePath,STOP_TOMCAT_SERVICE, serviceName);			
 			Map<String,String> env =  process.environment();
-			env.put(JAVA_HOME, (String)context.getVariable(JAVA_DIRECTORY)+LINE_SEPARATOR+"jdk1.8.0_101");
+			env.put(JAVA_HOME, (String)context.getVariable(JAVA_DIRECTORY)+LINE_SEPARATOR+JDK1_8_0_101);
 			env.put(CATALINA_HOME, (String)context.getVariable(TOMCAT_DIRECTORY));
 			Process pb = process.start();
 			BufferedReader reader = 
@@ -215,13 +191,19 @@ public class Utils {
 			LoggerManager.getInstance(Utils.class).error(Utils.class.getSimpleName(), serviceName + " cannot be uninstalled. Error " + e.getLocalizedMessage(), e);
 		}
 	}
-	
+
+	/**
+	 * Uninstall the tomcat service
+	 * @param context - the install4j context
+	 * @param serviceName - the service name
+	 * @param servicePath - the service path
+	 */
 	public static void uninstallTomcatService(Context context, String serviceName, String servicePath) {
 		
 		try {
 			ProcessBuilder process = new ProcessBuilder(servicePath,UNINSTALL_TOMCAT_SERVICE, serviceName);			
 			Map<String,String> env =  process.environment();
-			env.put(JAVA_HOME, (String)context.getVariable(JAVA_DIRECTORY)+LINE_SEPARATOR+"jdk1.8.0_101");
+			env.put(JAVA_HOME, (String)context.getVariable(JAVA_DIRECTORY)+LINE_SEPARATOR+JDK1_8_0_101);
 			env.put(CATALINA_HOME, (String)context.getVariable(TOMCAT_DIRECTORY));
 			Process pb = process.start();
 			BufferedReader reader = 
@@ -244,12 +226,11 @@ public class Utils {
 	}
 	
 	/**
-	 * checks if version to be installed is newer than the version already installed
+	 * Checks if version to be installed is newer than the version already installed
 	 *  
-	 * @param context
-	 * @param installedVersion
-	 * @param newVersion
-	 * @return
+	 * @param installedVersion -  the installed version
+	 * @param newVersion -  the new version
+	 * @return - the result of the check
 	 */
 	public static boolean checkLowerVersion(String installedVersion, String newVersion) {
 				
@@ -269,13 +250,14 @@ public class Utils {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Get the latest HealthShare backup
+	 * @param context -  the install4j context
+	 * @return File - the file with the backup	 
 	 */
 	public static File getLatestHealthShareBackup(Context context) {
 		File file = new File((String)context.getVariable("backupFolder"));
 		if (!file.exists()) {
-			LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), (String)context.getVariable("backupFolder") + " does not exist.");
+			LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), (String)context.getVariable(BACKUP_BIN_FOLDER) + " does not exist.");
 			return null;
 		}
 			

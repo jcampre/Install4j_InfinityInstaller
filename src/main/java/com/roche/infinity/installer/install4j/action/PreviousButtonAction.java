@@ -5,8 +5,8 @@ import com.install4j.api.context.ControlButtonType;
 
 /**
  * 
- * @author Jordi Campreciós
- * @date May 2018 Define the installation action
+ * @author Jordi Camprecios
+ * sDefine the installation action
  */
 public class PreviousButtonAction extends AbstractRocheAction {
 

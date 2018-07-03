@@ -9,23 +9,22 @@ import com.roche.infinity.installer.install4j.utils.LoggerManager;
 /**
  * 
  * @author Jordi Arenas
- * @date May 2018
  * 
  */
 public class FinishButtonActionListener extends AbstractActionListener {	
 	/**
 	 * 
-	 * @param context
+	 * @param context - the install4j context
 	 */
 	public FinishButtonActionListener(Context context) {
 		super(context);
 	}
 
 	/**
-	 * @param ActionEvent
+	 * @param actionEvent -  the AcvionEvent
 	 */
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent actionEvent) {
 		FinishButtonAction ac = new FinishButtonAction();
 		try {
 			ac.install((InstallerContext)this.getContext());

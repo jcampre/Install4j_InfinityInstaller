@@ -5,12 +5,13 @@ import com.roche.infinity.installer.install4j.wrapper.button.RocheButtonWrapperB
 
 /**
  * 
- * @author Jordi Campreciós
- * @date May 2018
+ * @author Jordi Camprecios
  * Define the roche button cancel bean info
  */
 public class RocheButtonForwardToScreenBeanInfo  extends RocheButtonWrapperBeanInfo {
+	
 	private static final String PROPERTY_TEXT_TOSCREEN = "toScreen";
+	
 	/**
 	 * Default constructor
 	 */

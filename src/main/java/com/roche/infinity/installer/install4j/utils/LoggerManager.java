@@ -2,14 +2,11 @@ package com.roche.infinity.installer.install4j.utils;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-
 import com.install4j.api.Util;
 
 /**
  * Logger Manager for custom logs
- * @author Jordi Campreciós
- * @Date June 2018
+ * @author Jordi Camprecios
  *
  */
 public class LoggerManager {
@@ -21,6 +18,11 @@ public class LoggerManager {
         super();
     }
 
+    /**
+     * 
+     * @param className - the name of the class where the log is used
+     * @return LoggerManager
+     */
     public static LoggerManager getInstance(Class<?> className){
         if(instance  == null){
             instance  = new LoggerManager();
@@ -29,6 +31,11 @@ public class LoggerManager {
         return instance;
     }
 
+    /**
+     * 
+     * @param myclass - the name of the class where the log is used
+     * @param msg - the message to include on the log
+     */
     public void info(String myclass, String msg) {
     	String message="[" + myclass + "] " + msg;
     	Util.logInfo(null, message) ;
@@ -36,12 +43,23 @@ public class LoggerManager {
 
     }
 
+    /**
+     * 
+     * @param myclass - the name of the class where the log is used 
+     * @param msg - the message to include on the log
+     * @param ce - exception
+     */
     public void error(String myclass, String msg, Exception ce) {
     	String message="[" + myclass + "] " + msg;
     	Util.logError(null, message) ;        
     	log4j.error(message, ce);      
     }
 
+    /**
+     * 
+     * @param myclass - the name of the class where the log is used 
+     * @param msg - the message to include on the log
+     */
     public void warning(String myclass, String msg) {
     	String message="[" + myclass + "] " + msg;
     	Util.logInfo(null, message) ;

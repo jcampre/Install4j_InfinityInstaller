@@ -4,8 +4,7 @@ import com.roche.infinity.installer.install4j.wrapper.button.RocheButtonWrapperB
 
 /**
  * 
- * @author Jordi Campreciós
- * @date May 2018
+ * @author Jordi Camprecios
  * Define the roche button finish bean info
  */
 public class RocheButtonFinishBeanInfo  extends RocheButtonWrapperBeanInfo {

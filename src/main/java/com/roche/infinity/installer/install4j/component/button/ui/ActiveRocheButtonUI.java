@@ -42,15 +42,4 @@ public class ActiveRocheButtonUI extends RocheButtonUI {
 		setBorderDisable(new LineBorder(ButtonActiveColors.ACTIVE_DISABLE_BUTTON_BORDER_COLOR.getColor()));
 	}
 
-	/**
-	 * 
-	 * @param c
-	 *            JComponent
-	 */
-	/*@Override
-	public void enableButton(JComponent c) {
-		this.setDefaultColors();
-		c.addMouseListener(this);
-		c.addKeyListener(this);
-	}*/
 }

@@ -96,12 +96,12 @@ public class ButtonDemo extends JPanel
         bt1 = new RocheButton(ButtonTypes.NORMAL,
 				new Dimension(ButtonSizes.BUTTON_WIDTH_LARGE_SIZE.getSize(),
 						ButtonSizes.BUTTON_HEIGHT_LARGE_SIZE.getSize()),
-						"Click Me", "Això és un botó", ButtonFonts.BUTTON_FONT.getFont(), null, false, false);
+						"Click Me", "Això és un botó", ButtonFonts.BUTTON_FONT.getFont(), null, false, true);
 
         bt2 = new RocheButton(ButtonTypes.ACTIVE,
 				new Dimension(ButtonSizes.BUTTON_WIDTH_LARGE_SIZE.getSize(),
 						ButtonSizes.BUTTON_HEIGHT_LARGE_SIZE.getSize()),
-						"Click Me", "Això és un botó", ButtonFonts.BUTTON_FONT.getFont(), null, false, false);
+						"Click Me", "Això és un botó", ButtonFonts.BUTTON_FONT.getFont(), null, false, true);
 
 		add(bt1);
 		add(bt2); 

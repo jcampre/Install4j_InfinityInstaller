@@ -6,8 +6,8 @@ import com.roche.infinity.installer.install4j.action.installation.InstallationAc
 
 /**
  * 
- * @author Jordi Campreciós
- * @date May 2018 Define the installation action
+ * @author Jordi Camprecios
+ * Define the installation action
  */
 public class FinishButtonAction extends AbstractRocheAction  {
 

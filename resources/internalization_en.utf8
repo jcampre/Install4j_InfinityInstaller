@@ -1,0 +1,14 @@
+app.name=Infinity Installer
+screen.welcome.title=cobas infinity IT solutions
+screen.welcome.subtitle=Infinity Installer
+screen.screen_welcome.screen_welcome_version=Version of Infinity in the Installer
+screen.screen_welcome.screen_welcome_year=Year of the version
+screen.screen_welcome.screen_welcome_IVD=Labelling regarding IVD or CE
+screen.screen_welcome.screen_welcome_licensing=Licensing (??????)
+screen.screen_systemRequirements.title=cobas infinity IT solutions
+screen.screen_systemRequirements.subtitle=Installer infinity
+screen.screen_systemRequirements.label_systemArchitectureText=System architecture:
+screen.screen_systemRequirements.label_systemNumProcessorsText=System's processors:
+screen.screen_systemRequirements.label_systemOSText=Operating System:
+screen.cancelDialogBox.title=Cancel
+screen.cancelDialogBox.text=Do you want to cancel this installation?

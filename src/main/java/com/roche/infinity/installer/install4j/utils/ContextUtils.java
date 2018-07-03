@@ -5,15 +5,9 @@ import com.install4j.api.context.Context;
 /**
  * 
  * All operations with install4j.Context
- * 
- * @author jcamprec
- * @Date June 2018
+ * @author jcamprec 
  */
 public class ContextUtils {
-
-	private static final String GB = "GB";
-	private static final String MB = "MB";
-	private static final long  BYTE = 1024L;
 	
 	/**
 	 * Default constructor
@@ -23,9 +17,9 @@ public class ContextUtils {
 	/**
 	 * Updates String context variable
 	 * 
-	 * @param context
-	 * @param variableName
-	 * @param newValue
+	 * @param context - install4j context
+	 * @param variableName - name of the variable to be updated
+	 * @param newValue - value of the variable to be updated
 	 */
 
 	public static void updateStringVariable(Context context, String variableName, String newValue) {
@@ -35,28 +29,11 @@ public class ContextUtils {
 	/**
 	 * Updates Integer context variable
 	 * 
-	 * @param context
-	 * @param variableName
-	 * @param newValue
+	 * @param context - install4j context
+	 * @param variableName - the name of the variable to be updated
+	 * @param newValue - the value of the variable to be updated
 	 */
 	public static void updateIntegerVariable(Context context, String variableName, int newValue) {
 		context.setVariable(variableName, newValue);
-	}
-	
-	/**
-	 * 
-	 * @param context
-	 * @param requiredSpaceDisk
-	 * @return
-	 */
-	public static String isMBorGB(Context context, Double requiredSpaceDisk) {
-		
-		if (requiredSpaceDisk < BYTE)
-		    return MB;
-		else {
-		    context.setVariable("selectedComponentsRequiredSpaceDisk", String.valueOf(requiredSpaceDisk/BYTE));
-		    LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), "Required installation disk space changed to GB.");
-		    return GB;
-		}
 	}
 }

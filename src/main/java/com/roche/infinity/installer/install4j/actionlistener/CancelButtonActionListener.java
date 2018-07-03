@@ -9,7 +9,6 @@ import com.roche.infinity.installer.install4j.utils.LoggerManager;
 /**
  * 
  * @author Jordi Arenas
- * @date May 2018
  * 
  */
 public class CancelButtonActionListener extends AbstractActionListener {
@@ -20,10 +19,10 @@ public class CancelButtonActionListener extends AbstractActionListener {
 	
 
 	/**
-	 * @param ActionEvent
+	 * @param actionEvent - the action event
 	 */
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent actionEvent) {
 		CancelButtonAction ac = new CancelButtonAction();
 		try {
 			ac.install((InstallerContext)this.getContext());

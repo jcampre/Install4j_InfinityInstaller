@@ -1,6 +1,8 @@
 package com.roche.infinity.installer.install4j.system;
 
 import java.io.File;
+
+import com.install4j.api.Util;
 import com.roche.infinity.installer.install4j.utils.LoggerManager;
 
 /**
@@ -19,11 +21,11 @@ public class ComponentRequirements {
 	/**
 	 * Evaluates if there is enough disk space considering components selected
 	 * 
-	 * @param file
-	 * @param requiredSpace
-	 * @return
+	 * @param file -  the file to evaluate
+	 * @param requiredSpace -  the required space	
+	 * @return the return of the operation
 	 */
-	public static boolean evaluateMinimumDiskSpace(File file, double requiredSpace, String size) {
+	public static boolean evaluateMinimumDiskSpace(File file, double requiredSpace) {
 		if (!file.exists()) {			
 			if (file.mkdirs()) {
 				LoggerManager.getInstance(ComponentRequirements.class).
@@ -35,9 +37,9 @@ public class ComponentRequirements {
 			}
 		}
 
-		if (size.trim().equalsIgnoreCase("MB"))
-			return requiredSpace < file.getFreeSpace()/MEGABYTE;
-		else
-			return requiredSpace < file.getFreeSpace()/GIGABYTE;
+		Util.logInfo(null, "requiredSpace --> " + requiredSpace);
+		Util.logInfo(null, "file.getFreeSpace() --> " + file.getFreeSpace());
+		Util.logInfo(null, "file.getFreeSpace()/MEGABYTE --> " + file.getFreeSpace()/MEGABYTE);
+		return requiredSpace < file.getFreeSpace()/MEGABYTE;
 	}
 }

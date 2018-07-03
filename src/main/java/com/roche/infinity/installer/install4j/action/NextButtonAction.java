@@ -5,8 +5,8 @@ import com.install4j.api.context.ControlButtonType;
 
 /**
  * 
- * @author Jordi Campreciós
- * @date May 2018 Define the installation action
+ * @author Jordi Camprecios
+ * Define the installation action
  */
 public class NextButtonAction extends AbstractRocheAction {
 
@@ -34,8 +34,7 @@ public class NextButtonAction extends AbstractRocheAction {
 	}
 
 	@Override
-	public boolean execute(Context context, String toScreen) throws Exception {
-		
+	public boolean execute(Context context, String toScreen) throws Exception {		
 		return false;
 	}
 

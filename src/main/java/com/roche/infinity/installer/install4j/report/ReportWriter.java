@@ -15,8 +15,8 @@ public class ReportWriter {
 	
 	/**
 	 * Write the JSONArray into a JSON file
-	 * @param jsonArray
-	 * @param fileWriter
+	 * @param jsonArray  - array with the component names and actions
+	 * @param fileWriter - the destination file
 	 */
 	public static synchronized void writeJSON(JSONArray jsonArray, FileWriter fileWriter){		
 	      try {

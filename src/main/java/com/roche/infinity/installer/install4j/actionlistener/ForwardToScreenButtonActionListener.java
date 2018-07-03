@@ -9,14 +9,16 @@ import com.roche.infinity.installer.install4j.utils.LoggerManager;
 /**
  * 
  * @author Jordi Arenas
- * @date May 2018
  * 
  */
-public class ForwardToScreenButtonActionListener extends AbstractActionListener {		
+public class ForwardToScreenButtonActionListener extends AbstractActionListener {	
+	
 	private String toScreen;
+	
 	/**
 	 * 
-	 * @param context
+	 * @param context -  the install4j context
+	 * @param toScreen - the screen to forward
 	 */
 	public ForwardToScreenButtonActionListener(Context context, String toScreen) {
 		super(context);		
@@ -24,10 +26,10 @@ public class ForwardToScreenButtonActionListener extends AbstractActionListener 
 	}
 
 	/**
-	 * @param ActionEvent
+	 * @param actionEvent the ActionEvent
 	 */
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent actionEvent) {
 		ForwardToAction ac = new ForwardToAction();
 		try {
 			ac.install((InstallerContext)this.getContext(), this.toScreen);

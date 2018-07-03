@@ -23,10 +23,8 @@ public class DroolsParser {
 	public static final String RULE_FILE = "/com/roche/infinity/installer/install4j/Rules.drl";
 	
 	/**
-	 * 
-	 * @return
-	 * @throws DroolsParserException
-	 * @throws IOException
+	 * Executes all the rules
+	 * @return the result of the execution
 	 */	
 	public static boolean executeRules() {
 
@@ -45,15 +43,12 @@ public class DroolsParser {
 			org.drools.core.rule.Package rulesPackage = packageBuilder.getPackage();
 			RuleBase ruleBase = RuleBaseFactory.newRuleBase();
 			ruleBase.addPackage(rulesPackage);
-	
-			WorkingMemory workingMemory = ruleBase.newStatefulSession();
-	
+		
 			SystemProperties systemProperties = new SystemProperties();
 			
 			getSystemProperties(systemProperties);	
 	
-			workingMemory.insert(systemProperties);
-			workingMemory.fireAllRules();
+			buildWorkingMemory(ruleBase, systemProperties);
 	
 			logSystemProperties(systemProperties);			
 			return systemProperties.isCompatible();
@@ -68,7 +63,18 @@ public class DroolsParser {
 	}
 
 	/**
-	 * @param systemProperties
+	 * @param ruleBase - the rule base
+	 * @param systemProperties - the system properties
+	 */
+	private static void buildWorkingMemory(RuleBase ruleBase, SystemProperties systemProperties) {
+		WorkingMemory workingMemory = ruleBase.newStatefulSession();
+		workingMemory.insert(systemProperties);
+		workingMemory.fireAllRules();
+	}
+
+	/**
+	 * Log the system properties
+	 * @param systemProperties  - are the  system properties to be logged
 	 */
 	private static void logSystemProperties(SystemProperties systemProperties) {
 		LoggerManager.getInstance(DroolsParser.class).info(DroolsParser.class.getSimpleName(), "Operating System: " + systemProperties.getOperatingSystemName());
@@ -77,11 +83,23 @@ public class DroolsParser {
 	}
 
 	/**
-	 * @param systemProperties
+	 * Get the system properties
+	 * @param systemProperties - the system properties to retrieve
 	 */
 	private static void getSystemProperties(SystemProperties systemProperties) {
 		systemProperties.setOperatingSystemName(System.getProperty("os.name"));
 		systemProperties.setServicePack(System.getProperty("os.servicePack"));		
-		systemProperties.setOperatingSystemArchitecture(System.getProperty("os.arch"));
+		systemProperties.setOperatingSystemArchitecture(getOperatingSystemArchitecture());
+	}
+	
+	/**
+	 * Evaluate the architecture of the operating system
+	 * @return String the Operating System Architecture
+	 */
+	private static String getOperatingSystemArchitecture(){	    
+	    if(System.getenv("ProgramFiles(X86)")!=null)
+	    	return "64bit";
+	    else
+	    	return "32bit";	    
 	}
 }

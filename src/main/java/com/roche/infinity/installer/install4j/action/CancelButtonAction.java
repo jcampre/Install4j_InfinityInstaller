@@ -5,8 +5,8 @@ import com.install4j.api.context.ControlButtonType;
 
 /**
  * 
- * @author Jordi Campreciós
- * @date June 2018 Define the installation action
+ * @author Jordi Camprecios
+ * Define the installation action
  */
 public class CancelButtonAction extends AbstractRocheAction {
 

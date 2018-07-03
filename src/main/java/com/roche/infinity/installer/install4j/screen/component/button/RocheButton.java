@@ -14,15 +14,16 @@ import com.roche.infinity.installer.install4j.style.utilities.Utilities.StylePro
 
 /**
  * 
- * @author Jordi Campreciós
- * @date May 2018 Define the button properties
+ * @author Jordi Camprecios
+ * Define the button properties
  */
 public class RocheButton extends JButton {
-	private ButtonTypes type;
+	
+	private ButtonTypes type; 
 	private RocheButtonUI buttonUI;
-
+	
 	private static final long serialVersionUID = 1L;
-
+		
 	/**
 	 * @return the type
 	 */
@@ -31,34 +32,34 @@ public class RocheButton extends JButton {
 	}
 
 	/**
-	 * @param type
-	 *            the type to set
+	 * @param type the type to set
 	 */
 	public void setType(ButtonTypes type) {
 		this.type = type;
-	}
+	}		
 
 	/**
 	 * Overloaded constructor
 	 * 
-	 * @param width
-	 * @param height
-	 * @param textLabel
-	 * @param textToolTip
-	 * @param buttonFont
-	 * @param buttonImage
-	 * @param hide
+	 * @param type -  the button type
+	 * @param dimension - the button dimension
+	 * @param textLabel - the text label
+	 * @param textToolTip -  the text tool tip
+	 * @param buttonFont - the button font
+	 * @param buttonImage - the button image
+	 * @param hide - is hide?
+	 * @param disabled - is disabled?
 	 */
-	public RocheButton(ButtonTypes type, Dimension d, String textLabel, String textToolTip, Font buttonFont,
-			File buttonImage, boolean hide, boolean disabled) {
-
+	public RocheButton(ButtonTypes type, Dimension dimension, String textLabel, String textToolTip, 
+			Font buttonFont, File buttonImage, boolean hide, boolean disabled) {
+		
 		super(textLabel);
-
+		
 		if (buttonImage != null)
 			this.setIcon(new ImageIcon(buttonImage.getAbsolutePath()));
 
 		this.setToolTipText(textToolTip);
-		this.setPreferredSize(d);
+		this.setPreferredSize(dimension);
 		this.setFont(buttonFont);
 		this.setVisible(!hide);
 
@@ -77,11 +78,11 @@ public class RocheButton extends JButton {
 
 		this.setEnabled(!disabled);
 	}
-
+	
 	/**
 	 * Sets the default button colors
-	 * 
-	 * @param buttonUI
+	 * @param buttonUI  - the RocheButtonUI
+	 * @param disabled - is disabled?
 	 */
 	public void setDefaultColors(RocheButtonUI buttonUI, boolean disabled) {
 		if (disabled) {
@@ -91,7 +92,6 @@ public class RocheButton extends JButton {
 			
 			// disable events on button
 			buttonUI.disableButton(this);
-			
 		} else {
 			this.setBorder(buttonUI.getBorderDefault());
 			this.setBackground(buttonUI.getBackgroundDefault());
@@ -104,8 +104,6 @@ public class RocheButton extends JButton {
 
 	@Override
 	public void setEnabled(boolean b) {
-		
-		//super.setEnabled(b);
 		setDefaultColors(buttonUI, !b);
 	}
 	

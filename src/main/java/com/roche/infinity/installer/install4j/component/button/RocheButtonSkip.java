@@ -10,8 +10,7 @@ import com.roche.infinity.installer.install4j.wrapper.button.RocheButtonWrapper;
 
 /**
  * 
- * @author Jordi Campreciós
- * @date May 2018
+ * @author Jordi Camprecios
  * Define the roche button finish
  */
 public class RocheButtonSkip extends RocheButtonWrapper {
@@ -43,8 +42,7 @@ public class RocheButtonSkip extends RocheButtonWrapper {
 	 * Creates the button
 	 */
 	@Override
-	public JComponent createCenterComponent() {
-		
+	public JComponent createCenterComponent() {		
 		Dimension d = new Dimension(this.getWidth(), this.getHeight());
 		rocheButton = new RocheButton(ButtonTypes.NORMAL, d, this.getTextLabel(), this.getTextToolTip(), this.getFont(), 
 				this.getButtonIconFile(), this.isHide(), this.isDisable());
@@ -60,5 +58,15 @@ public class RocheButtonSkip extends RocheButtonWrapper {
 	@Override
 	public boolean isFillCenterHorizontal() {		
 		return false;
+	}
+	
+	/**
+	 * Create a variable to handle the button
+	 * 
+	 */
+	@Override
+	public void formWillActivate() {
+		if (getContext() != null)
+			getContext().setVariable("skip_button", this);
 	}
 }

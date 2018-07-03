@@ -24,9 +24,9 @@ public abstract class AbstractRocheAction extends AbstractInstallOrUninstallActi
 	}
 	
 	/**
-	 * 
-	 * @param context
-	 * @param e
+	 *  
+	 * @param context -  the install4j context
+	 * @param e -  exception
 	 */
 	protected abstract void reportFailure(final Context context, final Exception e);
 
@@ -45,10 +45,10 @@ public abstract class AbstractRocheAction extends AbstractInstallOrUninstallActi
 	
 	/**
 	 * 
-	 * @param context
-	 * @param toScreen
-	 * @return
-	 * @throws UserCanceledException
+	 * @param context - the install4j installer context
+	 * @param toScreen - the screen name
+	 * @return the result of the operation
+	 * @throws UserCanceledException  - Exception throw when the user cancel the  installation
 	 */
 	public boolean install(final InstallerContext context, final String toScreen) throws UserCanceledException {
 		try {
@@ -74,30 +74,32 @@ public abstract class AbstractRocheAction extends AbstractInstallOrUninstallActi
 	
 	/**
 	 * 
-	 * @param context
-	 * @return
-	 * @throws Exception
+	 * @param context - the install4j context
+	 * @return the result of the operation
+	 * @throws Exception exception
 	 */
 	protected abstract boolean execute(Context context) throws Exception;
 	
 	/**
 	 * 
-	 * @param context
-	 * @param toScreen
-	 * @return
-	 * @throws Exception
+	 * @param context - the install4j context
+	 * @param toScreen - the name of the screen
+	 * @return the result of the operation
+	 * @throws Exception exception
 	 */
 	protected abstract boolean execute(Context context, String toScreen) throws Exception;
 
 	/**
 	 * What to do before executing action
-	 * @param context
+	 * @param context - the install4j context
+	 * @return the result of the operation
 	 */
 	protected abstract boolean preaction(final Context context);
 	
 	/**
 	 * What to do after executing action
-	 * @param context
+	 * @param context - the install4j context
+	 * @return the return of the operation
 	 */
 	protected abstract boolean postaction(final Context context);
 }

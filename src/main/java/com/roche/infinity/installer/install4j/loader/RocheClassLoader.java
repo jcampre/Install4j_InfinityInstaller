@@ -10,10 +10,10 @@ import com.roche.infinity.installer.install4j.utils.Utils;
 /**
  * Loads dynamically the class using reflection and calls preaction or postaction method
  * @author jcamprec
- * @date June 2018
  *
  */
 public class RocheClassLoader {
+	
 	Object objReflection = null;
 	Class<?> myClass = null;
 	
@@ -29,9 +29,9 @@ public class RocheClassLoader {
 	
 	/**
 	 * 
-	 * @param event
-	 * @param context
-	 * @return
+	 * @param event - install4j installer event
+	 * @param context - install4j context
+	 * @return - the return of the operations
 	 */
 	public boolean beforeExecuteAction(InstallerEvent event, Context context) {
 		String className = event.getSource().getClass().getName();
@@ -72,9 +72,9 @@ public class RocheClassLoader {
 	
 	/**
 	 * 
-	 * @param event
-	 * @param context
-	 * @return
+	 * @param event - install4j installer event
+	 * @param context - install4j context
+	 * @return - the return of the operations
 	 */
 	public boolean afterExecuteAction(InstallerEvent event, Context context) {
 		String className = event.getSource().getClass().getName();
