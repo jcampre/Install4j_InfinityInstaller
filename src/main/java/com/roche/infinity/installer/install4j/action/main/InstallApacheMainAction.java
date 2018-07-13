@@ -7,6 +7,7 @@ import com.install4j.api.context.Context;
 import com.install4j.api.context.InstallerContext;
 import com.roche.infinity.installer.install4j.action.AbstractRocheAction;
 import com.roche.infinity.installer.install4j.action.CreateFolderAction;
+import com.roche.infinity.installer.install4j.action.files.RocheExtractZipFileAction;
 import com.roche.infinity.installer.install4j.action.files.RocheZipFileAction;
 import com.roche.infinity.installer.install4j.utils.FileUtils;
 import com.install4j.runtime.beans.actions.files.AbstractExtractZipFileAction;
@@ -24,8 +25,9 @@ public class InstallApacheMainAction extends AbstractRocheAction {
 	private String folder;
 
 	private RocheZipFileAction zipAction;
+	private RocheExtractZipFileAction extractZipAction;
 	private CreateFolderAction folderAction;
-	
+
 	/**
 	 * 
 	 */
@@ -36,7 +38,7 @@ public class InstallApacheMainAction extends AbstractRocheAction {
 	 */
 	public InstallApacheMainAction() {
 		super();
-		
+
 	}
 
 	@Override
@@ -52,34 +54,50 @@ public class InstallApacheMainAction extends AbstractRocheAction {
 		Util.showMessage(
 				"Aquí lanzariamos la instal·lación personalizada del Apache via código java. Podemos llamar acciones de install4j o hacer un wrapper para independizarnos de la tecnologia");
 		Util.showMessage("Ahora Creamos un directorio con una acción personalizada");
-		
-		
+
 		try {
-			folderAction = new CreateFolderAction();
-			folderAction.setFolder("c:\\pepe");
-			folderAction.install((InstallerContext) context);
+			extractZipAction = new RocheExtractZipFileAction();
+			extractZipAction.init(context);
+			Util.showMessage("init");
 			
-//			FileUtils.createFolder("c:\\pepe");
+			extractZipAction.setZipFile(new File("C:\\temp\\ThisIsJDK8.zip"));
+			Util.showMessage("extractZipAction.setZipFile");
 			
-//			zipAction = new RocheZipFileAction();
-//			zipAction.init(context);
-//			File zipFile = 
-//			zipAction.setZipFile(zipFile);
-//			
-////			zipAction.install((InstallerContext) context);
-//			File file = zipAction.getZipFile();
-//			if (file  == null)
-//				Util.showMessage("es null");
-//			else 
-//				Util.showMessage(file.toString());
+//			folderAction = new CreateFolderAction();
+//			Util.showMessage("CreateFolderAction");
+//			folderAction.setFolder("c:\\pepe");
+//			Util.showMessage("setFolder");
+//			folderAction.execute(context);
+
+//			Util.showMessage("Directorio Creado!");
+
+			extractZipAction.setDestinationDirectory(new File("c:\\pepe"));
+			Util.showMessage("setDestinationDirectory");
+
+			
+			extractZipAction.install((InstallerContext) context);
+
+			Util.showMessage("Extract to " + folderAction.getFolder());
+
+			// zipAction = new RocheZipFileAction();
+			// zipAction.init(context);
+			// File zipFile =
+			// zipAction.setZipFile(zipFile);
+
+			// zipAction.install((InstallerContext) context);
+			// File file = zipAction.getZipFile();
+			// if (file == null)
+			// Util.showMessage("es null");
+			// else
+			// Util.showMessage(file.toString());
 		} catch (Exception e) {
-			
+
 			Util.showErrorMessage(e.getLocalizedMessage());
-		
+
 		} finally {
 
 			return true;
-		
+
 		}
 	}
 
