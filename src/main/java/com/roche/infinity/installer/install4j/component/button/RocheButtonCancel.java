@@ -30,7 +30,9 @@ public class RocheButtonCancel extends RocheButtonWrapper {
 		rocheButton = new RocheButton(ButtonTypes.NORMAL, d, this.getTextLabel(), this.getTextToolTip(), this.getFont(), 
 				this.getButtonIconFile(), this.isHide(), this.isDisable());		
 		
-		rocheButton.addActionListener(new CancelButtonActionListener(getContext()));
+		if (this.isDisable() ) { 
+			rocheButton.addActionListener(new CancelButtonActionListener(getContext()));
+		}
 			
 		return rocheButton;
 	}

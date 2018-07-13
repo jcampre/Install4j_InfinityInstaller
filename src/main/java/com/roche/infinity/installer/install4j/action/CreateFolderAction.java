@@ -43,6 +43,16 @@ public class CreateFolderAction extends AbstractRocheAction {
 
 	private boolean createFolder(Context context) {
 		//create folder		
+		
+		//create folder		
+//		com.install4j.runtime.beans.actions.files.AbstractExtractZipFileAction a;
+//		a.setFileFilter(fileFilter);
+//		a.setDest
+//		a.extract
+		
+		
+		
+		
 		return FileUtils.createFolder(getFolder());
 	}
 	/**

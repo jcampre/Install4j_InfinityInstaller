@@ -100,6 +100,27 @@ public class FileUtils {
 	}
 	
 	/**
+	 * Creates a directory
+	 * @param folder -  the name of the folder
+	 * @return the result of the operation
+	 */
+	public static File createFolder2(String folder) {
+		File f=new File(folder);		
+		if (!f.exists()) {
+			if (f.mkdirs()) {
+				LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), folder + " created successfully");
+				return f;
+			}
+			else {
+				LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), folder + " not created successfully");
+				return f;
+			}
+		}
+		LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), folder + " already exists");
+		return f;
+	}
+	
+	/**
 	 * Copy folder
 	 * @param sourceFolder - the source of origin
 	 * @param destinationFolder -  the source of destination

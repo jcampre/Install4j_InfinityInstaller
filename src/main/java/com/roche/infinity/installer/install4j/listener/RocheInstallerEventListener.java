@@ -1,5 +1,6 @@
 package com.roche.infinity.installer.install4j.listener;
 
+import com.install4j.api.Util;
 import com.install4j.api.context.Context;
 import com.install4j.api.context.InstallerContext;
 import com.install4j.api.events.EventType;
@@ -7,6 +8,9 @@ import com.install4j.api.events.InstallerEvent;
 import com.install4j.api.events.InstallerEventListener;
 import com.roche.infinity.installer.install4j.action.installation.InstallationAction;
 import com.roche.infinity.installer.install4j.loader.RocheClassLoader;
+import com.roche.infinity.installer.install4j.utils.Utils;
+
+
 
 /**
  * 
@@ -30,9 +34,8 @@ public class RocheInstallerEventListener implements InstallerEventListener{
 	 */
 	@Override
 	public void installerEvent(InstallerEvent event) {
-
-			
 		try {
+			Util.showMessage(event.toString());
 			//listener on BEFORE_EXECUTE_ACTION
 			if (event.getType() == EventType.BEFORE_EXECUTE_ACTION) {				
 				RocheClassLoader rocheClassLoader = new RocheClassLoader();

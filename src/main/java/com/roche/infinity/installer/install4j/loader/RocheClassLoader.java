@@ -48,23 +48,23 @@ public class RocheClassLoader {
 			return false;		
 		}
 		catch (ClassNotFoundException e1) {
-			LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), ERROR_BEFORE_EXECUTE + className + ". ClassNotFoundException: " + e1  );
+//			LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), ERROR_BEFORE_EXECUTE + className + ". ClassNotFoundException: " + e1  );
 			return false;					
 		}		 
 		catch(IllegalAccessException e2) {
-			LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), ERROR_BEFORE_EXECUTE + className + ". IllegalAccessException: " + e2  );
+//			LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), ERROR_BEFORE_EXECUTE + className + ". IllegalAccessException: " + e2  );
 			return false;					
 		}
 		catch(IllegalArgumentException e3) {
-			LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), ERROR_BEFORE_EXECUTE + className + ". IllegalArgumentException: " + e3  );
+//			LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), ERROR_BEFORE_EXECUTE + className + ". IllegalArgumentException: " + e3  );
 			return false;
 		}
 		catch(InvocationTargetException e4) {
-			LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), ERROR_BEFORE_EXECUTE + className + ". InvocationTargetException: " + e4  );
+//			LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), ERROR_BEFORE_EXECUTE + className + ". InvocationTargetException: " + e4  );
 			return false;
 		}		
 		catch(InstantiationException e5) {
-			LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), ERROR_BEFORE_EXECUTE + className + ". InstantiationException: " + e5  );
+//			LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), ERROR_BEFORE_EXECUTE + className + ". InstantiationException: " + e5  );
 			return false;
 		}
 		return true;
@@ -91,23 +91,23 @@ public class RocheClassLoader {
 			return false;		
 		}
 		catch (ClassNotFoundException e1) {
-			LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), ERROR_AFTER_EXECUTE + className + ". ClassNotFoundException: " + e1  );
+//			LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), ERROR_AFTER_EXECUTE + className + ". ClassNotFoundException: " + e1  );
 			return false;					
 		}		 
 		catch(IllegalAccessException e2) {
-			LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), ERROR_AFTER_EXECUTE + className + ". IllegalAccessException: " + e2  );
+//			LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), ERROR_AFTER_EXECUTE + className + ". IllegalAccessException: " + e2  );
 			return false;					
 		}
 		catch(IllegalArgumentException e3) {
-			LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), ERROR_AFTER_EXECUTE + className + ". IllegalArgumentException: " + e3  );
+//			LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), ERROR_AFTER_EXECUTE + className + ". IllegalArgumentException: " + e3  );
 			return false;
 		}
 		catch(InvocationTargetException e4) {
-			LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), ERROR_AFTER_EXECUTE + className + ". InvocationTargetException: " + e4  );
+//			LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), ERROR_AFTER_EXECUTE + className + ". InvocationTargetException: " + e4  );
 			return false;
 		}		
 		catch(InstantiationException e5) {
-			LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), ERROR_AFTER_EXECUTE + className + ". InstantiationException: " + e5  );
+//			LoggerManager.getInstance(Utils.class).info(Utils.class.getSimpleName(), ERROR_AFTER_EXECUTE + className + ". InstantiationException: " + e5  );
 			return false;
 		}
 		return true;
